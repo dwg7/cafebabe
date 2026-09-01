@@ -41,6 +41,8 @@ cafebabe は、その知見を**誰か一人が所有するのではなく**、�
     sas0/mapterhorn-monitor/claude-mctの3プロジェクト共同マスター)
   - [`patterns/unattended-progress-visibility.md`](patterns/unattended-progress-visibility.md) —
     無人稼働中の進捗を安全に外部公開する設計
+  - [`patterns/large-data-pitfalls.md`](patterns/large-data-pitfalls.md) — 大容量データ処理で
+    外部ライブラリの内部実装に起因する落とし穴
 
 - **`DWG7-CONTEXT.md`** — dwg7組織そのものの文脈(ビジョン・カルチャー・技術方針・当面の
   方向性)。個々のプロジェクトの知見を文脈なしに集約すると解釈を誤りやすいポイントをまとめた、
