@@ -124,7 +124,10 @@ symbol layerのラベルに、視認性のための太い白背景をつけた�
 
 **実例(Known uses)**
 - `sas0` — 状況図インスツルメントで採用
-- `kitavolca` — id一致でレイヤー定義を差し替える形で採用
+- `kitavolca` — `hfu/stars`の設定を手動でバックポートし続けるのをやめ、ページ読込時に
+  上流JSONを直接fetchしてid一致でレイヤー定義を差し替える方式に切り替え
+  ([コミット2dc4523](https://github.com/hfu/kitavolca/commit/2dc4523)、`docs/app.js`)。
+  他リポジトリの正本を消費するだけの立場のプロジェクトなら汎用的に使える
 
 ---
 
@@ -140,10 +143,14 @@ CORSはワイルドカードではなく、リクエストのOriginヘッダー�
 `credentials: include`のような使い方をする場合、挙動が単純なワイルドカードとは異なる。
 
 **解決(Solution)**
-`credentials`オプションを使う前に、実際のレスポンスヘッダーを確認する。
+`credentials`オプションを使う前に、実際のレスポンスヘッダーを確認する。検証には
+`curl -I`だけでなく`-H "Origin: https://example.com"`を明示的に付ける必要がある——
+Originヘッダーの反射実装は、Originヘッダーなしのリクエストでは`Access-Control-Allow-Origin`
+自体が一切返らず、「CORS未対応」に見えてしまう。
 
 **実例(Known uses)**
-- `stars-fd`(提供側として把握)
+- `stars-fd`(提供側として把握。`curl -I`だけでは正しい挙動が見えず、Originヘッダーを
+  付けて初めて判明した経緯あり)
 
 ---
 

@@ -34,10 +34,12 @@ fetch、資金提供機関の実績調査、実装者個人の発見)を、外�
   2030"に由来することを突き止め、GeoNodeの実装者(Sylvain Dorey氏)まで特定した。詳細は
   [`CASE_STUDIES.md`#JICA都市地域開発グループの実績重点調査](https://github.com/dwg7/vientiane-planning-map/blob/main/CASE_STUDIES.md#jica都市地域開発グループの実績重点調査2026-09-02)
   参照。この調査を受け、README.md/CLAUDE.mdの謝辞・説明文を正確化した
-- `sas0` — 新しい情報源を採用する前に、CORS対応・利用規約・出典表記義務を必ず確認する手順を
-  一貫して踏んでいる(DECISIONS.md D6/D19/D51/D67)。この過程から「オープンアクセスか」と
-  「(データ提供元が)取り込まれたがっているか」は独立した2軸である、という再利用可能な評価
-  基準が生まれた(D51)
+- `sas0` — 新しい情報源を採用する前に、CORS対応・利用規約・出典表記義務・「オープンアクセス
+  か」と「(データ提供元が)取り込まれたがっているか」という独立2軸・公式機関か未審査
+  crowdsourceか、という手順を一貫して踏んでいた(DECISIONS.md D6/D19/D51/D67)。暗黙のまま
+  だったこの手順を、`CLAUDE.md`の「Project philosophy」節に「Source-evaluation checklist」
+  として明文化した([コミット98bf86c](https://github.com/dwg7/sas0/blob/main/CLAUDE.md))。
+  一貫して実践している手順ほど、明文化されていないことに気づきにくい
 - `height-coverage` — `tunnel.optgeo.org`が実は`smellman`氏自身のデータを単にプロキシして
   いただけだったと突き止めた調査(DECISIONS.md項目9)
 

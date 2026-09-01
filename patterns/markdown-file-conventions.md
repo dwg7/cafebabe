@@ -49,6 +49,11 @@ DECISIONS.md(またはADR形式のドキュメント)を運用する場面。
 - `kaga0` — 「追記(日付): 実はこう修正された」の日付付き追記方式(kitavolcaの
   `docs/zoom-policy.md`でも同じ方式を確認)
 - `stars-fd` — 「Correction」方式: `**Correction (日付):**`として元の文を消さず追記
+- `height-coverage` — CORSエラーの原因を「Originヘッダー付きリクエストを一律拒否している」と
+  誤診断→実際はマシン自体がネットワーク切替で落ちていただけ、という顛末を、2回の誤りを
+  すべて残す形で記録。「1回目はこう考えた→誤り→2回目はこう考えた→誤り→実際はこうだった」
+  を全部残すことで、後で読み返した際の説明力が上がり、同じ勘違いを繰り返す可能性も減る
+  ([DECISIONS.md#8](https://github.com/dwg7/height-coverage/blob/main/DECISIONS.md#8-tunneloptgeoorgs-origin-machine-is-down-corrected-twice--see-below))
 
 ---
 
@@ -183,7 +188,10 @@ target design(目標設計)を記述する複数のドキュメントと、実�
 配信用の`docs/`フォルダの外に置く(`.nojekyll`が無いとMarkdownが生テキスト配信されるため)。
 
 **実例(Known uses)**
-- `sas0` — `OPENMCT-NOTES.md`をDECISIONS.mdの外に独立させ、リポジトリルートに配置
+- `sas0` — `OPENMCT-NOTES.md`をDECISIONS.mdの外に独立させ、リポジトリルートに配置。
+  `.nojekyll`が無い状態でMarkdownを`docs/`配下(GitHub Pages配信対象)に置くと、フロント
+  マターが無い限りJekyllが変換せず生テキストのまま配信される、と実際に踏んで確認した
+  (DECISIONS.md D65)
 
 ---
 

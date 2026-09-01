@@ -56,3 +56,28 @@
 **実例(Known uses)**
 - `stars-fd` — `zukaku`からの「PRの起票自体をこちらで代行してほしい」という依頼を、
   レビューの独立性を守るため断った
+
+---
+
+## 提出側は、レビュー側の検証コストを見越して先回りする
+
+**タグ**: 一般則
+
+**状況(Context)**
+共有インフラ(ゲートキーパーが管理するリポジトリ等)にPRを出す場面。
+
+**問題/対立する力(Problem / Forces)**
+ゲートキーパー側は「説明を鵜呑みにせず独自に再検証してからマージする」規律を持つ
+([`patterns/verification-discipline.md`](verification-discipline.md)参照)。提出側が
+検証されることを前提とせずPRを出すと、往復が増える。
+
+**解決(Solution)**
+「困っている→ゲートキーパーに相談→PRを出す→ゲートキーパー側は独自に再検証してからマージ」
+という流れが機能するには、提出側も事前に「整形済みupstreamとdiffして意図した箇所だけ変わって
+いるか」のような自己検証をしてからPR説明を書くと、レビュー側の検証コストを見越した先回りに
+なり、往復が減る。
+
+**実例(Known uses)**
+- `height-coverage` — `stars.optgeo.org`(stars-fd管理)への協業が2回(buildings source
+  切替、Positronスタイル追加)とも同じ流れで機能した。PRを出す前に自分でdiffを検証してから
+  説明を書いたことがポイント([hfu/stars#5](https://github.com/hfu/stars/pull/5))
