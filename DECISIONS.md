@@ -174,3 +174,54 @@ cafebabeはこれまで各プロジェクトのリポジトリ(CLAUDE.md/DECISIO
 新しいパターンを書く際は、DWG7-CONTEXT.mdの「cafebabeへの期待」5項目を都度意識すること。
 特に「これは標準です」と断定せず、「複数プロジェクトが独立に同じ結論に達した」という
 書き方を優先する。
+
+---
+
+## D5: 「リポジトリ埋め込みの先行事例研究」パターンの取りまとめ
+
+**Status**: Accepted (2026-09-02)
+
+### 背景
+
+hfuさんから、「vientiane-planning-mapが先行事例研究をリポジトリに埋め込む形で蓄積している。
+これが新しいパターンとなる可能性がある。vientiane-planning-mapにまず相談し、パターン案が
+できたら、現在アクティブなすべてのエージェントに紹介をして、その可否も含めて取りまとめて
+みてほしい」という依頼があった。急がず、エージェント自律でノウハウを集約するよう指示された。
+
+進め方: vientiane-planning-mapへの詳細ヒアリング(`CASE_STUDIES.md`実例確認)→
+`patterns/case-study-research.md`案作成→本人確認→他8プロジェクト
+(zukaku, stars-fd, height-coverage, kaga0, kitavolca, plateau-mago-implicit,
+mapterhorn-japan-bridge, claude-mct)全員への紹介・意見収集、という順で進めた。
+
+### 決定
+
+9者の回答から強い収束が見られた:
+
+1. **「専用ファイル化は無条件の一般則ではなく、規模に応じた判断」** — 当初案は「先行事例
+   研究は専用ファイルに切り出す」を一般則としていたが、修正した。閾値の目安: 参照事例が
+   4〜5件以上、同じ事例が複数の決定に重複して現れる、量が決定ログ本流を圧迫する、読者層が
+   明確に違う。sas0・kaga0・height-coverage・kitavolca・stars-fd・plateau-mago-implicitは
+   いずれも「現状の規模では専用ファイルは時期尚早」と判断し、決定ログへのインライン記録に
+   留めている。vientiane-planning-map・claude-mctは実際に専用ファイルを運用中
+2. **「見送った理由を記録する」規律は、専用ファイルの有無に関わらず全員が価値を認めた**
+3. **陳腐化リスクへの注意**が複数プロジェクト(plateau-mago-implicit、stars-fd、
+   mapterhorn-japan-bridge)から共通して指摘された。調査記録には「いつ時点か」の明記と、
+   決定ログとの相互リンク(一方向でなく双方向)が対策として提案された
+4. 新パターンとして2件追加:
+   - kaga0からの提案: 「一つの前例を鵜呑みにせず、適用範囲を検証する」(複数事例比較の逆——
+     単一の前例をそのまま踏襲する際の検証漏れリスク)
+   - mapterhorn-japan-bridgeからの提案: 「データ出自を文書ではなく成果物自体に埋め込む」
+     (lineageタイルの実装)。`patterns/data-provenance.md`に追加
+
+最終的に`patterns/case-study-research.md`(6パターン)と`patterns/data-provenance.md`
+(3パターン)として確定。
+
+### 保留事項
+
+- `patterns/case-study-research.md`が既に300行に近づいている。次の棚卸しタイミングで
+  分割を検討する余地あり
+
+### Resume prompt
+
+このタスクは完了。次にこの領域を触るときは、まず`patterns/case-study-research.md`と
+`patterns/data-provenance.md`を読んで、今回の9者の知見を前提にすること。

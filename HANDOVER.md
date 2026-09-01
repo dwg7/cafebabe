@@ -22,15 +22,17 @@ ADRとして記録した上で裁量で進めてよい」という方針の承�
 
 ## Pending long-running tasks(急がず進める)
 
-1. 「リポジトリ埋め込みの先行事例研究」パターン(`patterns/case-study-research.md`、案の段階)
-   — vientiane-planning-mapの`CASE_STUDIES.md`実例をもとに作成。本人確認→全アクティブ
-   エージェントに紹介→可否含めた意見集約、の順で進める。慎重に時間をかけてよい
+1. ~~「リポジトリ埋め込みの先行事例研究」パターン~~ — **完了(2026-09-02、DECISIONS.md D5)**。
+   `patterns/case-study-research.md`(6パターン)・`patterns/data-provenance.md`(3パターン)
+   として確定。9者(vientiane-planning-map, zukaku, stars-fd, height-coverage, kaga0,
+   kitavolca, plateau-mago-implicit, mapterhorn-japan-bridge, claude-mct)から意見収集済み
 2. 上記の経験を踏まえた上で、**全エージェントからのパターン提案募集**という次の段階に進む。
-   10時間規模でゆっくり進めてよい(hfuさんの明示的な指示)
+   10時間規模でゆっくり進めてよい(hfuさんの明示的な指示)。1で得た教訓(専用ファイル化は
+   規模次第、陳腐化に注意、9者同時に聞くと収束が見えやすい)を活かして設計すること
 3. 「スタイル設計・カートグラフィーの実地ノウハウ」(`patterns/style-composition.md`)の本格的な
    横断ヒアリング。zoom-stop設計、ラベル衝突回避、色のトーンマネジメント等。まだ1実例のみ
    (vientiane-planning-map)。stars-fd・height-coverage-a5・zukakuに同種の知見が個別に
-   溜まっているはず、とvientiane-planning-mapから示唆あり。上記1・2が一段落してから着手する
+   溜まっているはず、とvientiane-planning-mapから示唆あり。2が一段落してから着手する
 
 ## Known open items
 
