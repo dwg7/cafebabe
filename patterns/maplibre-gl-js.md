@@ -216,14 +216,42 @@ Playwright等でMapLibre GL JSのページをPDF化・画像化する場面。
 **問題/対立する力(Problem / Forces)**
 実ブラウザの「印刷→PDF保存」とPlaywrightの`page.pdf()`は内部コードパスが違う。
 Playwright検証だけでは、実ブラウザ特有の印刷不具合(色ズレ、Windowsドライバの向き切替
-バグ等)を再現できないことがある。
+バグ等)を再現できないことがある。「自動テストで確認済み」は「実際のOSレベルのレンダリング/
+印刷パイプラインを通した」ことの証明にならない。
 
 **解決(Solution)**
 印刷パイプラインの最終検証は、実ブラウザでも行う。
 (参考: https://andre.arko.net/2025/05/25/chrome-headless-print-to-pdf/)
 
 **実例(Known uses)**
-- `zukaku`
+- `zukaku` — 実機バグ報告3件([dwg7/zukaku#2](https://github.com/dwg7/zukaku/issues/2)、
+  [#4](https://github.com/dwg7/zukaku/issues/4)、[#6](https://github.com/dwg7/zukaku/issues/6))
+  すべてが、Playwrightでは一度も再現しなかった
+  ([ADR 0007追記](https://github.com/dwg7/zukaku/blob/main/adr/0007-client-side-print-mode.md))
+
+---
+
+## ブラウザ自動化ツールの非表示ペインでは、コンテナサイズが0x0になりうる
+
+**タグ**: 一般則
+
+**状況(Context)**
+Claude Codeのブラウザプレビューのような自動化ツールで、MapLibre GL JSページを検証する場面。
+
+**問題/対立する力(Problem / Forces)**
+`new maplibregl.Map()`はコンストラクタ実行時にコンテナのサイズを一度だけ測定してcanvasに
+焼き込む仕様。プレビューペインが「表示されていない」タイミングだと、コンテナの
+`getBoundingClientRect()`が実際には0x0を返すことがある(ツールの状態確認結果に"The Browser
+pane is currently hidden."と出ているときは要注意)。ページ自体は正常でも、この一瞬に初期化が
+走ると地図が完全に真っ黒になる。
+
+**解決(Solution)**
+`window`の`resize`イベントと`document`の`visibilitychange`(`visible`になった瞬間)の両方で
+`map.resize()`を呼ぶ。後から正しいサイズが取れた時点で自動復旧する。
+
+**実例(Known uses)**
+- `vientiane-planning-map` — ブラウザプレビューツールでの検証中に地図が真っ黒になる現象に
+  遭遇し特定。詳細は[`DECISIONS.md`#3](https://github.com/dwg7/vientiane-planning-map/blob/main/DECISIONS.md#3-地図が真っ黒になるバグmaplibreのコンテナサイズ誤測定)参照
 
 ---
 

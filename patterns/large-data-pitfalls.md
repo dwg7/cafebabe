@@ -34,3 +34,31 @@
   同じ問題に2回遭遇(`merge_japan_bundles.py`と`bundle.py`)。実データ用ボリュームには
   900GB以上の空きがあるのに、起動ディスク(空き〜100GB)側が先に枯渇して`ENOSPC`。恒久対処
   として両スクリプト冒頭に`TMPDIR`のデフォルト値設定を追加
+
+---
+
+## GitHub rawは`accept-ranges`ヘッダーを返すが、実際はRangeリクエストに応答しない
+
+**タグ**: 一般則
+
+**状況(Context)**
+PMTilesのようなHTTP Rangeリクエスト前提のフォーマットを、`raw.githubusercontent.com`で
+ホスティングしようとする場面。
+
+**問題/対立する力(Problem / Forces)**
+`raw.githubusercontent.com`は`accept-ranges: bytes`ヘッダーを返すため、一見Rangeリクエストに
+対応しているように見える。しかし実際に`Range: bytes=0-99`を送っても、206(Partial Content)
+ではなく200(全文)が返ってくる。ヘッダーだけを見て「Range対応している」と判断すると、小さい
+ファイルなら実害は薄い(毎回全文フェッチされるだけ)が、大きいファイルだと毎回全文ダウンロード
+することになり致命的になる。
+
+**解決(Solution)**
+`curl -H "Range: bytes=0-99"`で実際にステータスコードを確認してから、Rangeリクエスト前提の
+ホスティング先として採用するか判断する。GitHubをファイル配信元として使う予定のプロジェクトは
+特に注意する。
+
+**実例(Known uses)**
+- `stars-fd` — 76KB・530KBの2ファイルで実測確認。`curl -H "Range: bytes=0-99"`を送っても
+  206ではなく200が返ることを確認
+- `vientiane-planning-map` — 同じ問題をPMTilesホスティングの検討時に発見し、ローカルパス
+  方式に切り替えた。詳細は[`DECISIONS.md`#2](https://github.com/dwg7/vientiane-planning-map/blob/main/DECISIONS.md#2-pmtilesのホスティングローカルパス方式github-rawではなく)参照
