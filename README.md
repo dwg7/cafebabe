@@ -39,6 +39,8 @@ cafebabe は、その知見を**誰か一人が所有するのではなく**、�
     1エージェントが複数リポジトリを抱えることの是非
   - [`patterns/open-mct.md`](patterns/open-mct.md) — Open MCT実地ノウハウ集(sas0からの移管、
     sas0/mapterhorn-monitor/claude-mctの3プロジェクト共同マスター)
+  - [`patterns/unattended-progress-visibility.md`](patterns/unattended-progress-visibility.md) —
+    無人稼働中の進捗を安全に外部公開する設計
 
 - **`PROJECTS.md`** — dwg7各プロジェクトのリポジトリへの永続的なリンク集(担当エージェントの
   一覧ではない。エージェントは任務終了でアーカイブされるが、リポジトリは残るため)

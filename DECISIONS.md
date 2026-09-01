@@ -86,6 +86,19 @@ sas0から「受け入れ先URLを教えてほしい」と言われている。`
 pushしてURLを確定させ、sas0・mapterhorn-japan-bridge・claude-mctに連絡すること。pushの
 可否はhfuさんに確認してから行う。
 
+### 追記(2026-09-02): 移管完了
+
+hfuさんの承認を得て`patterns/open-mct.md`をpush(コミット`4af9563`)。3リポジトリすべてで
+張り替えが完了した:
+- `sas0` — `OPENMCT-NOTES.md`を新URLへのリンクのみのスタブに置き換え、README.md/
+  HANDOVER.md/CLAUDE.mdの相互参照も更新済み(コミット`66ec844`)。内容の一致を
+  `raw.githubusercontent.com`経由で突き合わせ確認した上で実施
+- `mapterhorn-japan-bridge` — DECISIONS.md D91・HANDOVER.mdの2箇所を新URLに張り替え済み
+- `claude-mct` — READMEの「Open MCT実装ノウハウ」節の説明文を新URLに更新済み(旧URLへの
+  直リンクは元々無かった)
+
+保留事項はすべて解消。このADRはクローズとする。
+
 ---
 
 ## D3: プロジェクト固有の知見と横断知見の粒立て、PROJECTS.mdの新設
