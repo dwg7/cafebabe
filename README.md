@@ -45,6 +45,10 @@ cafebabe は、その知見を**誰か一人が所有するのではなく**、�
     外部ライブラリの内部実装に起因する落とし穴
   - [`patterns/style-composition.md`](patterns/style-composition.md) — スタイル設計・
     カートグラフィーの実地ノウハウ(着手したばかり、本格的な横断ヒアリングは今後)
+  - [`patterns/case-study-research.md`](patterns/case-study-research.md) — プロジェクトへの
+    先行事例研究の埋め込み(vientiane-planning-map本人確認済み)
+  - [`patterns/data-provenance.md`](patterns/data-provenance.md) — 依拠するデータソース自体の
+    来歴を調査する(データ出自調査)
 
 - **`DWG7-CONTEXT.md`** — dwg7組織そのものの文脈(ビジョン・カルチャー・技術方針・当面の
   方向性)。個々のプロジェクトの知見を文脈なしに集約すると解釈を誤りやすいポイントをまとめた、
