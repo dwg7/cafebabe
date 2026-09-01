@@ -309,3 +309,97 @@ D5との違いとして記録に値する点: D5(先行事例研究)は特定テ
 D6は完了。9プロジェクト全員への結果共有を行うこと。次のタスクは
 [HANDOVER.md](../HANDOVER.md)の「Pending long-running tasks」3番
 (スタイル設計・カートグラフィーの横断ヒアリング)に進む。
+
+---
+
+## D7: スタイル設計・カートグラフィーの実地ノウハウ(横断ヒアリング完了)
+
+**Status**: Accepted (2026-09-02)
+
+### 背景
+
+hfuさんから「頭出し」として提起され(D6完了後の指示)、vientiane-planning-mapの1実例
+(symbolレイヤーの安定ソート)を起点に、D5・D6と同じ進め方(深掘り→他プロジェクトへ展開)で
+本格的な横断ヒアリングを実施した。
+
+### 決定
+
+vientiane-planning-mapへの深掘り(zoom-stop設計・ラベル衝突回避・色のトーンマネジメント)、
+続けてstars-fd(配信元・ゲートキーパーの視点)・height-coverage・zukaku(印刷特化)への
+展開を行い、`patterns/style-composition.md`に9パターンとして集約した:
+
+1. symbolレイヤーは合成後に配列末尾へ安定ソートする
+2. 色相・彩度・明度による強調は、1つのレイヤーだけに独占させる(視覚的ヒエラルキー)
+3. zoom-stopの閾値は勘で決めず、先行事例の実装コードを参考にする
+4. 権威ある元データの配色は、独自解釈を加えず忠実に再現する
+5. ラベルの衝突検出を、あえて無効化した方がよい場合がある
+6. 自作の重ね書き要素は、ベースマップに依存しない固定スタイルで押し通す
+7. 印刷物はズームレベルが焼き付けで固定される
+
+特筆すべき発見:
+- **視覚的ヒエラルキー原則の独立収束**: height-coverageは結果論的に(意図せず)この原則を
+  満たしていたが、vientiane-planning-mapは同じ原則に意図的に辿り着いた。時系列としては
+  height-coverageの経験が先。これはDWG7-CONTEXT.mdが言う「独立した収束」の実例
+- **配色戦略の分岐**: vientiane-planning-map(独自に視覚的ヒエラルキーを設計する)と
+  stars-fd(権威ある元データの配色を忠実に再現する)は対照的なアプローチだが、どちらも
+  「複数レイヤーが独立に色分けを競合させない」という同じ上位原則を別の手段で実現している
+- 副産物として`patterns/gatekeeping.md`に「政治的にセンシティブな判断は技術レビューと別枠で
+  確認する」を追加(stars-fdの海洋境界線表示の実例)
+
+### 保留事項
+
+- `patterns/style-composition.md`が211行まで成長。次の棚卸しで分割候補
+- kaga0・kitavolca・plateau-mago-implicit・sas0・mapterhorn-japan-bridge・claude-mctへの
+  スタイル設計ヒアリングはまだ行っていない(地図描画を持たないプロジェクトもあるため、
+  全員に聞く必要はない可能性がある)
+
+### Resume prompt
+
+このタスクは一旦完了。地図描画を持つ他のプロジェクト(kaga0、kitavolca等)にも展開する
+価値があるか判断してから、必要なら追加ヒアリングする。次の大きなタスクは未定——
+HANDOVER.mdのKnown open items(`patterns/`のサブディレクトリ化検討等)から選ぶか、
+hfuさんの新しい指示を待つ。
+
+---
+
+## D8: staccato-spec 4パーティモデルの取り込みと一般化拡張の議論(開始)
+
+**Status**: Accepted (2026-09-02)
+
+### 背景
+
+hfuさんから、以下3テーマが「インターエージェントで議論をして進められそう」と提起された:
+- ベクトルタイルデザイン(サイズ最適化)
+- スタイルデザイン(レイヤの上下関係、terrain/hillshadeの扱い)
+- `staccato-spec`にあるUser/Staff/Cartographer/Library概念の一般化拡張
+
+3番目について、「staccato-specに解説してもらうかリンクをもらってから、全エージェントとの
+議論を始めるといい。特にstarsにLibrary概念を踏まえてもらうことが重要」との指示があった。
+
+`staccato-spec`という名前のアクティブなエージェントセッションは存在しなかったため、代わりに
+リポジトリ本体([`UNopenGIS/staccato-spec`](https://github.com/UNopenGIS/staccato-spec))を
+cafebabeが直接読んで理解し、`STACCATO-CONTEXT.md`として一次情報を保存した。
+
+### 決定
+
+- `STACCATO-CONTEXT.md`を新設。4パーティモデル(User=意図所有、Staff=意味解釈所有、
+  Cartographer=描画所有、Library=データ公開・発見可能性所有)の定義、faceless
+  Cartographerパターン、参照実装(`layers-martin`、`faceless-cartographer`)を記録
+- 重要な発見として、`stars.optgeo.org`(stars-fd管理)が実は既にstaccato文脈での
+  "Library"として機能している(複数のLibraryカタログをMap Intentに並べるだけでよく、
+  集約コンポーネント不要という実証)ことを記録
+- starsへ、この「Library」という自己認識を持ってもらうよう個別に連絡する
+- 全エージェントへ、4ロールモデルのdwg7全体への一般化拡張について議論を呼びかける
+
+### 保留事項
+
+- 「一般化拡張」の具体的な問い(cafebabe自身はどのロールに近いか、各プロジェクトをどう
+  マッピングするか等)は、議論が始まってから形になる。現時点では土台の共有に留める
+- 「ベクトルタイルデザインのサイズ最適化」「terrain/hillshadeの扱い」の2テーマは、
+  staccato議論と並行して、別途横断ヒアリングの対象として控えている(未着手)
+
+### Resume prompt
+
+starsへLibrary概念の連絡を送り、全エージェントへ一般化拡張の議論を呼びかけること。
+議論が進んだら、結果を`STACCATO-CONTEXT.md`または新規`patterns/`テーマとして記録する。
+その後、残る2テーマ(ベクトルタイルサイズ最適化、terrain/hillshade)にも着手する。
