@@ -283,3 +283,29 @@ kitavolca, plateau-mago-implicit, mapterhorn-japan-bridge, sas0)から、合計�
 
 kaga0からの提出が届き次第、同様に振り分けて追記する。全員分が出揃った時点で、D5のように
 全員へ結果を共有する。
+
+### 追記(2026-09-02): kaga0提出分を反映、9/9プロジェクト完了
+
+kaga0から6件の提出([`docs/rpi4b-patterns-draft.md`](https://github.com/dwg7/kaga0/blob/main/docs/rpi4b-patterns-draft.md))
+が届いた。既にCONTRIBUTING.mdの型に沿って書かれた高品質な草稿だったため、大きな書き直しは
+せず、タグをcafebabeの規則(一般則/個別事情)に合わせて`patterns/raspberry-pi-appliance.md`
+として新規起票した。RPi4B固有の実例が1件(kaga0)のみのパターンは「個別事情」寄り、
+appliance設計として一般化できるもの(`Conflicts=`によるgetty自動排他)は「一般則」とした。
+
+これで9プロジェクト全員からの提出が完了。合計約36件の知見が、新規テーマ7本
+(`agent-execution-gotchas.md`, `verification-discipline.md`, `local-dev-pitfalls.md`,
+`robust-pipeline-design.md`, `ci-cd-pitfalls.md`, `interoperability.md`,
+`raspberry-pi-appliance.md`)+既存9ファイルへの追記として反映された。パターン集は
+maplibre-gl-js・markdown-file-conventionsを含め計18テーマに成長。
+
+D5との違いとして記録に値する点: D5(先行事例研究)は特定テーマを提示して意見を聞いたため
+「収束」(強い合意点)が見えやすかった。D6(自由回答)は逆に「発散」(各プロジェクト固有の
+知見が大量に出る)が主で、収束よりも「テーマ別の分類作業」が主な負荷だった。次に同様の
+募集をするなら、自由回答と特定テーマ提示のどちらを選ぶかは、知りたいものが「合意形成」か
+「知見の棚卸し」かで使い分けるとよい。
+
+### Resume prompt(更新)
+
+D6は完了。9プロジェクト全員への結果共有を行うこと。次のタスクは
+[HANDOVER.md](../HANDOVER.md)の「Pending long-running tasks」3番
+(スタイル設計・カートグラフィーの横断ヒアリング)に進む。
