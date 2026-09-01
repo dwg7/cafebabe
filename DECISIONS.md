@@ -403,3 +403,32 @@ cafebabeが直接読んで理解し、`STACCATO-CONTEXT.md`として一次情報
 starsへLibrary概念の連絡を送り、全エージェントへ一般化拡張の議論を呼びかけること。
 議論が進んだら、結果を`STACCATO-CONTEXT.md`または新規`patterns/`テーマとして記録する。
 その後、残る2テーマ(ベクトルタイルサイズ最適化、terrain/hillshade)にも着手する。
+
+### 追記(2026-09-02): 9プロジェクト全員から回答、議論を統合
+
+stars-fd(Library役割について)+9プロジェクト全員(vientiane-planning-map, zukaku,
+plateau-mago-implicit, kitavolca, height-coverage, mapterhorn-japan-bridge, kaga0, sas0,
+claude-mct)から回答が揃った。`STACCATO-CONTEXT.md`に「dwg7全体への一般化拡張」節として
+統合済み。
+
+主な発見:
+1. dwg7の大半のプロジェクトは「開発時に一度だけ意図が固定される静的成果物」であり、
+   STACCATOが前提とする「実行時のライブな対話型パイプライン」とは根本的に異なる
+   (sas0の言う「動的生成型 vs 静的キュレーション型」の軸)
+2. Library/Cartographerの分離は、staccato-specを知らずに独立して実践されていた
+   プロジェクトが複数(DWG7-CONTEXT.mdの「独立した収束」の再現)
+3. facelessの「反例」に見えたものの多くは、実はCartographer層ではなくUser向け操作画面の
+   URL状態であり、役割を正しく再整理すれば矛盾しない(zukakuの整理)
+4. kaga0から「Live Library」対「Frozen/Cached Library」という新しい軸の提案
+5. sas0から「人間による説明責任のhandoff」には、Staff→Cartographerだけでなく「上流の
+   権威(発表機関等)に対する謙虚さ」という別方向もあるという指摘
+6. claude-mctから、cafebabe自身は「Staff+Libraryのハイブリッド」という外部評価
+
+一般化拡張の「答え」を確定させることはせず、議論の記録として保存する形で一区切りとした。
+今後、具体的な設計判断(例: あるプロジェクトが新しい機能を作る際にこのモデルを参照する)が
+出てきたときに、改めて参照・発展させる。
+
+### Resume prompt(更新)
+
+D8は議論の記録として一区切り。次は残る2テーマ(ベクトルタイルサイズ最適化、
+terrain/hillshadeの扱い)に着手するか、hfuさんの新しい指示を待つ。
