@@ -432,3 +432,44 @@ claude-mct)から回答が揃った。`STACCATO-CONTEXT.md`に「dwg7全体へ�
 
 D8は議論の記録として一区切り。次は残る2テーマ(ベクトルタイルサイズ最適化、
 terrain/hillshadeの扱い)に着手するか、hfuさんの新しい指示を待つ。
+
+---
+
+## D9: ベクトルタイルのサイズ最適化(横断ヒアリング完了)
+
+**Status**: Accepted (2026-09-02)
+
+### 背景
+
+hfuさんが同時に提起した3テーマ(ベクトルタイルサイズ最適化、スタイルデザインのterrain/
+hillshade扱い、staccato-spec一般化拡張)のうち、D8(staccato)に続いて着手。
+
+### 決定
+
+kitavolca(詳細な実測データ)→mapterhorn-japan-bridge・height-coverage・stars-fd(消費側・
+配信側の視点)という順で展開し、`patterns/vector-tile-sizing.md`に8パターンとして集約:
+
+1. ジオメトリ簡略化・属性間引きより先に、feature単位のminzoomシフトを試す
+2. タイルサイズは圧縮後ではなく非圧縮バイト数で判定する
+3. 自動間引き(`--drop-densest-as-needed`等)は制御不能なデータ欠損リスクがある
+4. ビルドログの「warning 0件」は最終成果物の適合性を保証しない
+5. PMTilesはタイル内容の重複を自動的にハッシュベースで排除する
+6. 「データセット全体のサイズ」と「1タイルあたりのペイロード」を分けて評価する
+7. 圧縮・簡略化の限界を超えたら、自前ホストを諦めてリモートプロキシに切り替える
+
+kitavolcaの「`--drop-densest-as-needed`を二段階の失敗の末に撤回した」という具体的な
+失敗談(圧縮後バイト数での誤認→データ欠損の発見)が特に価値が高かった。生成側
+(kitavolca、mapterhorn-japan-bridge)と消費・配信側(height-coverage、stars-fd)の両方の
+視点が揃ったことで、「タイル生成時のminzoom」と「style.json表示制御のminzoom」の混同、
+「データセット全体」と「1タイルのペイロード」の混同、という2つの重要な区別が明確になった。
+
+### 保留事項
+
+- zukaku・vientiane-planning-map・kaga0・plateau-mago-implicit・sas0・claude-mctへは
+  展開していない(タイル生成・配信に直接関わらないプロジェクトが多いため、優先度低)
+
+### Resume prompt
+
+このタスクは一区切り。残るテーマは「スタイルデザイン、特にレイヤの上下関係・terrain・
+hillshadeの扱い」。`patterns/maplibre-gl-js.md`に既にzukakuのterrain無効化パターンが
+あるので、そこからの発展を検討する。
