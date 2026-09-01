@@ -42,6 +42,9 @@ cafebabe は、その知見を**誰か一人が所有するのではなく**、�
   - [`patterns/unattended-progress-visibility.md`](patterns/unattended-progress-visibility.md) —
     無人稼働中の進捗を安全に外部公開する設計
 
+- **`DWG7-CONTEXT.md`** — dwg7組織そのものの文脈(ビジョン・カルチャー・技術方針・当面の
+  方向性)。個々のプロジェクトの知見を文脈なしに集約すると解釈を誤りやすいポイントをまとめた、
+  hfuさん経由でdwg7チャットから届いた一次情報
 - **`PROJECTS.md`** — dwg7各プロジェクトのリポジトリへの永続的なリンク集(担当エージェントの
   一覧ではない。エージェントは任務終了でアーカイブされるが、リポジトリは残るため)
 - **`DECISIONS.md`** — このリポジトリ自身の運用に関するADR
