@@ -2,70 +2,67 @@
 
 ## Status as of 2026-09-02
 
-パターン集は18テーマに成長(maplibre-gl-js, markdown-file-conventions, progress-reporting,
-gatekeeping, agent-repository-boundaries, open-mct, unattended-progress-visibility,
-large-data-pitfalls, style-composition, case-study-research, data-provenance,
-agent-execution-gotchas, verification-discipline, local-dev-pitfalls,
-robust-pipeline-design, ci-cd-pitfalls, interoperability, raspberry-pi-appliance)。
-`PROJECTS.md`(9プロジェクトのリポジトリ永続リンク集)、`DWG7-CONTEXT.md`(組織のビジョン・
-カルチャー・技術方針)を保有。cafebabe自身の立ち上げも`unopengis/7#993`として対外報告済み。
-`OPENMCT-NOTES.md`のsas0からの移管完了。
+パターン集は18テーマ。`PROJECTS.md`(9プロジェクトの永続リンク集)、`DWG7-CONTEXT.md`
+(組織文脈)、`STACCATO-CONTEXT.md`(staccato-spec 4パーティモデルと一般化拡張議論)を保有。
+cafebabe自身の立ち上げも`unopengis/7#993`として対外報告済み。`OPENMCT-NOTES.md`の
+sas0からの移管完了。
 
-「先行事例研究」パターン(D5)・「全エージェントパターン提案募集」(D6)の2つの横断タスクが
-完了。D6では9プロジェクト全員(vientiane-planning-map, zukaku, stars-fd, height-coverage,
-kaga0, kitavolca, plateau-mago-implicit, mapterhorn-japan-bridge, sas0)から合計約36件の
-知見が届き、すべて処理済み。
+横断タスクが4つ完了: D5(先行事例研究パターン)、D6(全エージェントパターン提案募集、
+約36件)、D7(スタイル設計・カートグラフィーの横断ヒアリング)、D8(staccato-spec
+4ロールモデルの一般化拡張議論、9プロジェクト+stars参加)。
 
-hfuさんが約10時間離席中(2026-09-02開始、途中Dispatch経由でフリート状況照会1回あり、
-cafebabeからは「要判断事項なし」と回答済み)。「自律的にpush・大きな構造変更もDECISIONS.md
-にADRとして記録した上で裁量で進めてよい」という方針の承認を得て運用中。
+hfuさんが約10時間離席中(2026-09-02開始)。「自律的にpush・大きな構造変更もDECISIONS.mdに
+ADRとして記録した上で裁量で進めてよい」方針で運用中。**新しい運用**: hfuさんは今後cafebabeの
+成果をGitHub上で直接見て、issue経由でレビューする(2026-09-02指示)。つまり今後のフィードバック
+はcross-session messageだけでなく、`dwg7/cafebabe`(または`unopengis/7`)のissueコメントとして
+届く可能性がある——**定期的にissueをチェックする習慣を持つこと**。
 
 ## Resolved since last handover
 
-- D1の保留事項だった`OPENMCT-NOTES.md`移管を完了(D2)
-- プロジェクト固有知見と横断知見の粒立てについて`PROJECTS.md`を新設して対応(D3)
-- `CLAUDE.md`に「鮮度と分量を保つ責務」を新設
-- dwg7組織文脈ブリーフィングを`DWG7-CONTEXT.md`として保存、`CLAUDE.md`に反映(D4)
-- 「リポジトリ埋め込みの先行事例研究」パターンを9プロジェクトから意見収集して取りまとめ
-  完了(D5)。「専用ファイルに切り出す」の一般則を「専用ファイル化は規模に応じた判断」に修正
-- **「全エージェントからのパターン提案募集」完了(D6)**。9プロジェクト全員から自由回答形式で
-  知見を集め、新規テーマ7本(agent-execution-gotchas, verification-discipline,
-  local-dev-pitfalls, robust-pipeline-design, ci-cd-pitfalls, interoperability,
-  raspberry-pi-appliance)+既存9ファイルへの追記として反映。全員へ結果共有まで完了
+- D1〜D4(創設、OPENMCT-NOTES.md移管、PROJECTS.md新設、dwg7組織文脈取り込み)完了
+- D5「リポジトリ埋め込みの先行事例研究」完了。「専用ファイルに切り出す」の一般則を
+  「専用ファイル化は規模に応じた判断」に修正
+- D6「全エージェントからのパターン提案募集」完了。新規テーマ7本+既存9ファイルへの追記
+- D7「スタイル設計・カートグラフィーの実地ノウハウ」完了。4プロジェクト(vientiane-planning-map,
+  stars-fd, height-coverage, zukaku)から9パターンに集約。「視覚的ヒエラルキーの独立収束」
+  「配色戦略の分岐(独自設計 vs 権威ある元データの忠実再現)」という2つの発見
+- D8「staccato-spec 4パーティモデルの一般化拡張議論」完了。9プロジェクト全員+stars-fdから
+  回答。「動的生成型 vs 静的キュレーション型」の軸、「Live vs Frozen Library」の提案、
+  cafebabe自身への外部評価(Staff+Libraryのハイブリッド)等、`STACCATO-CONTEXT.md`に統合
 
 ## Pending long-running tasks(急がず進める)
 
-1. ~~「リポジトリ埋め込みの先行事例研究」パターン~~ — **完了(D5)**
-2. ~~全エージェントからのパターン提案募集~~ — **完了(D6)**
-3. **次はこれに着手する**: 「スタイル設計・カートグラフィーの実地ノウハウ」
-   (`patterns/style-composition.md`)の本格的な横断ヒアリング。zoom-stop設計、ラベル衝突
-   回避、色のトーンマネジメント等。まだ1実例のみ(vientiane-planning-map)。stars-fd・
-   height-coverage-a5・zukakuに同種の知見が個別に溜まっているはず、とvientiane-planning-map
-   から示唆あり。D5・D6と同じ進め方(まずvientiane-planning-mapを深掘り→案作成→他プロジェクト
-   へ展開)が有効だと思われる
+1. ~~先行事例研究パターン(D5)~~ / ~~全エージェントパターン提案募集(D6)~~ /
+   ~~スタイル設計横断ヒアリング(D7)~~ / ~~staccato-spec一般化拡張議論(D8)~~ — 全て完了
+2. **次はこれに着手候補**: hfuさんが同時に提起した残る2テーマ
+   - ベクトルタイルデザイン、特にサイズ最適化
+   - スタイルデザイン、特にレイヤの上下関係・terrain・hillshadeの扱い
+   
+   進め方はD5-D8と同様(まず詳しそうな1プロジェクトを深掘り→案作成→他プロジェクトへ展開)。
+   候補: サイズ最適化はkitavolca(PMTilesパイプライン)・mapterhorn-japan-bridge・height-coverage・
+   stars-fdあたりが詳しそう。terrain/hillshadeは`patterns/maplibre-gl-js.md`に既にzukakuの
+   terrain無効化パターンがあるので、そこからの発展も考えられる
+3. hfuさんからGitHub issue経由のレビューが来たら、それに対応する(新しい運用、上記参照)
 
 ## Known open items
 
-- `patterns/open-mct.md`(300行超)・`patterns/case-study-research.md`(約280行)が
-  「鮮度と分量を保つ責務」のサイズ閾値に近い/超えている。パターン集が18テーマまで増えたため、
-  そろそろ**`patterns/`のサブディレクトリ化(テーマ分類)を検討するタイミング**かもしれない
-  (README.mdの一覧が長大になってきている)
-- 「個別事情」タグと「プロジェクト固有すぎて`patterns/`に置かない(`PROJECTS.md`経由で
-  リポジトリを指すだけにする)」の境界線は、運用しながら見極めている段階(D3参照)
-- まだ他プロジェクトからのPRは来ていない。現状はcafebabeセッションがcross-session message
-  でヒアリングし、自分で書き起こす運用になっている
-- D6で得た教訓(D6のDECISIONS.md追記参照): 自由回答形式は「発散」が主で、テーマ別分類の
-  負荷が高い。次に知見募集をするなら、合意形成が目的か棚卸しが目的かで、特定テーマ提示
-  (D5方式)と自由回答(D6方式)を使い分けるとよい
+- `patterns/`が18テーマまで増え、README.mdの一覧が長大。サブディレクトリ化を検討する
+  タイミングかもしれない(`patterns/open-mct.md`・`patterns/case-study-research.md`は
+  既にサイズ閾値に近い/超えている)
+- 「個別事情」タグと「プロジェクト固有すぎて`patterns/`に置かない」の境界線は運用しながら
+  見極めている段階(D3参照)
+- まだ他プロジェクトからのPRは来ていない。cafebabeセッションがcross-session messageで
+  ヒアリングし自分で書き起こす運用が続いている
+- D6の教訓: 自由回答形式は「発散」が主で分類作業の負荷が高い。特定テーマ提示(D5/D7方式)と
+  自由回答(D6方式)を目的に応じて使い分けるとよい
+- claude-mctから「フリート全体の定期スタンドアップ」の1回限りテストがあり、cafebabeとして
+  週次頻度・4項目形式・opt-out重視を提案した(常態化するかは未定、claude-mct側の判断待ち)
 
 ## Where to look
 
-- リポジトリ創設の経緯 → [DECISIONS.md](DECISIONS.md) D1
-- `OPENMCT-NOTES.md`移管の経緯 → [DECISIONS.md](DECISIONS.md) D2
-- プロジェクト固有/横断知見の粒立てと`PROJECTS.md`新設の経緯 → [DECISIONS.md](DECISIONS.md) D3
-- dwg7組織文脈の取り込みの経緯 → [DECISIONS.md](DECISIONS.md) D4、全文は[DWG7-CONTEXT.md](DWG7-CONTEXT.md)
-- 「先行事例研究」パターンの取りまとめ経緯 → [DECISIONS.md](DECISIONS.md) D5
-- 「全エージェントパターン提案募集」の経緯 → [DECISIONS.md](DECISIONS.md) D6
+- D1〜D8の経緯 → [DECISIONS.md](DECISIONS.md)(番号順)
+- dwg7組織文脈 → [DWG7-CONTEXT.md](DWG7-CONTEXT.md)
+- staccato-spec 4パーティモデルと一般化拡張議論 → [STACCATO-CONTEXT.md](STACCATO-CONTEXT.md)
 - 各プロジェクトのリポジトリ → [PROJECTS.md](PROJECTS.md)
 - 現在のパターン集 → [README.md](README.md)の一覧参照
 - 運用ガイド(鮮度と分量を保つ責務、dwg7組織文脈の注意点含む) → [CLAUDE.md](CLAUDE.md)
@@ -74,11 +71,10 @@ cafebabeからは「要判断事項なし」と回答済み)。「自律的にpu
 ## Resume prompt
 
 次にこのリポジトリを触るときにやること:
-1. このHANDOVER.mdと直近のDECISIONS.mdエントリ(D5・D6)を読んで経緯を把握する
-2. 上記「Pending long-running tasks」の3番(スタイル設計の横断ヒアリング)に着手する。
-   ListAgentsで現在アクティブなエージェント一覧を確認し(セッション名は変わっている可能性が
-   ある)、vientiane-planning-mapに詳細ヒアリング→案作成→他プロジェクトへ展開、という
-   D5・D6と同じ流れで進める
-3. `patterns/`のサブディレクトリ化(18テーマまで増えた)を検討するかどうか判断する
-4. cross-session messageで届いている新しい知見・確認依頼があれば、まずそれに対応する
-5. hfuさんが不在の間に大きな判断をした場合は、DECISIONS.mdにADRとして記録しておく
+1. このHANDOVER.mdと直近のDECISIONS.mdエントリ(D7・D8)を読んで経緯を把握する
+2. `dwg7/cafebabe`や`unopengis/7`にhfuさんからのissueが立っていないか確認する(新しい
+   レビュー運用)
+3. 上記「Pending long-running tasks」の2番(ベクトルタイルサイズ最適化、terrain/hillshade)
+   に着手する。ListAgentsで現在アクティブなエージェント一覧を確認してから進める
+4. `patterns/`のサブディレクトリ化を検討するかどうか判断する
+5. cross-session messageで届いている新しい知見・確認依頼があれば、まずそれに対応する
