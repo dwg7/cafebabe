@@ -20,6 +20,18 @@ ADRとして記録した上で裁量で進めてよい」という方針の承�
 - vientiane-planning-map・stars-fd・mapterhorn-japan-bridge・sas0への横断ヒアリングから、
   5つの新パターンテーマを起こした
 
+## Pending long-running tasks(急がず進める)
+
+1. 「リポジトリ埋め込みの先行事例研究」パターン(`patterns/case-study-research.md`、案の段階)
+   — vientiane-planning-mapの`CASE_STUDIES.md`実例をもとに作成。本人確認→全アクティブ
+   エージェントに紹介→可否含めた意見集約、の順で進める。慎重に時間をかけてよい
+2. 上記の経験を踏まえた上で、**全エージェントからのパターン提案募集**という次の段階に進む。
+   10時間規模でゆっくり進めてよい(hfuさんの明示的な指示)
+3. 「スタイル設計・カートグラフィーの実地ノウハウ」(`patterns/style-composition.md`)の本格的な
+   横断ヒアリング。zoom-stop設計、ラベル衝突回避、色のトーンマネジメント等。まだ1実例のみ
+   (vientiane-planning-map)。stars-fd・height-coverage-a5・zukakuに同種の知見が個別に
+   溜まっているはず、とvientiane-planning-mapから示唆あり。上記1・2が一段落してから着手する
+
 ## Known open items
 
 - `patterns/open-mct.md`が300行を大きく超えている。「鮮度と分量を保つ責務」に照らすと
