@@ -225,3 +225,61 @@ mapterhorn-japan-bridge, claude-mct)全員への紹介・意見収集、とい�
 
 このタスクは完了。次にこの領域を触るときは、まず`patterns/case-study-research.md`と
 `patterns/data-provenance.md`を読んで、今回の9者の知見を前提にすること。
+
+---
+
+## D6: 全エージェントからのパターン提案募集(開始)
+
+**Status**: Accepted (2026-09-02)
+
+### 背景
+
+hfuさんから、「D5(先行事例研究パターン)の経験が一通り積めたら、次の段階として全エージェント
+からパターン提案を取り付けてみてほしい。10時間くらいのオーダーでゆっくり進めてよい」という
+依頼があった。D5との違い: D5は特定テーマ(先行事例研究)を提示して意見を聞く形だったが、
+今回はテーマを固定せず、各プロジェクトが「他プロジェクトに共有する価値がある」と考える知見を
+自由回答で募る。
+
+### 決定
+
+- 9プロジェクト(vientiane-planning-map, zukaku, stars-fd, height-coverage, kaga0,
+  kitavolca, plateau-mago-implicit, mapterhorn-japan-bridge, claude-mct)に、自由回答形式の
+  募集メッセージを送る。観点の例(技術的発見・運用上の工夫・失敗から得た教訓・プロジェクト
+  固有だが再現性のある課題)を示しつつ、それに縛られないことを明記する
+- 受け取った提案の整理方針: ①既存パターンファイルへの追記、②新規テーマとして起票、③今は
+  規模的に時期尚早(該当プロジェクトの決定ログへのインライン記録のままで良い、とD5の結論を
+  踏まえて助言する)、の3パスに振り分ける
+- D5で得た教訓(専用ファイル化は規模次第、陳腐化への注意、具体的な実例URLを添えて聞くと
+  実地の回答が返ってくる)を踏まえて設計する
+
+### 保留事項
+
+- 返信の粒度・形式がD5よりバラつく可能性が高い。集まった内容次第で、取りまとめの構成
+  (テーマ別か、プロジェクト別か)は柔軟に判断する
+
+### Resume prompt
+
+返信が集まるたびに、まず該当プロジェクトへの受領確認を返し、内容を評価してから
+①②③のいずれかに振り分ける。全員から返信が揃うか、相当な時間が経過したら、D5と同様に
+取りまとめをDECISIONS.mdに記録し、全員に結果を共有する。
+
+### 追記(2026-09-02): 一次取りまとめ完了(kaga0のみ待ち)
+
+9プロジェクト中8プロジェクト(vientiane-planning-map, zukaku, stars-fd, height-coverage,
+kitavolca, plateau-mago-implicit, mapterhorn-japan-bridge, sas0)から、合計約30件の知見が
+届いた。kaga0のみ「6件の草稿を用意中、プロジェクト側の最終確認後に提出」と連絡あり、未着。
+
+届いた知見は以下のパターンファイルに反映した:
+- 既存ファイルへの追記: `maplibre-gl-js.md`(3件)、`markdown-file-conventions.md`(2件)、
+  `case-study-research.md`(2件)、`gatekeeping.md`(1件)、`data-provenance.md`(1件)、
+  `verification-discipline.md`(2件、新規作成直後に追加)
+- 新規テーマ: `agent-execution-gotchas.md`(5実例、Claude Codeエージェント自身の実行環境の
+  癖)、`verification-discipline.md`(4実例、検証・デバッグの規律)、`local-dev-pitfalls.md`
+  (4実例)、`robust-pipeline-design.md`(2実例)、`ci-cd-pitfalls.md`(1実例)、
+  `interoperability.md`(1実例)
+
+作業用一時ファイル`patterns/_intake-2026-09-02.md`に生データを保存してから整理し、処理完了
+後に削除した(compact対策として一時的に使用)。
+
+kaga0からの提出が届き次第、同様に振り分けて追記する。全員分が出揃った時点で、D5のように
+全員へ結果を共有する。

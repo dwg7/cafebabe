@@ -49,6 +49,18 @@ cafebabe は、その知見を**誰か一人が所有するのではなく**、�
     先行事例研究の埋め込み(9プロジェクトから意見収集して取りまとめ済み)
   - [`patterns/data-provenance.md`](patterns/data-provenance.md) — 依拠するデータソース自体の
     来歴を調査する(データ出自調査)
+  - [`patterns/agent-execution-gotchas.md`](patterns/agent-execution-gotchas.md) — Claude Code
+    エージェント自身のツール実行環境(ブラウザ自動化・バックグラウンドプロセス等)の落とし穴
+  - [`patterns/verification-discipline.md`](patterns/verification-discipline.md) —
+    「成功終了」「確認済み申告」を鵜呑みにしない検証・デバッグの規律
+  - [`patterns/local-dev-pitfalls.md`](patterns/local-dev-pitfalls.md) — ローカル開発環境・
+    シェルスクリプトの環境依存な落とし穴
+  - [`patterns/robust-pipeline-design.md`](patterns/robust-pipeline-design.md) —
+    無人稼働パイプラインがクラッシュ・障害から機械的に回復する設計
+  - [`patterns/ci-cd-pitfalls.md`](patterns/ci-cd-pitfalls.md) — GitHub Actions等CI/CD環境
+    特有の落とし穴
+  - [`patterns/interoperability.md`](patterns/interoperability.md) — 外部システムとの
+    相互運用性の設計原則
 
 - **`DWG7-CONTEXT.md`** — dwg7組織そのものの文脈(ビジョン・カルチャー・技術方針・当面の
   方向性)。個々のプロジェクトの知見を文脈なしに集約すると解釈を誤りやすいポイントをまとめた、
