@@ -44,7 +44,8 @@ cafebabe は、その知見を**誰か一人が所有するのではなく**、�
   - [`patterns/large-data-pitfalls.md`](patterns/large-data-pitfalls.md) — 大容量データ処理で
     外部ライブラリの内部実装に起因する落とし穴
   - [`patterns/style-composition.md`](patterns/style-composition.md) — スタイル設計・
-    カートグラフィーの実地ノウハウ(着手したばかり、本格的な横断ヒアリングは今後)
+    カートグラフィーの実地ノウハウ(視覚的ヒエラルキー、zoom-stop設計等。他プロジェクトへの
+    横断展開は今後)
   - [`patterns/case-study-research.md`](patterns/case-study-research.md) — プロジェクトへの
     先行事例研究の埋め込み(9プロジェクトから意見収集して取りまとめ済み)
   - [`patterns/data-provenance.md`](patterns/data-provenance.md) — 依拠するデータソース自体の
