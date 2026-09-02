@@ -473,3 +473,50 @@ kitavolcaの「`--drop-densest-as-needed`を二段階の失敗の末に撤回し
 このタスクは一区切り。残るテーマは「スタイルデザイン、特にレイヤの上下関係・terrain・
 hillshadeの扱い」。`patterns/maplibre-gl-js.md`に既にzukakuのterrain無効化パターンが
 あるので、そこからの発展を検討する。
+
+---
+
+## D10: 溜まった判断事項の棚卸し(Planモードでのレビュー)
+
+**Status**: Accepted (2026-09-03)
+
+### 背景
+
+hfuさんの提案で、D1〜D9で溜まった「cafebabeの裁量に一任された事項」「保留のまま未解決の
+事項」を一箇所に整理し、Planモード(`EnterPlanMode`/`ExitPlanMode`)を使ってまとめて
+レビューを仰いだ。今後、判断事項が溜まるたびにこの型を定例化する(D1参照)。
+
+### 決定
+
+1. **D6サーベイ(claude-mct実施)8項目に「推奨」ステータスを付与**——実行する
+   (`patterns/maplibre-gl-js.md`・`patterns/markdown-file-conventions.md`に反映)
+2. **HANDOVER.md肥大化対策としてのCHANGELOG.md**——結論を急がず、過去3回の書き直しで
+   実際に本文から落ちた情報がDECISIONS.mdでカバーされているかを検証してから判断する
+   (hfuさんの指摘: 定期書き直しの「退避先」という役割で位置づけ直せば、DECISIONS.md・
+   HANDOVER.mdと直交しうる)
+3. **タグ体系への「dwg7固有」中間区分の追加**——見送り。実例が複数出るまで待つ
+4. **`patterns/`のサブディレクトリ化**——今回は着手せず先送り。ただし`open-mct.md`
+   (3プロジェクトが参照)は次回優先候補
+5. **既存パターンの「独立収束 vs 指令」誤読チェック(D4保留)**——`maplibre-gl-js.md`から
+   着手する(D6反映と同時に実施)
+6. **「個別事情」タグと「patterns/に置かない」の境界線明文化(D3保留)**——見送り。実例が
+   3件以上蓄積してから`CONTRIBUTING.md`に基準を追記する
+7. **D7残りプロジェクトへのスタイル設計ヒアリング**——しない(D9と同じ理由)
+8. **残りテーマ「terrain・hillshadeの扱い」**——着手する。
+   mapterhorn-japan-bridge/kitavolca/kaga0への横断ヒアリングを開始する
+9. **Planモードでの棚卸しレビューを定例化**——DECISIONS.mdの保留事項が3〜5件溜まるか、
+   大きな横断タスク完了ごとに実施
+10. **hfuさん未レビューの.mdファイルの洗い出し**——新規プロセスとして追加。数件ずつ
+    棚卸しのたびに提示する
+11. **GitHub issue vs cross-session messageの使い分け**——厳密なラインを引かず、運用
+    しながら柔軟に確立する
+
+### 保留事項
+
+- 上記2(CHANGELOG.md)は次のセッションで検証作業を行い、別ADRとして結論を記録する
+- 上記4(`open-mct.md`の分割)は次回の棚卸しで優先着手する
+
+### Resume prompt
+
+D6サーベイ反映(`maplibre-gl-js.md`・`markdown-file-conventions.md`)→CHANGELOG.md検証→
+未レビューファイルの洗い出し→terrain/hillshadeヒアリング開始、の順で進める。
