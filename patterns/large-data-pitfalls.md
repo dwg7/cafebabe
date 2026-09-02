@@ -23,10 +23,26 @@
 ように見える。どのボリュームが本当に枯渇しているかは、呼び出し側のコードではなく**ライブラリ
 自身のソースまで読まないと分からない**。
 
+さらに厄介なのは、**この対策は言語・プロセスをまたいで継承されない**こと。Pythonスクリプト側
+で`TMPDIR`を設定しても、そのスクリプトが`subprocess`等でshell outする外部バイナリ(Go/Rust/C
+製のCLIツール、例: `pmtiles cluster`)は独立したプロセスとして起動され、Python側の対策の
+恩恵を受けない。また、この種の失敗は必ずしも派手なエラーで落ちるとは限らず、**サイレントに
+破損したファイルを生成して正常終了することがある**——起動ディスクが枯渇した瞬間に書き込みが
+壊れても、プロセス自体はエラーを出さずに完了し、後で検証コマンド(`pmtiles verify`等)を
+実行して初めて破損が発覚する。
+
 **解決(Solution)**
 `os.environ.setdefault('TMPDIR', <出力先ボリューム上のパス>)`を、ライブラリのインスタンス化
 より前にスクリプト冒頭で設定する。`setdefault`を使うことで、呼び出し側が別途`TMPDIR`を
 指定したい場合は上書き可能なままにしておく。
+
+**ただしこれで終わりにしない**: パイプライン内でshell outしている外部バイナリ(`pmtiles`、
+`gdalwarp`、`ogr2ogr`、`tippecanoe`等)があれば、それぞれ個別に`TMPDIR`環境変数がシェル
+環境で明示的にexportされているか確認する。「Pythonスクリプト側で既に対策済み」は、別プロセス
+として起動される外部ツールをカバーしない。処理完了後は、可能であれば検証コマンド
+(`pmtiles verify`等)を実行し、「エラーなく終わった」ことを「正しく書き込まれた」ことの
+証拠にしない([`patterns/verification-discipline.md`](verification-discipline.md)の
+「『成功終了』は『正しい出力』を意味しない」と同じ精神)。
 
 **実例(Known uses)**
 - `mapterhorn-japan-bridge` — `pmtiles`(Python、`protomaps/PMTiles`)の`Writer`クラスが
@@ -34,6 +50,12 @@
   同じ問題に2回遭遇(`merge_japan_bundles.py`と`bundle.py`)。実データ用ボリュームには
   900GB以上の空きがあるのに、起動ディスク(空き〜100GB)側が先に枯渇して`ENOSPC`。恒久対処
   として両スクリプト冒頭に`TMPDIR`のデフォルト値設定を追加
+- `mapterhorn-japan-bridge`(別件、後日) — 同じプロジェクトで、今度は`pmtiles cluster`
+  (`protomaps/go-pmtiles`のGo CLI)が同じ`os.TempDir()`依存の問題を踏んだ。Python側の
+  `TMPDIR`対策は既に入っていたが、別プロセスとして起動されるGoバイナリには継承されず、
+  起動ディスクが枯渇する中でエラーも出さずに実行が完了し、310GBのpmtilesアーカイブが
+  サイレント破損した。後から`pmtiles verify`を実行して初めて`Tile data offset=... out of
+  bounds`という破損が発覚した
 
 ---
 
