@@ -93,6 +93,40 @@ terrainを明示的に無効化しないと、ページごとの見た目が微�
 
 ---
 
+## 3D terrainを避け、2Dのhillshadeレイヤーで陰影表現を済ませる
+
+**タグ**: 個別事情(3D terrainのレイヤー順序・パフォーマンス複雑さを避けたいプロジェクト)
+
+**状況(Context)**
+標高データを持つプロジェクトが、地形の起伏を視覚的に伝えたいが、3D terrain(`style.terrain`)
+に伴う複雑さ(他レイヤーとの重なり順、パフォーマンス)を避けたい場面。上記の
+「terrainは明示的にnullで無効化する」(zukaku)とは無効化する理由が異なる——zukakuは印刷物の
+物理的な貼り合わせ制約のためだが、こちらは陰影表現自体は欲しいという点が違う。
+
+**問題/対立する力(Problem / Forces)**
+3D terrainを有効にすると、レイヤーの描画順序やパフォーマンスの考慮が複雑になる
+(terrain併用時のレイヤー順序・パフォーマンス問題は実地の知見がまだ乏しい)。一方で、
+地形の起伏を全く表現しないのも情報として物足りない。
+
+**解決(Solution)**
+`style.terrain`は明示的にnull(オフ)のまま、2Dの`hillshade`**レイヤータイプ**を使う。
+自前のraster-dem source(Terrarium形式標高タイル)から陰影を生成し、レイヤー順序は背景に
+近い最下層(`background`直後)に置くことで、上に重なる他のベクタレイヤーとの競合を構造的に
+避ける。
+
+**実例(Known uses)**
+- `mapterhorn-japan-bridge` — `style.json`で`terrain: null`のまま、`hillshade`レイヤーを
+  自前の`mapterhorn` raster-dem source(Terrarium形式標高PMTiles、DECISIONS.mdで議論した
+  ものと同一アーカイブ)から生成。paint設定:
+  `hillshade-exaggeration: 0.6`、`hillshade-shadow-color: rgba(60,60,60,1)`、
+  `hillshade-highlight-color: rgba(255,255,255,1)`、`hillshade-accent-color:
+  rgba(90,90,90,1)`(光源角度はMapLibreのデフォルトのまま)。レイヤー順序は
+  background→hillshade→行政界の塗り→それ以外の全ベクタレイヤー・ラベル、という最下層配置。
+  terrain併用時のレイヤー順序・パフォーマンス問題そのものを、terrainを使わないことで
+  構造的に回避している(実地の知見は「その問題を解いていない」という正直な報告)
+
+---
+
 ## ラベルの太い白背景は icon-image で作る
 
 **タグ**: 一般則
