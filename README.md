@@ -64,6 +64,8 @@ cafebabe は、その知見を**誰か一人が所有するのではなく**、�
     相互運用性の設計原則
   - [`patterns/raspberry-pi-appliance.md`](patterns/raspberry-pi-appliance.md) —
     Raspberry Piアプライアンスの実地ノウハウ(GPU/GL、systemd、DRM/KMS等)
+  - [`patterns/agent-personification.md`](patterns/agent-personification.md) — エージェント
+    への呼称習慣(「XXXさん」)。役職の三人称的参照、制度的/物語的な継続性の違い
   - [`patterns/vector-tile-sizing.md`](patterns/vector-tile-sizing.md) — ベクトルタイルの
     サイズ最適化(minzoomシフト、非圧縮サイズでの検証等)
 
