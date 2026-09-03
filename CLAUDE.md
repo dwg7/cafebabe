@@ -100,15 +100,18 @@ MapLibre GL JS・.mdファイル運用に続く3つ目以降のテーマ(例: Op
 関係するdwg7エージェントに一声かけること。claude-mctの前例のように、複数プロジェクトへの
 横断調査をかけてから初期seedを作ると、実地の知見が偏らない。
 
-## 既知のピア(2026-09-02時点)
+## 既知のピア(2026-09-03時点)
 
 cross-session連携用の一時的な情報(セッションは任務終了でアーカイブされ、この一覧は古くなる)。
 恒久的なリポジトリ参照は[PROJECTS.md](PROJECTS.md)を見ること。
 
 - `mapterhorn-japan-bridge` — 標高データパイプライン。実態は3つの独立リポジトリ
-  (`hfu/mapterhorn-japan-bridge`=司令塔/決定ログ、`hfu/hfu-mapterhorn`=パイプラインコード、
+  (`hfu/mapterhorn-japan-bridge`=司令塔/決定ログ、`hfu/mapterhorn`=パイプラインコード、
   `hfu/mapterhorn-monitor`=Open MCT監視ダッシュボード)を1セッションが担当する構成。
   セッション名だけから担当範囲を憶測しないこと([`patterns/agent-repository-boundaries.md`](patterns/agent-repository-boundaries.md)参照)
+- `ferspas57` — FERSPAS×Staccato: FAO/DWG5とDWG7の連携(STAC→martin catalogインタフェース
+  統合)。2026-09-03新規参加。staccato-specのCartographer役を構築中、Library候補として
+  stars.optgeo.org・Source Cooperativeを検討中
 - `height-coverage` — OSM建物高さ入力状況の啓発サイト
 - `zukaku` — 印刷アトラスPDF生成ツール
 - `sas0` — 北海道防災情報ダッシュボード(Open MCT)。`OPENMCT-NOTES.md`の先例あり

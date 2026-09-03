@@ -21,6 +21,7 @@
 | kitavolca | https://github.com/dwg7/kitavolca | 北海道火山図パイプライン(VBM+VLCM→PMTiles) |
 | plateau-mago-implicit | https://github.com/dwg7/plateau-mago-implicit | PLATEAU由来のImplicit 3D Tiles実験(室蘭・更別) |
 | vientiane-planning-map | https://github.com/dwg7/vientiane-planning-map | ヴィエンチャンのゾーニング+ベースマップビューア(height-coverageの姉妹プロジェクト) |
+| ferspas57 | https://github.com/dwg7/ferspas57 | FERSPAS×Staccato: FAO/DWG5とDWG7の連携(STAC→martin catalogインタフェース統合)。2026-09-03新規参加 |
 
 ## hfu 個人名前空間
 
