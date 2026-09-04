@@ -605,3 +605,59 @@ cafebabe自身は「hfuさんのエージェンシーを代替するのではな
 参加時にも、この呼称習慣(役職としての三人称参照)を意識して名指しするとよい。
 `DWG7-CONTEXT.md`のエージェンシー経済学セクションは、今後cafebabeの設計判断(棚卸し・
 優先順位付け・先送りの明示化)の根拠として参照すること。
+
+---
+
+## D13: `patterns/maplibre-gl-js.md`のテーマ別4分割、terrain/hillshade横断ヒアリング完了(C1・C5)
+
+**Status**: Accepted (2026-09-04)
+
+### 背景
+
+D10 C1では「`open-mct.md`(当時300行超)を次回棚卸しで優先分割」としたが、その後の整理で
+`open-mct.md`は139行まで縮み閾値を下回った。一方`patterns/maplibre-gl-js.md`はD6反映・
+terrain/hillshade追加(D9〜D12の過程)で425行・21パターンまで増え、`CLAUDE.md`の
+「1ファイル300行」閾値を超えていた。hfuさんに状況を報告し、C1の優先対象をこちらに切り替えて
+今すぐ着手するか確認したところ、承認を得た。
+
+同時に、D10 C5で計画していたterrain/hillshadeの横断ヒアリング(mapterhorn-japan-bridgeへの
+深掘りから、kitavolca・kaga0への展開)も実施した。
+
+### 決定
+
+**分割**: `patterns/maplibre-gl-js.md`を以下4ファイルに分割し、旧ファイルは削除した:
+- `patterns/maplibre-gl-js-rendering.md`(バージョン選定、globe+fill-extrusion、
+  zoomLevelsToOverscale、terrain/hillshade、ラベル装飾、GetLegendGraphic)
+- `patterns/maplibre-gl-js-data-serving.md`(ランタイムハイドレーション、CORS、attribution、
+  tileSize、PMTiles+Martin)
+- `patterns/maplibre-gl-js-output-testing.md`(ヘッドレスレンダリング、印刷とPlaywrightの
+  コードパス差、非表示ペイン0x0問題、fitBoundsズームレベルシフト)
+- `patterns/maplibre-gl-js-embedding.md`(折りたたみパネル、ホバーパネル、hash名前空間化、
+  UIトグルの状態同期、`map.remove()`、iframe vs ネイティブ)
+
+旧ファイルを参照していた`README.md`・`patterns/style-composition.md`(2箇所)・
+`patterns/agent-execution-gotchas.md`(2箇所)のリンクを新ファイルへ更新した。DECISIONS.mdの
+過去エントリ(D6・D9・D10・D11)内の`maplibre-gl-js.md`表記は、決定ログの追記専用原則
+(訂正は追記、書き換えはしない)に従い**そのまま残す**——当時はまだ分割前だったので、当時の
+記述として正しい。
+
+**terrain/hillshadeヒアリング(C5)**: mapterhorn-japan-bridge・kitavolca・kaga0の3プロジェクト
+から回答を得て、`maplibre-gl-js-rendering.md`の1パターンに統合した。3者の判断が
+「terrainを封印しhillshadeのみ」(mapterhorn-japan-bridge)・「terrain+hillshade併用、
+データ規模が小さく問題未発生」(kitavolca)・「両方とも意図的に未実装、パフォーマンス制約が
+理由でhillshadeをterrainより先にロードマップへ」(kaga0)と3方向に分かれる独立分岐だった。
+「新しいか」ではなく「データ規模・ハードウェア制約に応じた合理的判断か」という軸で3例とも
+対等に記録し、どれか1つを標準として扱わなかった(`CLAUDE.md`の「keep open」原則・
+「標準化は独立収束か指令かを区別する」原則に従う)。kitavolcaからは副産物として
+「UIトグルの初期状態をHTML属性で決め打ちせず、map状態変化イベントで同期する」という
+再利用可能なUIパターンも得られ、`maplibre-gl-js-embedding.md`に追加した。
+
+### 保留事項
+
+なし。C1・C5とも今回でクローズ。
+
+### Resume prompt
+
+`patterns/maplibre-gl-js-*.md`の4分割は完了。他のパターンファイルが今後300行に近づいた場合も
+同じ要領(テーマで自然に割れる単位を見極め、README.md・相互参照リンクを一括更新)で対応する。
+D10 C1で優先候補だった`open-mct.md`は今回の時点では閾値以下のため見送り。

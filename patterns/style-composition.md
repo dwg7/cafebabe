@@ -5,8 +5,8 @@
 2026-09-02、vientiane-planning-map(2段階ヒアリング)・stars-fd・height-coverage・zukakuへの
 横断ヒアリングより。
 
-関連: [`patterns/maplibre-gl-js.md`](maplibre-gl-js.md)の「ランタイムハイドレーション」
-パターン(同じくstyle.jsonの動的合成を扱う)。
+関連: [`patterns/maplibre-gl-js-data-serving.md`](maplibre-gl-js-data-serving.md)の
+「ランタイムハイドレーション」パターン(同じくstyle.jsonの動的合成を扱う)。
 
 ---
 
@@ -202,8 +202,8 @@ Webマップと印刷物の両方でスタイル設計の勘所を比較する�
 Webマップは「今は見えなくてもズームすれば見える」という前提でzoom-stopを設計できるが、
 印刷物は焼き付けた瞬間のズームレベル(=取得するベクタタイルのLOD)が永久にそのまま。この
 違いを意識せずWeb地図と同じ感覚で設計すると、印刷後に「輪郭だけの地図」になる
-([`patterns/maplibre-gl-js.md`](maplibre-gl-js.md)の「fitBoundsのpaddingでズームレベル
-シフトができる」パターン参照)。
+([`patterns/maplibre-gl-js-output-testing.md`](maplibre-gl-js-output-testing.md)の
+「fitBoundsのpaddingでズームレベルシフトができる」パターン参照)。
 
 **実例(Known uses)**
 - `zukaku` — 概要(索引)ページで、素直な`fitBounds`だと低ズームのタイルが選ばれ建物形状・

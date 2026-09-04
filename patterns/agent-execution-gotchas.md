@@ -18,7 +18,8 @@ Claude Codeのブラウザ自動化ツールで、MapLibre GL JS/CesiumJS等のW
 `document.visibilityState: "hidden"`のタブでは、ブラウザの意図的な最適化により、Cesiumの
 ようなライブラリがタイルを実際に選択・描画しない。プレビューペインが非表示の間にMapLibreの
 コンテナサイズ測定が走ると、`getBoundingClientRect()`が0x0を返すこともある
-([`patterns/maplibre-gl-js.md`](maplibre-gl-js.md)にも関連実例あり)。スクリーンショットで
+([`patterns/maplibre-gl-js-output-testing.md`](maplibre-gl-js-output-testing.md)にも関連実例
+あり)。スクリーンショットで
 「真っ黒/空」に見えても、それがバグなのかツール自体の制約なのか区別しにくい。
 
 **解決(Solution)**
@@ -29,7 +30,7 @@ Claude Codeのブラウザ自動化ツールで、MapLibre GL JS/CesiumJS等のW
 **実例(Known uses)**
 - `plateau-mago-implicit` — CesiumJSがバックグラウンドタブでタイルを描画しない現象に遭遇
 - `vientiane-planning-map` — プレビューペイン非表示時のコンテナサイズ0x0問題
-  ([`patterns/maplibre-gl-js.md`](maplibre-gl-js.md)参照)
+  ([`patterns/maplibre-gl-js-output-testing.md`](maplibre-gl-js-output-testing.md)参照)
 
 ---
 

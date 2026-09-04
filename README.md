@@ -31,7 +31,12 @@ cafebabe は、その知見を**誰か一人が所有するのではなく**、�
   ```
 
 - **現在のパターン集**:
-  - [`patterns/maplibre-gl-js.md`](patterns/maplibre-gl-js.md) — MapLibre GL JS構築の知見
+  - MapLibre GL JS構築の知見(2026-09-04、テーマ別に4分割):
+    [`patterns/maplibre-gl-js-rendering.md`](patterns/maplibre-gl-js-rendering.md)(レンダリング・
+    スタイル設計)、[`patterns/maplibre-gl-js-data-serving.md`](patterns/maplibre-gl-js-data-serving.md)
+    (データ配信)、[`patterns/maplibre-gl-js-output-testing.md`](patterns/maplibre-gl-js-output-testing.md)
+    (出力・自動化検証)、[`patterns/maplibre-gl-js-embedding.md`](patterns/maplibre-gl-js-embedding.md)
+    (埋め込み・UI)
   - [`patterns/markdown-file-conventions.md`](patterns/markdown-file-conventions.md) — README/CLAUDE.md/HANDOVER.md/DECISIONS.mdの使い分け
   - [`patterns/progress-reporting.md`](patterns/progress-reporting.md) — `unopengis/7`への進捗報告の作法
   - [`patterns/gatekeeping.md`](patterns/gatekeeping.md) — ゲートキーパーとしての判断基準
