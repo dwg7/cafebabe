@@ -1,7 +1,7 @@
 # 大容量データ処理の落とし穴
 
-大容量データ(タイル生成、地形データパイプライン等)を扱う際、外部ライブラリの内部実装に
-起因して起きる、見えにくい落とし穴について。
+大容量データ(タイル生成、地形データパイプライン、ブラウザ向けバンドル等)を扱う際、
+外部ライブラリの内部実装に起因して起きる、見えにくい落とし穴について。
 2026-09-02、mapterhorn-japan-bridgeからの提供より。
 
 ---
@@ -84,3 +84,34 @@ PMTilesのようなHTTP Rangeリクエスト前提のフォーマットを、`ra
   206ではなく200が返ることを確認
 - `vientiane-planning-map` — 同じ問題をPMTilesホスティングの検討時に発見し、ローカルパス
   方式に切り替えた。詳細は[`DECISIONS.md`#2](https://github.com/dwg7/vientiane-planning-map/blob/main/DECISIONS.md#2-pmtilesのホスティングローカルパス方式github-rawではなく)参照
+
+---
+
+## ブラウザ向け3Dライブラリは、未使用機能のwasm/アセットもツリーシェイキングで落ちないことがある
+
+**タグ**: 個別事情(Navara利用プロジェクト。実例が1件のみのため一般則への格上げは見送る)
+
+**状況(Context)**
+`@navaramap/three`(Navara)のような3Dマップレンダリングライブラリを、raster-tileの表示だけ
+といった最小限の用途で使う場面。
+
+**問題/対立する力(Problem / Forces)**
+コード上でterrain/atmosphere/3Dモデル関連のAPIを一切呼んでいなくても、ビルド後のバンドル
+サイズが大きいまま(実例では20MB超)になることがある。原因は呼び出し側のコードではなく、
+ライブラリ自身が**モジュールスコープで**wasmコアやテクスチャ/LUTアセットを静的importして
+いるため——これはツリーシェイキングでは落とせない。MapLibre GL JSのような2D中心のライブラリ
+で「ラスタータイル1枚だけ表示」した場合の数百KB程度という感覚のまま見積もると、実際の
+バンドルサイズを大きく見誤る。
+
+**解決(Solution)**
+3Dエンジン系のライブラリを採用する前に、最小構成でビルドして実際の出力サイズ(`npm run
+build`後のdist)を確認する。未使用に見える機能(atmosphere、terrain、3Dモデルdecoder等)の
+アセットも、ライブラリの設計によっては丸ごと配信物に含まれる前提で見積もる。
+
+**実例(Known uses)**
+- `kitaphoto17-navara` — raster-tileソース1枚のみ(DefaultPlugin不使用、terrain/atmosphere
+  未使用)の最小構成で検証。navara_wasm_bg.wasm(4.65MB)+navara_wasm_api_bg.wasm(1.85MB)+
+  navara_wasm_worker_bg.wasm(1.82MB)のwasmコア一式、draco decoder×2(478KB)、atmosphere用
+  テクスチャ/LUT一式(約13MB)、index.js(3.1MB、gzip766KB)が未使用にもかかわらず出力に含まれ、
+  合計20MB超になった。コアパッケージが静的importしているためツリーシェイキングで落ちない
+  (2026-09-04)

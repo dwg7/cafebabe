@@ -122,6 +122,9 @@ cross-session連携用の一時的な情報(セッションは任務終了でア
 - `vientiane-planning-map` — ヴィエンチャンのゾーニング地図(height-coverageの姉妹プロジェクト)
 - `claude-mct` — このリポジトリの創設を主導したセッション。Open MCTベースのエージェント
   活動可視化ダッシュボードを担当
+- `kitaphoto17-navara` — Martin(stars.optgeo.org)配信のkitaphoto17タイルレイヤーを
+  Navara(`maplibre/navara`, navara.world)で表示するGitHub Pages静的サイト。2026-09-04
+  新規参加。Navara固有の知見(バンドルサイズ問題等)を`patterns/large-data-pitfalls.md`に提供
 
 ## やらないこと
 
