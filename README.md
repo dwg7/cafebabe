@@ -74,6 +74,8 @@ cafebabe は、その知見を**誰か一人が所有するのではなく**、�
   - [`patterns/vector-tile-sizing.md`](patterns/vector-tile-sizing.md) — ベクトルタイルの
     サイズ最適化(minzoomシフト、非圧縮サイズでの検証等)
 
+- **`ideas/`** — `patterns/`のsibling。**まだ誰も実装していない**が検討する価値のある技術的
+  アイデアを置く場所(実装されたら`patterns/`へ昇格)。詳しくは[`ideas/README.md`](ideas/README.md)参照
 - **`DWG7-CONTEXT.md`** — dwg7組織そのものの文脈(ビジョン・カルチャー・技術方針・当面の
   方向性)。個々のプロジェクトの知見を文脈なしに集約すると解釈を誤りやすいポイントをまとめた、
   hfuさん経由でdwg7チャットから届いた一次情報

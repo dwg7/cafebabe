@@ -763,3 +763,61 @@ verification-discipline.md`に「ピアセッションからの主張は、そ�
 役割(横断技術知見の参照先)がグローバル規約に明文で組み込まれたことを踏まえ、cross-session
 messageでの問い合わせが今後増える可能性がある——D14の「小分け・定期」の捌き方をそのまま
 適用する。
+
+---
+
+## D16: `ideas/`ディレクトリを新設し、実装未検証の技術的アイデアを`patterns/`と分離する
+
+**Status**: Accepted (2026-09-06)
+
+### 背景
+
+[UNopenGIS/7#980](https://github.com/UNopenGIS/7/issues/980)(将来のCSS/SAS Console向けに、
+OSM OAuthを地理空間コミュニティ向けの軽量なオープンIDとして使えないか、という提起)を
+cafebabeの知見として咀嚼できるか、hfuさんから分析を依頼された。分析の結果、dwg7内に
+OSM OAuth(または何らかのOAuth)の実装実績を持つプロジェクトは見つからず、「まだ誰も
+やっていないアイデア」を`patterns/`に書くのは時期尚早と判断した——`patterns/`は実装に
+裏打ちされた知見(実例=Known uses)を集約する場所であり、実例の無い提案を書くと一般則めいた
+体裁になり、他プロジェクトへの誤ったお墨付きになりかねないため。
+
+hfuさんから、「test new technologies for future geospatial operations」というdwg7の
+ミッション(`DWG7-CONTEXT.md`参照)にとって、こうした未実装の探索テーマを記録すること自体が
+重要だという指摘があり、`patterns/`のsiblingとして`ideas/`を新設する提案を受けた。
+
+### 決定
+
+`ideas/`ディレクトリを新設した:
+- **`patterns/`との役割分担**: 実装に裏打ちされた知見は`patterns/`、まだ誰も実装していない
+  技術的アイデアは`ideas/`
+- **書式**(`ideas/README.md`に記載): 1アイデア=1ファイル。状態(探索中/実装待ち/却下/
+  patterns/へ昇格)・出典・動機/背景(Why)・未解決の問い(Open Questions)・関連・進捗ログ
+  (追記専用)の構成
+- **`patterns/`への昇格経路**: アイデアが実際にどこかで実装されたら、`patterns/`に正式な
+  パターンとして書き起こす。`ideas/`側のファイルは削除せず、進捗ログに「→ patterns/X.mdへ
+  昇格」と追記して残す(却下の場合も同様、削除せず状態変更+理由追記)
+- 初回のアイデアとして`ideas/osm-community-oauth.md`を作成。`DWG7-CONTEXT.md`の「keep open」
+  評価軸との整合性が高いという分析、および技術面の未解決の問い(コミュニティ・ポリシー面は
+  cafebabeの分析範囲外であり、hfuさん自身がOSMコミュニティと直接対話すべき論点である旨)を
+  記録
+- `CONTRIBUTING.md`・`README.md`を更新し、`patterns/` vs `ideas/`の判断基準を明記した
+
+### 副産物: `patterns/agent-repository-boundaries.md`への訂正
+
+分析の過程で、`ListAgents`のセッション名`faceless-cartographer-8b`から担当リポジトリを
+誤って憶測する、既知のパターン([`patterns/agent-repository-boundaries.md`](patterns/agent-repository-boundaries.md))と同型の失敗を自分自身が再発させた。hfuさんから、この種の
+「セッション名と実際の担当リポジトリの不一致」自体は、Claude Code利用初期の起動習慣(1つの
+ディレクトリでセッションを開始し、そこから他リポジトリへも作業を広げる)に起因するもので、
+**現在はこの起動方法をしていない**という背景説明があった。パターンの実例を削除せず、
+この背景を日付付きの訂正として追記した——「現在進行形のリスク」ではなく「初期の運用習慣の
+名残り」として正確に位置づけ直すため。
+
+### 保留事項
+
+なし。
+
+### Resume prompt
+
+今後、実装に裏打ちされていない技術的提案(GitHub issueでの構想、hfuさんからの「こういうのは
+どうか」的な相談等)が来たら、`patterns/`に書けるかを即断せず、まず`ideas/`に置くことを
+検討する。既存の`ideas/osm-community-oauth.md`は、dwg7内で誰かが実際にOSM OAuthを実装したら
+`patterns/`へ昇格させる。
