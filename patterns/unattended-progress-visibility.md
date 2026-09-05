@@ -25,12 +25,23 @@ DECISIONS.md等)には一切触れず、要約された進捗数値・ステー�
 「何を公開してよいか」を都度判断する必要がなく、構造そのものが機械的に安全な内容だけを
 流す仕組みになる。
 
+**副次的な効能**: この分離は、公開安全性の担保だけでなく**技術的な必然**にもなりうる。
+GitHub PagesはFreeプランのPrivateリポジトリでは機能自体が使えない(有効化しようとすると
+422で拒否される)。本体リポジトリがPrivateな運用(社内インフラの操作ログ等を含む)の場合、
+ダッシュボードだけをPublicな別リポジトリに分離するのは、「公開してよい情報だけに絞る」
+という設計判断であると同時に、「GitHub Pagesを使うにはPublicでなければならない」という
+制約への唯一の対処法でもある。
+
 **実例(Known uses)**
 - `mapterhorn-japan-bridge` — 大規模再構築を約8時間・15分おきのtickでモニタリング。
   slate側の生データには触れず、`hfu/mapterhorn-monitor`(別リポジトリ)の`progress.json`
   だけを毎tick更新・push。公開されるのは要約された進捗数値・ステージ名・簡潔な説明文のみ
   ([`patterns/agent-repository-boundaries.md`](agent-repository-boundaries.md)の
   「密な双方向結合」パターンの具体例でもある)
+- `m3xx-fleet-ops` — Open MCTフリート監視ダッシュボードを当初`m3xx-fleet-ops`(Private)の
+  `docs/`に作る計画だったが、GitHub PagesがPrivateリポジトリのFreeプランで有効化できず
+  (422)頓挫。ダッシュボード専用のPublicリポジトリ(`dwg7/m3xx-fleet`)を新設して分離した
+  ところ、公開安全性の分離と技術的制約の回避の両方が同時に解決した(2026-09-06)
 
 ---
 
