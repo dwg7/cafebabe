@@ -138,6 +138,9 @@ cross-session連携用の一時的な情報(セッションは任務終了でア
 - `kitaphoto17-navara` — Martin(stars.optgeo.org)配信のkitaphoto17タイルレイヤーを
   Navara(`maplibre/navara`, navara.world)で表示するGitHub Pages静的サイト。2026-09-04
   新規参加。Navara固有の知見(バンドルサイズ問題等)を`patterns/large-data-pitfalls.md`に提供
+- `m3xx-fleet-ops` — JICA研修用Raspberry Piフリート運用。2026-09-05新規参加。長期運用する
+  フリート運用エージェントのCLAUDE.md/HANDOVER.md/DECISIONS.md構成について相談を受けた
+  (`patterns/markdown-file-conventions.md`・`patterns/gatekeeping.md`を紹介)
 
 ## やらないこと
 
