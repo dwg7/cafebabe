@@ -36,7 +36,8 @@ cafebabe は、その知見を**誰か一人が所有するのではなく**、�
     スタイル設計)、[`patterns/maplibre-gl-js-data-serving.md`](patterns/maplibre-gl-js-data-serving.md)
     (データ配信)、[`patterns/maplibre-gl-js-output-testing.md`](patterns/maplibre-gl-js-output-testing.md)
     (出力・自動化検証)、[`patterns/maplibre-gl-js-embedding.md`](patterns/maplibre-gl-js-embedding.md)
-    (埋め込み・UI)
+    (埋め込み・UI。地点情報表示の2つの流儀——固定ドッキングパネル/放射状コントロール——を
+    含む)
   - [`patterns/markdown-file-conventions.md`](patterns/markdown-file-conventions.md) — README/CLAUDE.md/HANDOVER.md/DECISIONS.mdの使い分け
   - [`patterns/progress-reporting.md`](patterns/progress-reporting.md) — `unopengis/7`への進捗報告の作法
   - [`patterns/gatekeeping.md`](patterns/gatekeeping.md) — ゲートキーパーとしての判断基準
