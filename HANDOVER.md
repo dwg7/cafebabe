@@ -59,6 +59,10 @@ hfuさんの確認が無いことそれ自体を問題視しない。他者か�
   - 複数パターンファイルの冒頭にあった鮮度切れの「Xプロジェクトから」という記述を追記で更新
   - D6の「9プロジェクト全員への結果共有」がResume promptに残ったまま未達だったことが判明。
     4日以上経過し状況も変化しているため、今更り追わずクローズ(教訓として記録)
+- `patterns/agent-execution-gotchas.md`にm3xx-fleet-opsから新たに2件反映(2026-09-06):
+  「短いtimeoutで更新→即reboot」の新規パターン(タイムアウト無し一発コマンドが居座る
+  パターンとは逆方向の失敗モード)、および「権限分類器が自己の設定ファイル編集を
+  ハードブロックする」パターン(stars-fdに続く2件目のKnown use)
 
 ## Pending long-running tasks(急がず進める)
 
@@ -67,7 +71,7 @@ hfuさんの確認が無いことそれ自体を問題視しない。他者か�
 2. **D1'**: cafebabeが自律的に書き起こしたがhfuさん未レビューの.mdファイルの棚卸し。
    優先候補3件(`STACCATO-CONTEXT.md`・`patterns/gatekeeping.md`・`patterns/open-mct.md`)を
    提示済み、フィードバック待ち
-3. zukakuへの`.claude/rules/`symlink試行の依頼(D14)——セッション不在で未達、再送する
+3. zukakuへの`.claude/rules/`symlink試行の依頼(D14)——2026-09-06、zukaku-6b起動を確認し送信済み。返信待ち
 4. hfuさんからGitHub issue経由のレビューが来たら、それに対応する
 
 ## Known open items
