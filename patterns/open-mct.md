@@ -23,6 +23,26 @@
 
 基本プラグイン（`LocalStorage`・`UTCTimeSystem`・`Espresso`テーマ）のインストール、`openmct.types.addType()`によるカスタムタイプ登録は、3プロジェクトとも問題なく動作。
 
+## カスタムtype登録（`openmct.types.addType()`）の使われ方
+
+2026-09-06、hfuさん自身のOpen MCT学習に伴うヒアリングより。「組み込みtypeだけで運用しているか」という問いに対し、sas0・claude-mct・m3xx-fleet（m3xx-fleet-ops）の3プロジェクトとも**自分でtypeを登録していた**——「型そのものが要らない」という運用は今のところ見られない。
+
+- **sas0**：`sas0.instrument`という単一のカスタムtype（`creatable: false`、全計器で共用）のみ。フォルダは組み込み`folder`のまま。telemetry/plot系typeは未登録——地震マグニチュード推移をOpen MCT純正Plotビューで表示しようとして上記Plot API節の壁にぶつかり、`registerInstrument`経由の素のSVGチャートに切り替えた経緯がある。
+- **claude-mct**：4種類（`claude-session`、`claude-session-comm`、`fleet-summary`、`fleet-andon`）、すべて`creatable: false`（providerが返す非永続オブジェクト用）。型ごとにTable・Plot・独自ビュー（`objectViews.addProvider`）を使い分けている。
+- **m3xx-fleet**：2種類（`fleet.host`、`fleet.root`）。**動機が明確**——ルートに組み込み`folder`typeを使うと、既定のGrid Viewがビュー切り替えメニューに競合して残ってしまい、「クリックすれば常に自作のアンドンボードが出る」という体験を作れなかった。ルートを独自typeにし、そのtypeにだけ`canView`するカスタムビューを紐付けることで、ビュー切り替えの選択肢を実質1つに絞った。
+
+**共通する動機**：3プロジェクトとも、カスタムtypeを「分類ラベル」としてではなく、**「その型にだけカスタムビューを紐付けて、ユーザーに見せるビュー切り替えの選択肢を絞り込む」**という制御目的で使っている。組み込み`folder`typeで運用する場合、既定のビュー（Grid View等）がビュー切り替えメニューに残ってしまう点に注意。
+
+## ツリーはDAGか — 実務では単一親ツリーに落ち着く
+
+2026-09-06のヒアリングより。「同じテレメトリ点/オブジェクトを複数フォルダにリンクする」という、Open MCTのオブジェクトモデルが理論上許すDAG構造を、実務で使っている実例はまだ確認できていない（sas0・claude-mct・m3xx-fleetの3プロジェクトとも未使用）。
+
+- **sas0**：意識も利用もしていない。`registerInstrument`/`registerFolder`が単一`parentKey`しか受け取らない設計。「計器が2つ以上ある時だけフォルダを作る」という単純な木構造の運用方針そのものが、多親リンクの動機を生じさせていない。
+- **m3xx-fleet**：使っていない。15台規模のフラットな1階層ツリーで「一望性」の要件が満たせてしまい、「状態別」「役割別」のように同じホストを複数の切り口で見せたいという要求自体が発生しなかった。
+- **claude-mct**：**意図的に避けた実例。** 活動ログ配下と交信ログ配下の両方から同じ`sessionId`を子として参照しようとしたが、composition providerの`get(identifier)`は`{namespace, key}`だけで呼ばれ「どの親からたどってきたか」を持たないため、`claude-session`型と`claude-session-comm`型のどちらを指すか区別できず衝突した。結局`${sessionId}::comm`という別名前空間のキーに分けて回避した——DAG的リンクを試みて、provider実装上の制約（親情報を持てない）にぶつかった実例。Open MCT自体の一般的な制約かは未確認。
+
+**現時点の結論**：DAG構造はOpen MCTのオブジェクトモデルが理論上サポートする機能だが、3プロジェクトの実地では**需要が発生しないか、発生しても実装上の制約（`get(identifier)`が親情報を持たない）で回避されている**。「複数の切り口で同じオブジェクトを見せたい」規模・要件に達したら、この制約を踏まえて設計する必要がある。
+
 ## ブートストラップの落とし穴
 
 - **CDNバージョン固定**：存在しないバージョンを指定すると、エラーも出ずに真っ白な画面になる（sas0はかつて`3.3.0`で被弾）。`docs/dist/openmct.js`と`docs/dist/espressoTheme.css`（`openmct.css`ではない——3.x→4.x系のどこかで名前が変わった）の両方が実在するか、`curl -sI`で確認してから固定する。〔sas0〕
@@ -136,4 +156,4 @@ latest:   4.3.1   ← 直近（数日前）に公開されたばかりの正式�
 
 2026-09-02、hfuさんの依頼により、sas0からcafebabe(`dwg7/cafebabe`)へマスター管理を移管した。sas0・mapterhorn-japan-bridge・claude-mctの3リポジトリからは、このファイルへのリンクのみを保持する形に変更。今後の更新はこのファイルに対する変更として行う。
 
-最終更新：2026-09-01(sas0時代)、2026-09-02 cafebabeへ移管
+最終更新：2026-09-01(sas0時代)、2026-09-02 cafebabeへ移管、2026-09-06 カスタムtype/DAGヒアリングを反映(sas0・claude-mct・m3xx-fleet)
