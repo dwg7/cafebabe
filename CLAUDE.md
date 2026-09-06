@@ -137,7 +137,10 @@ cross-session連携用の一時的な情報(セッションは任務終了でア
 - `sas0` — 北海道防災情報ダッシュボード(Open MCT)。`OPENMCT-NOTES.md`の先例あり
 - `kitavolca` — 北海道火山PMTilesパイプライン
 - `kaga0` — 火山地図Raspberry Piアプライアンス(MapLibre Native、GL JSではない)
-- `stars` — タイルサーバー(stars.optgeo.org)のゲートキーパー
+- `stars` — タイルサーバー(stars.optgeo.org)のゲートキーパー。2026-09-07追記:
+  stars.optgeo.org自体の監視ダッシュボードもOpen MCT(CDN読み込み)で構築中——
+  `patterns/open-mct.md`のカスタムtype/Provider構造/Telemetry API回避の設計助言を
+  提供した(5番目のOpen MCT利用プロジェクトとして今後の実例に注目)
 - `plateau-mago-implicit` — PLATEAU 3D Tiles実験(CesiumJS専用方針)
 - `vientiane-planning-map` — ヴィエンチャンのゾーニング地図(height-coverageの姉妹プロジェクト)
 - `claude-mct` — このリポジトリの創設を主導したセッション。Open MCTベースのエージェント
