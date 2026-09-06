@@ -51,9 +51,12 @@
 - **単一役（型分岐なし）**：
   - sas0 — `objectsByKey`という1つのMapを`identifier.key`で引くだけ。型による分岐が無く、フォルダも計器も同じMapに平置き。
   - mapterhorn-monitor — 同じく`objectsByKey.get(identifier.key)`のフラットなMap引きのみ。sas0と同型の最小構成。
+  - stars — 2026-09-07、cafebabeの設計助言に沿って新規実装。単一のカスタムtype`stars.instrument`を7計器で共有し、単一役のMap構成を採用。本番（GitHub Pages）まで問題なく反映（下記Known use参照）。
 - **多役（`identifier.key`で型を判別して分岐）**：
   - claude-mct — `get(identifier)`内部で、`identifier.key`がどのルートキー（活動ログ/稼働状況/交信ログ/フリートサマリ）か、あるいはセッションID（素かサフィックス`::comm`付きか）かで分岐し、4type分のオブジェクトをすべて1つのproviderから返す。
   - m3xx-fleet — `identifier.key === ROOT_KEY`かどうかで`fleet.root`/`fleet.host`の2typeを分岐。typeはnamespace/provider自体には現れず、分岐後に組み立てるdomainObjectのフィールドに過ぎない、という整理。
+
+**stars実例についての注記**：starsのケースは「独立に同じ結論に到達した」のではなく、cafebabeがこのヒアリング結果に基づいて設計助言を行い、それに沿って実装した結果が確認できた、という順序（助言→実装→検証）である。複数プロジェクトが独立収束したsas0/mapterhorn-monitorの2例とは証拠としての重みが異なる点に注意——ただし「7計器程度の規模なら単一役構成で問題なく動く」という点自体は、本番での実地確認として十分な価値がある。
 
 **傾向**：type数が1つ（sas0・mapterhorn-monitor）のプロジェクトは分岐が発生しようがなく自然に単一役になっているのに対し、type数が複数（claude-mct・m3xx-fleet）のプロジェクトは「1 namespace = 1 provider」の制約の中でkey分岐によって多役化している。type数がさらに増えた場合、この分岐ロジックが肥大化しやすい点は、将来の棚卸し対象として意識しておく価値がある。
 
@@ -61,7 +64,7 @@
 
 2026-09-06のヒアリングより。`openmct.objects.addRoot()`には固定の識別子オブジェクトを渡す形と、関数（Promise）を渡して起動時に外部から動的に解決させる形があるが、4プロジェクトとも**前者（固定識別子）のみ**を使っていた。関数/Promise版の実例はまだ無い。
 
-- sas0・mapterhorn-monitor・m3xx-fleet：単一のルート（`{ namespace, key: 'root' }`相当）を1回`addRoot`するだけ。理由はいずれも「起動時にオブジェクト構成が決め打ちで、動的に変わるのは中身のデータだけ」という共通の設計。
+- sas0・mapterhorn-monitor・m3xx-fleet・stars：単一のルート（`{ namespace, key: 'root' }`相当）を1回`addRoot`するだけ。理由はいずれも「起動時にオブジェクト構成が決め打ちで、動的に変わるのは中身のデータだけ」という共通の設計。
 - claude-mct：4つのルートキー（活動ログ/稼働状況/交信ログ/フリートサマリ）をそれぞれ別々に`addRoot`し、第2引数の優先度（`-1`〜`-4`）でツリー内の並び順を明示的に制御している——単一ルートの3プロジェクトには無い工夫。
 
 **現時点の結論**：関数/Promise版が必要になるのは「起動時点ではルートの数や識別子が決まっておらず、外部（APIやファイル走査等）から動的に取得しないと分からない」場合のはずだが、4プロジェクトとも「ルート自体は静的、中身のデータだけが動的」という設計に収まっているため、まだ実例が無い。今後、ルート自体を動的に増減させたいプロジェクトが出てきたら、ここが最初の実地検証になる。
@@ -91,18 +94,19 @@
 - **`openmct.plugins.PlanLayout()`（タイムライン/ガントチャート）**：sas0・mapterhorn-monitorとも、providerが返すオブジェクトに対して`.c-plan__contents`が常に空になり、「Attempted to mutate immutable object」というエラーが出る（sas0はPlotの`xKey`/`yKey`/`interpolate`等のカスタムフィールドを試した際にも同文言のエラーに遭遇）。claude-mctはコード読解のみでの判断だが、`plan`タイプはアップロードされたJSON blobと`getMutable()`ベースの永続化を前提にしていると推測——3者の情報は矛盾なく一致しており、確度は高い。**providerパターンとは相性が悪いと考えてよく、独自SVG/Canvasでの代替を推奨。**
 - **実践的な結論（現時点）**：Plot/Telemetryの高機能ビューは、自分の正確なバージョン・構成で直接試すまで動作を仮定しない方がよい。3プロジェクトとも、素のSVG/Canvasを自前のビュープロバイダで描画するアプローチは確実に動いており、実績のある安全な代替手段になっている。
 
-## `request()`/`subscribe()` — 4プロジェクト中3プロジェクトがTelemetry API自体を使っていない
+## `request()`/`subscribe()` — 5プロジェクト中4プロジェクトがTelemetry API自体を使っていない
 
-2026-09-06のヒアリングより。Open MCTのTelemetry API（`request()`＝履歴取得、`subscribe()`＝リアルタイム購読）を実際に使っているのは4プロジェクト中1つだけだった。
+2026-09-06のヒアリングより。Open MCTのTelemetry API（`request()`＝履歴取得、`subscribe()`＝リアルタイム購読）を実際に使っているのは、当時ヒアリングした4プロジェクト中1つだけだった（starsは2026-09-07に追加確認）。
 
 | プロジェクト | request | subscribe | 実際の更新方式 |
 |---|---|---|---|
 | sas0 | ✗ | ✗ | telemetryプロバイダ自体をD53で完全撤去（`registerTelemetry`型・`openmct.time`設定含む）。更新は`registerInstrument`の`autoRefresh`（`setInterval`による再描画）または手動更新ボタンのみ |
 | mapterhorn-monitor | ✗ | ✗ | 同上の結論に**独立に到達**。`registerInstrument`の`autoRefresh`オプション（内部`setInterval`）＋`render(container)`内で直接`fetch()`しDOMへ手で描画 |
 | m3xx-fleet | ✗ | ✗ | 同じく独立に到達。ビュー（`hostViewProvider`/`andonViewProvider`）の`view()`内で直接`fetch()`し、結果をDOMに手で描画。Open MCTはツリー（`addProvider`/`addRoot`）としてのみ利用 |
+| stars | ✗ | ✗ | cafebabeの設計助言（Telemetry API回避を明示的に推奨）に沿って実装。`objectViews.addProvider()`＋自前SVG描画のまま7オブジェクトに分割し、本番まで問題なく反映 |
 | claude-mct | ○ | ○ | telemetry providerに`request()`（feedClientのキャッシュ）と`subscribe()`（型ごとに`subscribe`/`subscribeEdges`/`subscribeFleetSummary`を呼び分け）を実装。ただし**feedClient自体は5秒間隔のポーリングで、真のプッシュ型ではない**——Open MCT側にはsubscribe/callbackのインターフェースとして見せているだけ、という補足あり |
 
-**共通する背景**：sas0・mapterhorn-monitor・m3xx-fleetの3プロジェクトはいずれも「静的スナップショットが一定間隔（2時間おき、15分おき等）で更新される」性質のデータを扱っており、Telemetry APIの購読モデルに乗る必要が生じなかった。3者は互いに参照せず**独立に同じ結論**（ツリー＋ビュー差し込み機構だけを借り、データ取得・描画は自前のfetch+DOM/Canvasで完結させる）に到達している。
+**共通する背景**：sas0・mapterhorn-monitor・m3xx-fleetの3プロジェクトはいずれも「静的スナップショットが一定間隔（2時間おき、15分おき等）で更新される」性質のデータを扱っており、Telemetry APIの購読モデルに乗る必要が生じなかった。3者は互いに参照せず**独立に同じ結論**（ツリー＋ビュー差し込み機構だけを借り、データ取得・描画は自前のfetch+DOM/Canvasで完結させる）に到達している。starsは同じ結論を、独立発見ではなくcafebabeの助言を受けて採用し、実地で確認した——証拠としての性質は異なる（上記Providerの構造セクション末尾の注記も参照）が、「助言通りに実装して問題が起きなかった」という点自体は推奨の妥当性を補強する。
 
 **現時点の結論**：Open MCTを選ぶ理由は必ずしも「Telemetry APIのpush/pull抽象化を使いたいから」ではない——**「異種混在の情報源を1つのツリー・ブラウズUIで束ねたい」という価値だけを目的に、Telemetry API自体は使わないという選択も十分に実用的な標準構成になっている**（本ドキュメント末尾「Open MCTの強み」の三層分離の議論とも整合する）。真のリアルタイム性・大量データの効率的な差分配信が要る場合にのみ、claude-mctのようにTelemetry APIへ乗る価値が出てくる。
 
@@ -195,4 +199,4 @@ latest:   4.3.1   ← 直近（数日前）に公開されたばかりの正式�
 
 2026-09-02、hfuさんの依頼により、sas0からcafebabe(`dwg7/cafebabe`)へマスター管理を移管した。sas0・mapterhorn-japan-bridge・claude-mctの3リポジトリからは、このファイルへのリンクのみを保持する形に変更。今後の更新はこのファイルに対する変更として行う。
 
-最終更新：2026-09-01(sas0時代)、2026-09-02 cafebabeへ移管、2026-09-06 カスタムtype/DAG/Providerの構造/addRoot/request・subscribeヒアリングとPlot API失敗の分類深掘りを反映(sas0・claude-mct・m3xx-fleet・mapterhorn-monitor)
+最終更新：2026-09-01(sas0時代)、2026-09-02 cafebabeへ移管、2026-09-06 カスタムtype/DAG/Providerの構造/addRoot/request・subscribeヒアリングとPlot API失敗の分類深掘りを反映(sas0・claude-mct・m3xx-fleet・mapterhorn-monitor)、2026-09-07 stars(stars.optgeo.org監視ダッシュボード)による設計助言の実地検証結果を追記
