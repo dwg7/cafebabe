@@ -8,22 +8,26 @@
 経済学セクション含む)、`STACCATO-CONTEXT.md`(staccato-spec 4パーティモデルと一般化拡張
 議論、ferspas57のnarrative libraryを追記済み)を保有。
 
-D1〜D16まで16件のADRが完了。直近の3件: D14(判断待ち事項の捌き方を「2〜3件の小分け+
+D1〜D17まで17件のADRが完了。直近の4件: D14(判断待ち事項の捌き方を「2〜3件の小分け+
 定期」に更新、5件超/複数テーマならPlanモード)、D15(全プロジェクト共通の
 `~/.claude/CLAUDE.md`策定にcafebabeが協力、ピアセッションの主張を鵜呑みにしない原則を
-verification-discipline.mdへ一般化)、D16(`ideas/`新設)。
+verification-discipline.mdへ一般化)、D16(`ideas/`新設)、D17(Fableによる知見ベース全体
+レビューと「局面 vs 大局」の区別)。
 
 **運用(D14で更新済み)**: 判断待ち事項は2〜3件溜まったら通常の会話内でまとめて確認するのが
 基本形。1件だけ即時性が高ければその場で確認してよい。5件を超える、または複数テーマに
 またがる棚卸しはPlanモードでのレビュー(D10方式)に切り替える。hfuさんはGitHub issue経由でも
 直接レビューする運用のため、定期的にissueをチェックする習慣を持つこと。
 
-**2026-09-06、外部モデル(Fable)による知見ベース全体レビューを実施した。** 見つかった
-問題のうち機械的に直せるもの(下記「Resolved」参照)はその場で修正済み。判断が要るものは
-無いと判明した——レビューが「判断吸い上げの欠落」として挙げた項目(STACCATO-CONTEXT.mdの
-narrative判断等)は、hfuさんの確認により「cafebabe自身の解釈は知識創造として歓迎される」
-「局面の方針と大局の方針を混同していた」という整理で決着し、追加の対応は不要だった
-(詳細はDECISIONS.mdに記録していないが、下記「Resolved」に要点を残す)。
+**運用(D17で追加)**: cafebabe自身の解釈・分析は知識創造として恒常的に歓迎される——
+hfuさんの確認が無いことそれ自体を問題視しない。他者からの指摘(外部モデルによるレビュー等)
+を評価する際は、「局面での方針」と「大局的な方針」を区別してから食い違いの有無を判断する
+こと(詳しくは`CLAUDE.md`の該当節、経緯はD17参照)。
+
+**2026-09-06、外部モデル(Fable)による知見ベース全体レビューを実施した(D17)。** 見つかった
+問題のうち機械的に直せるものは下記「Resolved」の通り修正済み。「判断吸い上げの欠落」として
+挙げられた項目(STACCATO-CONTEXT.mdのnarrative判断等)は、上記のhfuさんのフィードバックに
+より、実際には問題ではなかったと判明した。
 
 ## Resolved since last handover
 
@@ -35,7 +39,7 @@ narrative判断等)は、hfuさんの確認により「cafebabe自身の解釈�
   `patterns/verification-discipline.md`にも追記
 - D16「`ideas/`ディレクトリ新設」完了。`ideas/osm-community-oauth.md`を初回エントリとして
   作成
-- **Fableによる知見ベース全体レビューとその対応**(2026-09-06、ADR化はせず本ファイルに記録):
+- **D17「Fableによる知見ベース全体レビューとその対応」**完了(2026-09-06):
   - `PROJECTS.md`のkitavolcaリンクを`dwg7/kitavolca`(古いフォーク、2026-07-19で更新停止)
     から`hfu/kitavolca`(本体、直近push 2026-08-30)に訂正。`m3xx-fleet-ops`・`m3xx-fleet`・
     `kitaphoto17-navara`の3件を追加登録
@@ -81,7 +85,7 @@ narrative判断等)は、hfuさんの確認により「cafebabe自身の解釈�
 
 ## Where to look
 
-- D1〜D16の経緯 → [DECISIONS.md](DECISIONS.md)(番号順)
+- D1〜D17の経緯 → [DECISIONS.md](DECISIONS.md)(番号順)
 - dwg7組織文脈・エージェンシー経済学 → [DWG7-CONTEXT.md](DWG7-CONTEXT.md)
 - staccato-spec 4パーティモデルと一般化拡張議論 → [STACCATO-CONTEXT.md](STACCATO-CONTEXT.md)
 - 各プロジェクトのリポジトリ → [PROJECTS.md](PROJECTS.md)
@@ -94,7 +98,7 @@ narrative判断等)は、hfuさんの確認により「cafebabe自身の解釈�
 ## Resume prompt
 
 次にこのリポジトリを触るときにやること:
-1. このHANDOVER.mdと直近のDECISIONS.mdエントリ(D15・D16)を読んで経緯を把握する
+1. このHANDOVER.mdと直近のDECISIONS.mdエントリ(D16・D17)を読んで経緯を把握する
 2. `dwg7/cafebabe`や`unopengis/7`にhfuさんからのissueが立っていないか確認する
 3. `patterns/open-mct.md`の分割方針をPlanモードで検討する(上記Pending 1番)
 4. zukakuセッションが復帰していたら、`.claude/rules/`symlink試行の依頼を送る
