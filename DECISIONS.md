@@ -930,3 +930,61 @@ Fable(cafebabeとは別モデル)にgit worktree隔離+バックグラウンド�
 食い違いの有無を判断すること**——このADRのフィードバックを一般的な評価規律として適用し
 続ける。cafebabe自身の解釈・分析は知識創造として恒常的に歓迎されるものであり、hfuさんの
 確認が無いことそれ自体を問題視しない。
+
+---
+
+## D18: `patterns/open-mct.md`のテーマ別3分割
+
+**Status**: Accepted (2026-09-08)
+
+### 背景
+
+D17のPlan送り事項。`patterns/open-mct.md`は2026-09-02にsas0からcafebabeへ移管された時点で
+139行・24KBだったが、hfuさん自身のOpen MCT学習に伴う横断ヒアリング(2026-09-06〜07、
+カスタムtype登録・ツリーのDAG性・Object Providerの構造・addRootの形・Plot API失敗の
+分類・request/subscribe実装・starsの実地検証)を重ねた結果、202行・39KBまで増えていた。
+D13のmaplibre-gl-js.md分割と同じ状況——ただし今回はD17で得た「行数だけでなくバイト数も
+見るべき」という教訓(`patterns/open-mct.md`自身が当時
+「139行だから閾値未満」と誤判定されていた張本人)を踏まえ、行数(202行、閾値300行未満)より
+実質的な情報密度(1行あたり平均193バイト、通常パターンファイルの倍近い)を判断基準にした。
+
+sas0・mapterhorn-monitor(mapterhorn-japan-bridge)・claude-mctの3プロジェクトが対等に
+持ち寄る共同マスタードキュメントであるため、Planモードで分割方針を検討したうえで、
+実行後に3プロジェクトのセッションへ周知することを作業に含めた。
+
+### 決定
+
+D13のmaplibre-gl-js.md分割(4テーマ+概要ファイル)と同じ形で実行:
+
+- `patterns/open-mct.md`(存続、51行・8.5KBに縮小)：前書き・寄稿プロジェクト表・3テーマ
+  ファイルへの案内・「Open MCTの強み」・「由来」のみを残す
+- `patterns/open-mct-object-model.md`(新規、60行)：拡張点(`addProvider`+
+  `composition.addProvider`)・カスタムtype登録・DAG・Object Providerの構造・addRootの形
+- `patterns/open-mct-telemetry.md`(新規、29行)：Plot/Telemetry API(結論未確定)・
+  request/subscribe
+- `patterns/open-mct-operations.md`(新規、82行)：ブートストラップの落とし穴・キオスク
+  モード・デバッグ手法・バージョン選択
+
+「未解決の論点」という独立節は廃止し、各項目を該当テーマファイルの本文中に吸収した
+(3ファイルそれぞれが自己完結する形にするため)。
+
+事前調査で、sas0・claude-mctは`patterns/open-mct.md`への**ファイル全体へのリンクのみ**を
+保持しており(フラグメントアンカーへのリンクは無し)、ファイル名さえ維持すれば中身の
+再編で外部リンクが壊れないことを確認した。なお、mapterhorn-monitor/mapterhorn-japan-bridge
+側の.mdファイルには現状open-mct.mdへの直接リンクが見当たらなかった(sas0 D69の記述にある
+想定と食い違うが、実害は無いため指摘のみに留め、修正はfaceless-cartographer-8b側の
+判断に委ねた)。
+
+### 保留事項
+
+- mapterhorn-monitor/mapterhorn-japan-bridge側にopen-mct.mdへの直接リンクが見当たらない件
+  (実害無し、指摘のみ済み)
+- README.mdの4リンク化以外に、cafebabe内部の他ファイル(PROJECTS.md・CLAUDE.md等)は
+  ファイル全体への言及のみのため変更不要と判断——見落としがあれば追って訂正する
+
+### Resume prompt
+
+3プロジェクトのセッション(sas0-74・faceless-cartographer-8b・claude-25)への周知が
+このADR記録の直後のタスクとして残っている(cross-session messageで新構造と、外部リンクは
+`patterns/open-mct.md`のままで変更不要である旨を伝える)。周知が完了したらHANDOVER.mdの
+Pending項目からこの分割タスクを外す。

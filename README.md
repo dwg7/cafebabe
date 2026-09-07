@@ -43,8 +43,14 @@ cafebabe は、その知見を**誰か一人が所有するのではなく**、�
   - [`patterns/gatekeeping.md`](patterns/gatekeeping.md) — ゲートキーパーとしての判断基準
   - [`patterns/agent-repository-boundaries.md`](patterns/agent-repository-boundaries.md) —
     1エージェントが複数リポジトリを抱えることの是非
-  - [`patterns/open-mct.md`](patterns/open-mct.md) — Open MCT実地ノウハウ集(sas0からの移管、
-    sas0/mapterhorn-monitor/claude-mctの3プロジェクト共同マスター)
+  - Open MCT実地ノウハウ集(sas0からの移管、sas0/mapterhorn-monitor/claude-mctの3プロジェクト
+    共同マスター。2026-09-08、テーマ別に3分割): [`patterns/open-mct.md`](patterns/open-mct.md)
+    (概要・寄稿プロジェクト一覧・強み)、
+    [`patterns/open-mct-object-model.md`](patterns/open-mct-object-model.md)(オブジェクト/
+    コンポジションモデル・カスタムtype・DAG・Provider構造・addRoot)、
+    [`patterns/open-mct-telemetry.md`](patterns/open-mct-telemetry.md)(Plot/Telemetry API・
+    request/subscribe)、[`patterns/open-mct-operations.md`](patterns/open-mct-operations.md)
+    (ブートストラップ・キオスクモード・デバッグ・バージョン選択)
   - [`patterns/unattended-progress-visibility.md`](patterns/unattended-progress-visibility.md) —
     無人稼働中の進捗を安全に外部公開する設計
   - [`patterns/large-data-pitfalls.md`](patterns/large-data-pitfalls.md) — 大容量データ処理で

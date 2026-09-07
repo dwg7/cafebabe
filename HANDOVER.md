@@ -1,95 +1,94 @@
 # HANDOVER
 
-## Status as of 2026-09-06
+## Status as of 2026-09-08
 
-パターン集は23テーマ(`patterns/`実ファイル数)。`ideas/`ディレクトリを新設(D16)——
-実装に裏打ちされていない技術的アイデアを`patterns/`と分離して置く場所。`PROJECTS.md`
+パターン集は26テーマ(`patterns/`実ファイル数)。`ideas/`ディレクトリ(D16)——実装に
+裏打ちされていない技術的アイデアを`patterns/`と分離して置く場所——も稼働中。`PROJECTS.md`
 (dwg7組織10件+hfu個人7件のリポジトリ)、`DWG7-CONTEXT.md`(組織文脈、エージェンシー
 経済学セクション含む)、`STACCATO-CONTEXT.md`(staccato-spec 4パーティモデルと一般化拡張
 議論、ferspas57のnarrative libraryを追記済み)を保有。
 
-D1〜D17まで17件のADRが完了。直近の4件: D14(判断待ち事項の捌き方を「2〜3件の小分け+
-定期」に更新、5件超/複数テーマならPlanモード)、D15(全プロジェクト共通の
-`~/.claude/CLAUDE.md`策定にcafebabeが協力、ピアセッションの主張を鵜呑みにしない原則を
-verification-discipline.mdへ一般化)、D16(`ideas/`新設)、D17(Fableによる知見ベース全体
-レビューと「局面 vs 大局」の区別)。
+D1〜D18まで18件のADRが完了。直近の3件: D16(`ideas/`新設)、D17(Fableによる知見ベース
+全体レビューと「局面 vs 大局」の区別)、D18(`patterns/open-mct.md`のテーマ別3分割)。
 
-**運用(D14で更新済み)**: 判断待ち事項は2〜3件溜まったら通常の会話内でまとめて確認するのが
-基本形。1件だけ即時性が高ければその場で確認してよい。5件を超える、または複数テーマに
-またがる棚卸しはPlanモードでのレビュー(D10方式)に切り替える。hfuさんはGitHub issue経由でも
-直接レビューする運用のため、定期的にissueをチェックする習慣を持つこと。
+**運用(D14)**: 判断待ち事項は2〜3件溜まったら通常の会話内でまとめて確認するのが基本形。
+1件だけ即時性が高ければその場で確認してよい。5件を超える、または複数テーマにまたがる
+棚卸しはPlanモードでのレビュー(D10方式)に切り替える。
 
-**運用(D17で追加)**: cafebabe自身の解釈・分析は知識創造として恒常的に歓迎される——
-hfuさんの確認が無いことそれ自体を問題視しない。他者からの指摘(外部モデルによるレビュー等)
-を評価する際は、「局面での方針」と「大局的な方針」を区別してから食い違いの有無を判断する
+**運用(D17)**: cafebabe自身の解釈・分析は知識創造として恒常的に歓迎される——hfuさんの
+確認が無いことそれ自体を問題視しない。他者からの指摘(外部モデルによるレビュー等)を
+評価する際は、「局面での方針」と「大局的な方針」を区別してから食い違いの有無を判断する
 こと(詳しくは`CLAUDE.md`の該当節、経緯はD17参照)。
 
-**2026-09-06、外部モデル(Fable)による知見ベース全体レビューを実施した(D17)。** 見つかった
-問題のうち機械的に直せるものは下記「Resolved」の通り修正済み。「判断吸い上げの欠落」として
-挙げられた項目(STACCATO-CONTEXT.mdのnarrative判断等)は、上記のhfuさんのフィードバックに
-より、実際には問題ではなかったと判明した。
+**2026-09-06〜07、hfuさん自身のOpen MCT学習に伴い、Open MCT利用5プロジェクト
+(sas0・claude-mct・m3xx-fleet・mapterhorn-monitor・stars)への横断ヒアリングを実施した。**
+カスタムtype登録・ツリーのDAG性・Object Providerの構造・addRootの形・Plot API失敗の
+分類・request/subscribe実装、と多岐にわたる内容で`patterns/open-mct.md`を24KB→39KBまで
+太らせた結果、D18でテーマ別3ファイルに分割した(下記Resolved参照)。starsからの相談には
+このヒアリング結果を使って直接設計助言を行い、本番環境での実地検証まで得られた——
+cafebabeが単に知見を集約するだけでなく、集めた知見を使って新規の相談に答え、その結果を
+また知見として取り込むという循環が実際に機能した例。
 
 ## Resolved since last handover
 
-- D1〜D13(創設〜maplibre-gl-js.md分割+terrain/hillshadeヒアリング)完了
-- D14「判断待ち事項の捌き方を更新」完了。zukakuでの`.claude/rules/`symlink試行を提案中
-  (zukakuセッション不在のため未達、再送待ち)
-- D15「グローバル`~/.claude/CLAUDE.md`策定への協力」完了。9セッションからの提起
-  (kitavolca/sas0/stars-fd)を1原則に統合し採用された。同じ一般化を
-  `patterns/verification-discipline.md`にも追記
+- D1〜D15(創設〜グローバル`~/.claude/CLAUDE.md`策定協力)完了
 - D16「`ideas/`ディレクトリ新設」完了。`ideas/osm-community-oauth.md`を初回エントリとして
   作成
-- **D17「Fableによる知見ベース全体レビューとその対応」**完了(2026-09-06):
-  - `PROJECTS.md`のkitavolcaリンクを`dwg7/kitavolca`(古いフォーク、2026-07-19で更新停止)
-    から`hfu/kitavolca`(本体、直近push 2026-08-30)に訂正。`m3xx-fleet-ops`・`m3xx-fleet`・
-    `kitaphoto17-navara`の3件を追加登録
-  - `patterns/style-composition.md`(317行、閾値超過)から「中心固定型の放射状コントロール」
-    パターンを`patterns/maplibre-gl-js-embedding.md`へ移動(UI/インタラクション寄りの
-    内容のため、既存の「ホバー情報は固定ドッキングパネル」パターンと隣接させる形に整理)。
-    両ファイルとも300行以下に収まった
-  - `patterns/open-mct.md`は139行だが24KBで実は全パターン中バイト数最大(行数だけを見た
-    D13の判断は指標として不適切だった)——ただし3プロジェクト共同のマスタードキュメントで
-    あり、分割は関係者への周知が要るため、機械的修正の対象外としPlanモード送りとした
-  - `CONTRIBUTING.md`(投稿時)と`CLAUDE.md`(棚卸し時)の「一般則/個別事情」タグの既定値の
-    違いは、矛盾ではなく局面の違いであることを明記して両ファイルに解説を追記
-  - `DWG7-CONTEXT.md`の出自宣言(「一次情報として原文のまま保存」)と、D12「エージェンシーの
-    経済学」節(hfuさんとの対話をcafebabeが再構成したもの)との食い違いを、補足として追記し
-    明確化。あわせて「独立収束の記録」原則とD15(収束を根拠に規約へ昇格させた実例)の関係も
-    補足として整理
-  - 複数パターンファイルの冒頭にあった鮮度切れの「Xプロジェクトから」という記述を追記で更新
-  - D6の「9プロジェクト全員への結果共有」がResume promptに残ったまま未達だったことが判明。
-    4日以上経過し状況も変化しているため、今更り追わずクローズ(教訓として記録)
+- D17「Fableによる知見ベース全体レビューとその対応」完了(2026-09-06)。詳細はDECISIONS.md
+  D17参照
 - `patterns/agent-execution-gotchas.md`にm3xx-fleet-opsから新たに2件反映(2026-09-06):
-  「短いtimeoutで更新→即reboot」の新規パターン(タイムアウト無し一発コマンドが居座る
-  パターンとは逆方向の失敗モード)、および「権限分類器が自己の設定ファイル編集を
-  ハードブロックする」パターン(stars-fdに続く2件目のKnown use)
+  「短いtimeoutで更新→即reboot」の新規パターン、「権限分類器が自己の設定ファイル編集を
+  ハードブロックする」パターンへの2件目のKnown use
+- **Open MCT横断ヒアリング(2026-09-06〜07)完了**。`patterns/open-mct.md`に以下を追加
+  (D18で分割後の新ファイルに反映済み):
+  - カスタムtype登録・ツリーのDAG性・Object Providerの構造(単一役/多役)・addRootの形
+    (`patterns/open-mct-object-model.md`)——5プロジェクトへのヒアリング
+  - Plot API失敗の分類深掘り(sas0の壁は表現力ではなくメタデータ/設定面の問題だったと
+    訂正確認)・request/subscribe実装状況(5プロジェクト中4プロジェクトがTelemetry API
+    自体を不使用)(`patterns/open-mct-telemetry.md`)
+  - starsからの新規相談(監視ダッシュボードの計器ごとオブジェクト分割)にヒアリング結果で
+    設計助言→本番実装→検証完了、というcafebabe初の「助言の実地検証」ループが成立
+- **D18「`patterns/open-mct.md`のテーマ別3分割」完了(2026-09-08)**。202行・39KBまで
+  太った本文を、概要ファイル(51行)+3テーマファイル(object-model/telemetry/operations、
+  各60〜82行)に分割。README.mdのリンクも更新。外部3リポジトリ(sas0/mapterhorn-monitor/
+  claude-mct)はファイル全体へのリンクのみのため、リンク自体は変更不要と確認済み
+- zukakuでの`.claude/rules/`symlink試行(D14)が完了、**否定的な結論**(D14追記、
+  2026-09-08)。「公開リポジトリ+ローカルクローン前提のシンボリックリンク」は筋が悪いと
+  hfuさん本人が判断。他プロジェクトへの展開は見送り
+- zukakuからのPrint-in-Browser機能の独立リポジトリ切り出し相談に対応(2026-09-08)。
+  差別化ポイント(window.print()+CSS named pages vs 既存プラグインのjsPDF単発出力)の確認、
+  命名(リポジトリ名とnpmパッケージ名の分離)、cafebabeパターンとの関係(一般則は
+  cafebabeに残し実装例のリンクだけ差し替える)の3点で意見を返した。hfuさんのレビュー
+  結果待ち
 
 ## Pending long-running tasks(急がず進める)
 
-1. `patterns/open-mct.md`(24KB、sas0/mapterhorn-monitor/claude-mct共同管理)の分割方針を
-   Planモードで検討する。3プロジェクトへの周知も必要
+1. D18完了後の周知: sas0-74・faceless-cartographer-8b・claude-25の3セッションへ、
+   `open-mct.md`の新構造(4ファイル分割)を伝える。外部リンクは変更不要である旨も含める
 2. **D1'**: cafebabeが自律的に書き起こしたがhfuさん未レビューの.mdファイルの棚卸し。
-   優先候補3件(`STACCATO-CONTEXT.md`・`patterns/gatekeeping.md`・`patterns/open-mct.md`)を
-   提示済み、フィードバック待ち
-3. zukakuへの`.claude/rules/`symlink試行の依頼(D14)——2026-09-06、zukaku-6b起動を確認し送信済み。返信待ち
-4. hfuさんからGitHub issue経由のレビューが来たら、それに対応する
+   優先候補3件(`STACCATO-CONTEXT.md`・`patterns/gatekeeping.md`・分割後の
+   `patterns/open-mct*.md`)を提示済み、フィードバック待ち
+3. hfuさんからGitHub issue経由のレビューが来たら、それに対応する
+4. zukakuのPrint-in-Browser切り出し計画がhfuさんのレビューを経てどうなったか、
+   フォローする
 
 ## Known open items
 
-- `patterns/`が23テーマまで増えた。ファイルサイズの閾値は「行数」だけでなく「バイト数」も
-  見ること(open-mct.mdの教訓)
+- `patterns/`が26テーマまで増えた。ファイルサイズの閾値は「行数」だけでなく「バイト数」も
+  見ること(open-mct.mdの教訓、D17・D18)
 - 「個別事情」タグと「プロジェクト固有すぎて`patterns/`に置かない」の境界線は運用しながら
   見極めている段階(D3参照。実例3件以上蓄積してから明文化、D10 C3)
 - 実例1件のまま長期間増えていない「一般則」タグが複数残っている
   (`interoperability.md`・`ci-cd-pitfalls.md`・`robust-pipeline-design.md`等)。次の棚卸しで
   「個別事情」への見直しを検討する
 - D1'(未レビューファイルの棚卸し)は約15ファイルが対象。1サイクルに数件ずつ提示する運用
-- claude-mctから「フリート全体の定期スタンドアップ」の1回限りテストがあり、常態化するかは
-  claude-mct側の判断待ち
+- 「知見をcafebabeが与え、実装先が検証し、結果をまた知見に還元する」という助言サイクル
+  (starsの実例)は、独立収束による知見とは証拠の重みが異なる点を毎回明記すること
+  (`patterns/open-mct-object-model.md`のstars注記が実例)
 
 ## Where to look
 
-- D1〜D17の経緯 → [DECISIONS.md](DECISIONS.md)(番号順)
+- D1〜D18の経緯 → [DECISIONS.md](DECISIONS.md)(番号順)
 - dwg7組織文脈・エージェンシー経済学 → [DWG7-CONTEXT.md](DWG7-CONTEXT.md)
 - staccato-spec 4パーティモデルと一般化拡張議論 → [STACCATO-CONTEXT.md](STACCATO-CONTEXT.md)
 - 各プロジェクトのリポジトリ → [PROJECTS.md](PROJECTS.md)
@@ -102,10 +101,10 @@ hfuさんの確認が無いことそれ自体を問題視しない。他者か�
 ## Resume prompt
 
 次にこのリポジトリを触るときにやること:
-1. このHANDOVER.mdと直近のDECISIONS.mdエントリ(D16・D17)を読んで経緯を把握する
+1. このHANDOVER.mdと直近のDECISIONS.mdエントリ(D17・D18)を読んで経緯を把握する
 2. `dwg7/cafebabe`や`unopengis/7`にhfuさんからのissueが立っていないか確認する
-3. `patterns/open-mct.md`の分割方針をPlanモードで検討する(上記Pending 1番)
-4. zukakuセッションが復帰していたら、`.claude/rules/`symlink試行の依頼を送る
-5. D1'への、hfuさんからのフィードバックが届いていれば対応する
-6. cross-session messageで届いている新しい知見・確認依頼があれば、まずそれに対応する
-7. 判断事項が2〜3件溜まったら会話内でまとめて確認、5件超か複数テーマならPlanモード(D14)
+3. D18の周知(sas0-74・faceless-cartographer-8b・claude-25への新構造連絡)がまだなら送る
+   (上記Pending 1番)
+4. D1'への、hfuさんからのフィードバックが届いていれば対応する
+5. cross-session messageで届いている新しい知見・確認依頼があれば、まずそれに対応する
+6. 判断事項が2〜3件溜まったら会話内でまとめて確認、5件超か複数テーマならPlanモード(D14)
