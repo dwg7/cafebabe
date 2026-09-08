@@ -71,12 +71,15 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
   三役構造由来の命名等、計8箇所)と`patterns/agent-personification.md`(藩の役職の比喩)を
   「表現の修正」として静かに修正。他ファイルは概ねクリーンと確認(コミット
   `f6bd223`・`93c5ea2`)
+- **D1'**: `patterns/open-mct*.md`(分割後の4ファイル)をhfuさんがレビューし、OKと確認
+  (2026-09-08)。D1'優先候補3件のうち1件が完了、残り2件(`STACCATO-CONTEXT.md`・
+  `patterns/gatekeeping.md`)は未レビューのまま
 
 ## Pending long-running tasks(急がず進める)
 
 1. **D1'**: cafebabeが自律的に書き起こしたがhfuさん未レビューの.mdファイルの棚卸し。
-   優先候補3件(`STACCATO-CONTEXT.md`・`patterns/gatekeeping.md`・分割後の
-   `patterns/open-mct*.md`)を提示済み、フィードバック待ち
+   `patterns/open-mct*.md`はレビュー済み(OK、2026-09-08)。残り優先候補2件
+   (`STACCATO-CONTEXT.md`・`patterns/gatekeeping.md`)がフィードバック待ち
 2. hfuさんからGitHub issue経由のレビューが来たら、それに対応する
 3. zukakuのPrint-in-Browser切り出し計画がhfuさんのレビューを経てどうなったか、
    フォローする
