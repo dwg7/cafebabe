@@ -7,7 +7,8 @@ GitHub Actions等のCI/CD環境特有の、ローカル環境とは異なる挙�
 
 ## GitHub Actionsのcontainerジョブは、通常のジョブと挙動が地味に違う
 
-**タグ**: 一般則
+**タグ**: 個別事情(zukaku。実例1件のまま長期間増えていないため、CONTRIBUTING.mdの棚卸し
+基準に従い一般則から見直し、2026-09-08)
 
 **状況(Context)**
 GitHub Actionsのワークフローで`container:`を指定したジョブを初めて使う場面。
