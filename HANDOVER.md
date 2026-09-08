@@ -60,16 +60,21 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
   命名(リポジトリ名とnpmパッケージ名の分離)、cafebabeパターンとの関係(一般則は
   cafebabeに残し実装例のリンクだけ差し替える)の3点で意見を返した。hfuさんのレビュー
   結果待ち
+- D18完了後の周知(sas0-74・faceless-cartographer-8b・claude-25への新構造連絡)完了
+  (2026-09-08)
+- hfuさんの依頼で、「hfuさん独特で文脈が無いと理解されにくい表現」の全ファイル棚卸しを
+  実施(2026-09-08)。`DWG7-CONTEXT.md`(江戸期与力/寄騎制度・GGKIC比較・隠れキリシタン
+  三役構造由来の命名等、計8箇所)と`patterns/agent-personification.md`(藩の役職の比喩)を
+  「表現の修正」として静かに修正。他ファイルは概ねクリーンと確認(コミット
+  `f6bd223`・`93c5ea2`)
 
 ## Pending long-running tasks(急がず進める)
 
-1. D18完了後の周知: sas0-74・faceless-cartographer-8b・claude-25の3セッションへ、
-   `open-mct.md`の新構造(4ファイル分割)を伝える。外部リンクは変更不要である旨も含める
-2. **D1'**: cafebabeが自律的に書き起こしたがhfuさん未レビューの.mdファイルの棚卸し。
+1. **D1'**: cafebabeが自律的に書き起こしたがhfuさん未レビューの.mdファイルの棚卸し。
    優先候補3件(`STACCATO-CONTEXT.md`・`patterns/gatekeeping.md`・分割後の
    `patterns/open-mct*.md`)を提示済み、フィードバック待ち
-3. hfuさんからGitHub issue経由のレビューが来たら、それに対応する
-4. zukakuのPrint-in-Browser切り出し計画がhfuさんのレビューを経てどうなったか、
+2. hfuさんからGitHub issue経由のレビューが来たら、それに対応する
+3. zukakuのPrint-in-Browser切り出し計画がhfuさんのレビューを経てどうなったか、
    フォローする
 
 ## Known open items
@@ -103,8 +108,6 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
 次にこのリポジトリを触るときにやること:
 1. このHANDOVER.mdと直近のDECISIONS.mdエントリ(D17・D18)を読んで経緯を把握する
 2. `dwg7/cafebabe`や`unopengis/7`にhfuさんからのissueが立っていないか確認する
-3. D18の周知(sas0-74・faceless-cartographer-8b・claude-25への新構造連絡)がまだなら送る
-   (上記Pending 1番)
-4. D1'への、hfuさんからのフィードバックが届いていれば対応する
-5. cross-session messageで届いている新しい知見・確認依頼があれば、まずそれに対応する
-6. 判断事項が2〜3件溜まったら会話内でまとめて確認、5件超か複数テーマならPlanモード(D14)
+3. D1'への、hfuさんからのフィードバックが届いていれば対応する
+4. cross-session messageで届いている新しい知見・確認依頼があれば、まずそれに対応する
+5. 判断事項が2〜3件溜まったら会話内でまとめて確認、5件超か複数テーマならPlanモード(D14)
