@@ -17,6 +17,7 @@
 | sas0 | https://github.com/dwg7/sas0 | 北海道防災情報ダッシュボード(Open MCT)。`patterns/open-mct.md`の旧マスター管理者 |
 | height-coverage | https://github.com/dwg7/height-coverage | OSM建物高さ入力状況の啓発サイト |
 | zukaku | https://github.com/dwg7/zukaku | MapLibre+Martinによる印刷アトラス生成(Field Papersの現代版) |
+| maplibre-gl-atlas | https://github.com/dwg7/maplibre-gl-atlas | zukakuのPrint-in-Browser機能を切り出したMapLibre GL JSコントロール(`AtlasControl`/`AtlasSheet`)。CC0 1.0。2026-09-09新規参加 |
 | kaga0 | https://github.com/dwg7/kaga0 | Kitavolca Air-Gapped Applianceの初実装(MapLibre Native) |
 | plateau-mago-implicit | https://github.com/dwg7/plateau-mago-implicit | PLATEAU由来のImplicit 3D Tiles実験(室蘭・更別) |
 | vientiane-planning-map | https://github.com/dwg7/vientiane-planning-map | ヴィエンチャンのゾーニング+ベースマップビューア(height-coverageの姉妹プロジェクト) |

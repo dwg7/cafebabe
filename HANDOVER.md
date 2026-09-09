@@ -87,15 +87,34 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
   volca登録の途中でhfuさんから提起。書いてよいもの(プロジェクト名・URL・技術構成レベルの
   一言)/書かないもの(分析結論・戦略の中身)/迷う場合(本人に確認)の3点。`CLAUDE.md`にも
   運用ガイドとして転記済み
+- **zukakuのPrint-in-Browser切り出し完了(2026-09-09)**。`dwg7/maplibre-gl-atlas`
+  (`AtlasControl`/`AtlasSheet`、CC0 1.0)として公開・実機検証済み(`PROJECTS.md`登録済み)。
+  副産物として2件の実バグを発見(`setProjection()`のスタイルロード前同期呼び出し、
+  `renderScale`のスケールバー幅未補正)——後者は**zukaku本体にも現存するバグ**と判明し
+  [dwg7/zukaku#9](https://github.com/dwg7/zukaku/issues/9)を起票。「機能を切り出す作業
+  自体が元実装の潜在バグの発見機会になる」実例として記録価値あり(未反映、下記Known open
+  items参照)。ライセンス選定の経緯(法人格を持たないdwg7ではCC0がMITより素直)を
+  `patterns/licensing.md`(新規)に記録した。zukaku本体側の移行(PR2/PR3)はまだ未着手
 
 ## Pending long-running tasks(急がず進める)
 
 1. **D1'**: cafebabeが自律的に書き起こしたがhfuさん未レビューの.mdファイルの棚卸し。
-   優先候補3件は全てレビュー完了(2026-09-08)。残り約12ファイルから、次のサイクルで
-   数件ずつ提示する
-2. hfuさんからGitHub issue経由のレビューが来たら、それに対応する
-3. zukakuのPrint-in-Browser切り出し計画がhfuさんのレビューを経てどうなったか、
-   フォローする
+   優先候補3件は全てレビュー完了(2026-09-08)。2026-09-09時点で提示中のバッチ(3件):
+   `patterns/markdown-file-conventions.md`・`patterns/verification-discipline.md`・
+   `patterns/case-study-research.md`(hfuさんの回答待ち)。このバッチ後の残り候補
+   (優先度低、未提示): `patterns/agent-execution-gotchas.md`・
+   `patterns/agent-personification.md`・`patterns/agent-repository-boundaries.md`・
+   `patterns/data-provenance.md`・`patterns/interoperability.md`・
+   `patterns/large-data-pitfalls.md`・`patterns/local-dev-pitfalls.md`・
+   `patterns/maplibre-gl-js-*.md`(4ファイル)・`patterns/progress-reporting.md`・
+   `patterns/raspberry-pi-appliance.md`・`patterns/robust-pipeline-design.md`・
+   `patterns/style-composition.md`・`patterns/unattended-progress-visibility.md`・
+   `patterns/vector-tile-sizing.md`・`patterns/licensing.md`(新規)・
+   `ideas/osm-community-oauth.md`。**このリストは今回初めて明文化した**(前回は口頭合意の
+   まま圧縮で失われた反省を踏まえ、以後はここに残す)
+2. hfuさんからGitHub issue経由のレビューが来たら、それに対応する(2026-09-09時点、
+   dwg7/cafebabeに未対応issue無し確認済み)
+3. zukaku#9(renderScaleバグ)がzukaku本体側でどう対応されるか、余裕があればフォロー
 
 ## Known open items
 
@@ -111,6 +130,10 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
 - 「知見をcafebabeが与え、実装先が検証し、結果をまた知見に還元する」という助言サイクル
   (starsの実例)は、独立収束による知見とは証拠の重みが異なる点を毎回明記すること
   (`patterns/open-mct-object-model.md`のstars注記が実例)
+- 「機能を切り出す作業自体が元実装の潜在バグの発見機会になる」(zukaku→maplibre-gl-atlas、
+  2026-09-09、zukaku#9)は実例1件のみでまだパターン化していない。他プロジェクトでも
+  似た切り出し作業(例: stars-cdの相談等)があれば2件目を待ってから`patterns/`へ追加を
+  検討する
 
 ## Where to look
 

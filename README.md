@@ -80,6 +80,8 @@ cafebabe は、その知見を**誰か一人が所有するのではなく**、�
     への呼称習慣(「XXXさん」)。役職の三人称的参照、制度的/物語的な継続性の違い
   - [`patterns/vector-tile-sizing.md`](patterns/vector-tile-sizing.md) — ベクトルタイルの
     サイズ最適化(minzoomシフト、非圧縮サイズでの検証等)
+  - [`patterns/licensing.md`](patterns/licensing.md) — 法人格を持たない組織でのライセンス
+    選定(CC0がMITより素直な選択になりうる理由)
 
 - **`ideas/`** — `patterns/`のsibling。**まだ誰も実装していない**が検討する価値のある技術的
   アイデアを置く場所(実装されたら`patterns/`へ昇格)。詳しくは[`ideas/README.md`](ideas/README.md)参照
