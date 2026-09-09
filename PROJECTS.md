@@ -34,6 +34,15 @@ dwg7本体の外だが、staccato関連プロジェクト群の規範仕様を�
 |---|---|---|
 | staccato-spec | https://github.com/UNopenGIS/staccato-spec | Staccatoアーキテクチャ(User/Staff/Cartographer/Library)の規範仕様。実装コードは持たない。2026-09-09新規参加 |
 
+## optgeo org(関連組織)
+
+dwg7本体の外、hfuさん関連のインフラ・データ公開プロジェクトを置く組織
+(`stars.optgeo.org`等のドメインとも関連)。
+
+| プロジェクト | リポジトリ | 一言 |
+|---|---|---|
+| adopt-hokkaido-lidar | https://github.com/optgeo/adopt-hokkaido-lidar | 北海道の公開航空レーザ測量データをLAZ→COPC変換し、来歴・ライセンス確認済みのものをSource Cooperativeへ公開するパイプライン。2026-09-10新規参加 |
+
 ## hfu 個人名前空間
 
 | プロジェクト | リポジトリ | 一言 |

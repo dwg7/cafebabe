@@ -175,8 +175,16 @@ cross-session連携用の一時的な情報(セッションは任務終了でア
   提供した(5番目のOpen MCT利用プロジェクトとして今後の実例に注目)
 - `plateau-mago-implicit` — PLATEAU 3D Tiles実験(CesiumJS専用方針)
 - `vientiane-planning-map` — ヴィエンチャンのゾーニング地図(height-coverageの姉妹プロジェクト)
-- `claude-mct` — このリポジトリの創設を主導したセッション。Open MCTベースのエージェント
-  活動可視化ダッシュボードを担当
+- `claude-mct` — Open MCTベースのエージェント活動可視化ダッシュボード(hfu/claude-mct、
+  Private)。このリポジトリの創設を主導。**訂正(2026-09-10)**: 当初セッション名
+  `claude-25`をこのプロジェクトの担当として記録していたが、`claude-25`は現在
+  `adopt-hokkaido-lidar`を担当しており(下記)、claude-mctを今も担当している現行セッションは
+  不明。`patterns/agent-repository-boundaries.md`の「セッション識別子は時間軸でも安定
+  しない」パターン参照
+- `adopt-hokkaido-lidar` — `optgeo/adopt-hokkaido-lidar`。北海道の公開航空レーザ測量データ
+  からLAZ→COPC変換し、来歴・ライセンス確認済みのものをSource Cooperativeへ公開する
+  パイプライン。セッション名`claude-25`が担当(hfuさんの指示で
+  say-your-grid→nuye→adopt-hokkaido-lidarと順に担当替え)。2026-09-10新規参加確認
 - `kitaphoto17-navara` — Martin(stars.optgeo.org)配信のkitaphoto17タイルレイヤーを
   Navara(`maplibre/navara`, navara.world)で表示するGitHub Pages静的サイト。2026-09-04
   新規参加。Navara固有の知見(バンドルサイズ問題等)を`patterns/large-data-pitfalls.md`に提供

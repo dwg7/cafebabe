@@ -87,6 +87,14 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
   volca登録の途中でhfuさんから提起。書いてよいもの(プロジェクト名・URL・技術構成レベルの
   一言)/書かないもの(分析結論・戦略の中身)/迷う場合(本人に確認)の3点。`CLAUDE.md`にも
   運用ガイドとして転記済み
+- **claude-25の担当替え発覚+知見反映(2026-09-10)**。`claude-25`をclaude-mct担当と
+  記録していたが、実際は`say-your-grid→nuye→adopt-hokkaido-lidar`と順に担当替えしており、
+  claude-mctを今も担当している現行セッションは不明と判明(claude-25本人が「永続メモリの
+  記録は同一セッションの証拠にならない」と正直に留保)。`patterns/agent-repository-
+  boundaries.md`に新規パターンとして記録し、`CLAUDE.md`既知のピアも訂正。あわせて
+  `optgeo/adopt-hokkaido-lidar`を`PROJECTS.md`(新設「optgeo org」セクション)に登録し、
+  Source Cooperative CLIのセッション延長知見(`--duration`明示指定でSTSクランプを回避
+  できた実例)を`patterns/robust-pipeline-design.md`に追加
 - **zukakuのPrint-in-Browser切り出し完了(2026-09-09)**。`dwg7/maplibre-gl-atlas`
   (`AtlasControl`/`AtlasSheet`、CC0 1.0)として公開・実機検証済み(`PROJECTS.md`登録済み)。
   副産物として2件の実バグを発見(`setProjection()`のスタイルロード前同期呼び出し、

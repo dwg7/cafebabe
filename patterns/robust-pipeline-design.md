@@ -63,3 +63,31 @@ CONTRIBUTING.mdの棚卸し基準に従い一般則から見直し、2026-09-08)
 - `plateau-mago-implicit` — この分離をあらかじめ行っていたため、`tunnel.optgeo.org`の
   完全ダウンから`depot.optgeo.org`への恒久移行の際、公開スクリプト自体は一切コード変更
   不要だった(DECISIONS.md D23)
+
+---
+
+## クラウド認証セッションの有効期限は、デフォルト任せにせず明示指定を検証する
+
+**タグ**: 一般則
+
+**状況(Context)**
+長時間かかる大容量アップロード・バッチ公開処理を、`credential_process`方式等でSTS
+一時クレデンシャルを使うCLIツール経由で行う場面。
+
+**問題/対立する力(Problem / Forces)**
+デフォルトのセッション有効期限(1時間弱等)は長時間処理の途中で切れることがある。
+「AWS STSはクライアント指定のdurationをIAMロールの`MaxSessionDuration`でクランプする」
+という一般論を前提に、明示指定しても無駄だろうと諦めがちだが、これは常に成り立つとは
+限らない(ロール設定やクレデンシャル発行の仕組み次第)。
+
+**解決(Solution)**
+「クランプされるはず」という通説を検証せずに諦めず、CLIの`--duration`のような明示指定
+オプションを試し、発行されたクレデンシャルの`Expiration`フィールドを直接読んで実際の
+有効期限を確認する。待たずに(実際に切れるまで待たなくても)その場で検証できる。
+
+**実例(Known uses)**
+- `adopt-hokkaido-lidar`(旧claude-25セッション) — Source Cooperative公式CLI
+  (`source-coop login`)のデフォルトセッションは1時間弱で切れると270件超のバッチ公開で
+  実測していたが、`source-coop login --duration 12h`を明示指定したところ、STS側で
+  クランプされずに実際に約12時間の有効期限が発行されることを`source-coop creds`の
+  `Expiration`フィールドで確認した(2026-09-10)
