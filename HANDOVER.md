@@ -1,15 +1,16 @@
 # HANDOVER
 
-## Status as of 2026-09-08
+## Status as of 2026-09-09
 
 パターン集は26テーマ(`patterns/`実ファイル数)。`ideas/`ディレクトリ(D16)——実装に
 裏打ちされていない技術的アイデアを`patterns/`と分離して置く場所——も稼働中。`PROJECTS.md`
-(dwg7組織10件+hfu個人7件のリポジトリ)、`DWG7-CONTEXT.md`(組織文脈、エージェンシー
-経済学セクション含む)、`STACCATO-CONTEXT.md`(staccato-spec 4パーティモデルと一般化拡張
-議論、ferspas57のnarrative libraryを追記済み)を保有。
+(dwg7組織11件+UNopenGIS org1件+hfu個人8件のリポジトリ)、`DWG7-CONTEXT.md`(組織文脈、
+エージェンシー経済学セクション含む)、`STACCATO-CONTEXT.md`(staccato-spec 4パーティ
+モデルと一般化拡張議論、ferspas57のnarrative libraryを追記済み)を保有。
 
-D1〜D18まで18件のADRが完了。直近の3件: D16(`ideas/`新設)、D17(Fableによる知見ベース
-全体レビューと「局面 vs 大局」の区別)、D18(`patterns/open-mct.md`のテーマ別3分割)。
+D1〜D19まで19件のADRが完了。直近の3件: D17(Fableによる知見ベース全体レビューと
+「局面 vs 大局」の区別)、D18(`patterns/open-mct.md`のテーマ別3分割)、D19(PRIVATE
+リポジトリ情報をPublicなcafebabeに書く際の基準)。
 
 **運用(D14)**: 判断待ち事項は2〜3件溜まったら通常の会話内でまとめて確認するのが基本形。
 1件だけ即時性が高ければその場で確認してよい。5件を超える、または複数テーマにまたがる
@@ -75,6 +76,17 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
   `patterns/open-mct*.md`(分割後の4ファイル)・`STACCATO-CONTEXT.md`(「気に入っている」との
   評価)・`patterns/gatekeeping.md`、いずれもOK。D1'対象の残り約12ファイルは、今後数件ずつ
   提示する運用を継続
+- **新規参加プロジェクト3件の紹介・登録完了(2026-09-09)**: hfuさんの指示で、ListAgentsに
+  現れた未知のセッション(volca-4e・staccato-spec-42・staccato-ecosystem-85)へ順に(一括で
+  なく個別に)自己紹介を依頼。`volca`(hfu/volca、Private、北海道9常時観測火山の防災計画
+  横断分析)・`staccato-spec`(UNopenGIS/staccato-spec、規範仕様本体)・`staccato-ecosystem`
+  (dwg7/staccato-ecosystem、staccato-specのコンパニオン、価値提案/成長戦略)を`PROJECTS.md`・
+  `CLAUDE.md`既知のピアに登録。staccato-spec本人から、ferspas57の位置づけ(「staccato-specの
+  Cartographerを構築中」ではなく独立したCartographer実装の1つ)の訂正も受けて反映
+- **D19「PRIVATEリポジトリ情報をPublicなcafebabeに書く際の基準」完了(2026-09-09)**。
+  volca登録の途中でhfuさんから提起。書いてよいもの(プロジェクト名・URL・技術構成レベルの
+  一言)/書かないもの(分析結論・戦略の中身)/迷う場合(本人に確認)の3点。`CLAUDE.md`にも
+  運用ガイドとして転記済み
 
 ## Pending long-running tasks(急がず進める)
 
@@ -102,7 +114,7 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
 
 ## Where to look
 
-- D1〜D18の経緯 → [DECISIONS.md](DECISIONS.md)(番号順)
+- D1〜D19の経緯 → [DECISIONS.md](DECISIONS.md)(番号順)
 - dwg7組織文脈・エージェンシー経済学 → [DWG7-CONTEXT.md](DWG7-CONTEXT.md)
 - staccato-spec 4パーティモデルと一般化拡張議論 → [STACCATO-CONTEXT.md](STACCATO-CONTEXT.md)
 - 各プロジェクトのリポジトリ → [PROJECTS.md](PROJECTS.md)
@@ -115,7 +127,7 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
 ## Resume prompt
 
 次にこのリポジトリを触るときにやること:
-1. このHANDOVER.mdと直近のDECISIONS.mdエントリ(D17・D18)を読んで経緯を把握する
+1. このHANDOVER.mdと直近のDECISIONS.mdエントリ(D17・D18・D19)を読んで経緯を把握する
 2. `dwg7/cafebabe`や`unopengis/7`にhfuさんからのissueが立っていないか確認する
 3. D1'の次のバッチ(残り約12ファイルから数件)を、機会を見て提示する
 4. cross-session messageで届いている新しい知見・確認依頼があれば、まずそれに対応する

@@ -114,13 +114,25 @@ hfuさんの最終判断が必要な事項が発生したら、溜め込みす�
   **推奨**(hfuさん承認、2026-09-03、claude-mct実施のD6サーベイより): 横断ドキュメント
   (cafebabe自身)の索引は薄く保ち、詳細は各プロジェクトへのリンクに任せる方針
 
+## PRIVATEリポジトリの情報を書くときの基準(D19)
+
+`dwg7/cafebabe`自体はPublicであり、ここに書いたものは誰でも読める。PRIVATEなプロジェクトの
+情報を`PROJECTS.md`や「既知のピア」等に記載する際は:
+
+1. **書いてよいもの**: プロジェクト名・URL(PRIVATEタグを明記)・技術構成レベルの一言要約
+   (何のデータソースを使い、何を作っているか)
+2. **書かないもの**: その分析・活動から得た結論や戦略の中身そのもの(例: 特定の対象への
+   評価結果)——それは当該PRIVATEリポジトリ内に留める
+3. **迷う場合**: 一言要約すら機微性があるかもと思ったら、登録前に該当セッション本人へ
+   「この要約で公開して問題ないか」を確認してから記載する
+
 ## 新しいテーマ(パターンファイル)を追加するとき
 
 MapLibre GL JS・.mdファイル運用に続く3つ目以降のテーマ(例: Open MCT)を追加する前に、
 関係するdwg7エージェントに一声かけること。claude-mctの前例のように、複数プロジェクトへの
 横断調査をかけてから初期seedを作ると、実地の知見が偏らない。
 
-## 既知のピア(2026-09-06時点)
+## 既知のピア(2026-09-09時点)
 
 cross-session連携用の一時的な情報(セッションは任務終了でアーカイブされ、この一覧は古くなる)。
 恒久的なリポジトリ参照は[PROJECTS.md](PROJECTS.md)を見ること。
@@ -130,8 +142,28 @@ cross-session連携用の一時的な情報(セッションは任務終了でア
   `hfu/mapterhorn-monitor`=Open MCT監視ダッシュボード)を1セッションが担当する構成。
   セッション名だけから担当範囲を憶測しないこと([`patterns/agent-repository-boundaries.md`](patterns/agent-repository-boundaries.md)参照)
 - `ferspas57` — FERSPAS×Staccato: FAO/DWG5とDWG7の連携(STAC→martin catalogインタフェース
-  統合)。2026-09-03新規参加。staccato-specのCartographer役を構築中、Library候補として
-  stars.optgeo.org・Source Cooperativeを検討中
+  統合)。2026-09-03新規参加。**訂正(2026-09-09、staccato-spec本人からの自己紹介より)**:
+  「staccato-specのCartographer役を構築中」という理解は不正確だった。staccato-specは
+  実装を一切持たない規範仕様のみのリポジトリで、ferspas57は`dwg7/spiccato`・
+  `hfu/faceless-cartographer`と並ぶ**独立したCartographer実装の1つ**(FAOのHand-in-Hand/
+  GAEZデータ向け)。各実装が自分の必要から仕様を逸脱・拡張し、それを後からADRとして
+  staccato-specへ還元する一方向の流れ。Library候補としてstars.optgeo.org・
+  Source Cooperativeを検討中
+- `staccato-spec` — `UNopenGIS/staccato-spec`(Public)。Staccatoアーキテクチャ
+  (User/Staff/Cartographer/Libraryの4者モデル)の規範仕様そのものを保持し、実装コードは
+  持たない。Map Intent(Staff→Cartographerの共有YAML成果物)のスキーマの定義元。
+  2026-09-09新規参加確認。詳しくは[STACCATO-CONTEXT.md](STACCATO-CONTEXT.md)参照
+- `staccato-ecosystem` — `dwg7/staccato-ecosystem`(Public、CC0 1.0)。staccato-specの
+  コンパニオンリポジトリ——specが「何であるか」を定めるのに対し、こちらは「なぜ・どう
+  価値があるか」(教育・防災・測量・博物館・自治体連携等の実領域向け協力手法論と、
+  生態系全体の成長戦略)を蓄積する。`dwg7/chukei`(GSI北海道の実デプロイ)・
+  `dwg7/ferspas57`(2026-09-03創設)・`dwg7/kataribe`(2026-09-05創設、dossierベースの
+  語り部Staff)を輩出。2026-09-09新規参加確認
+- `volca` — `hfu/volca`(Private)。北海道の常時観測火山9火山の防災計画・避難計画PDFを
+  収集・横断分析し、北海道地方測量部とdwg7への戦略を立案。kitavolcaとは国土地理院の
+  火山基本図整備状況について独立に同じ結論を得て相互裏取り、sas0からは火山防災協議会の
+  リンク一覧を受領。2026-09-09新規参加。PRIVATEリポジトリ情報の記載基準は
+  [D19](DECISIONS.md)参照
 - `height-coverage` — OSM建物高さ入力状況の啓発サイト
 - `zukaku` — 印刷アトラスPDF生成ツール
 - `sas0` — 北海道防災情報ダッシュボード(Open MCT)。`OPENMCT-NOTES.md`の先例あり

@@ -23,6 +23,15 @@
 | ferspas57 | https://github.com/dwg7/ferspas57 | FERSPAS×Staccato: FAO/DWG5とDWG7の連携(STAC→martin catalogインタフェース統合)。2026-09-03新規参加 |
 | m3xx-fleet-ops | https://github.com/dwg7/m3xx-fleet-ops | JICA研修用Raspberry Piフリート運用(意思決定ログ)。2026-09-05新規参加 |
 | m3xx-fleet | https://github.com/dwg7/m3xx-fleet | m3xx-fleet-opsのOpen MCT監視ダッシュボード(GitHub Pages、Publicに分離。理由は`patterns/unattended-progress-visibility.md`参照) |
+| staccato-ecosystem | https://github.com/dwg7/staccato-ecosystem | staccato-specのコンパニオンリポジトリ。教育・防災・測量等の実領域向け協力手法論と生態系成長戦略。2026-09-09新規参加 |
+
+## UNopenGIS org(関連組織)
+
+dwg7本体の外だが、staccato関連プロジェクト群の規範仕様を保持する組織。
+
+| プロジェクト | リポジトリ | 一言 |
+|---|---|---|
+| staccato-spec | https://github.com/UNopenGIS/staccato-spec | Staccatoアーキテクチャ(User/Staff/Cartographer/Library)の規範仕様。実装コードは持たない。2026-09-09新規参加 |
 
 ## hfu 個人名前空間
 
@@ -35,6 +44,7 @@
 | stars | https://github.com/hfu/stars | タイルサーバー(stars.optgeo.org)のゲートキーパー |
 | claude-mct | https://github.com/hfu/claude-mct (PRIVATE) | Open MCTベースのフリート(Claude Codeエージェント/セッション)可視化ダッシュボード |
 | kitaphoto17-navara | https://github.com/hfu/kitaphoto17-navara (PRIVATE) | Martin(stars.optgeo.org)配信のkitaphoto17タイルレイヤーをNavara(`maplibre/navara`)で表示するGitHub Pages静的サイト。2026-09-04新規参加 |
+| volca | https://github.com/hfu/volca (PRIVATE) | 北海道の常時観測火山9火山の防災計画・避難計画PDFを収集・横断分析し、北海道地方測量部とdwg7への戦略を立案。2026-09-09新規参加 |
 
 ---
 
