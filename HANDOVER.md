@@ -87,6 +87,11 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
   volca登録の途中でhfuさんから提起。書いてよいもの(プロジェクト名・URL・技術構成レベルの
   一言)/書かないもの(分析結論・戦略の中身)/迷う場合(本人に確認)の3点。`CLAUDE.md`にも
   運用ガイドとして転記済み
+- **kataribeのpush漏れ事故+知見反映(2026-09-11)**。staccato-ecosystemから、リポジトリ
+  創設→専任セッション引き渡し時に3日分の作業が一度もpushされていなかった実例(定期的な
+  エコシステム横断レビューで発覚、hfu承認を得て無改変でpush済み)が届いた。「push まで
+  完了していない創設は、整ったHANDOVER.mdがあっても外部から不可視」というパターンを
+  `patterns/verification-discipline.md`に追加。`dwg7/kataribe`も`PROJECTS.md`に登録
 - **claude-25の担当替え発覚+知見反映(2026-09-10)**。`claude-25`をclaude-mct担当と
   記録していたが、実際は`say-your-grid→nuye→adopt-hokkaido-lidar`と順に担当替えしており、
   claude-mctを今も担当している現行セッションは不明と判明(claude-25本人が「永続メモリの

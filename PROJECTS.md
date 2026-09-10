@@ -25,6 +25,7 @@
 | m3xx-fleet-ops | https://github.com/dwg7/m3xx-fleet-ops | JICA研修用Raspberry Piフリート運用(意思決定ログ)。2026-09-05新規参加 |
 | m3xx-fleet | https://github.com/dwg7/m3xx-fleet | m3xx-fleet-opsのOpen MCT監視ダッシュボード(GitHub Pages、Publicに分離。理由は`patterns/unattended-progress-visibility.md`参照) |
 | staccato-ecosystem | https://github.com/dwg7/staccato-ecosystem | staccato-specのコンパニオンリポジトリ。教育・防災・測量等の実領域向け協力手法論と生態系成長戦略。2026-09-09新規参加 |
+| kataribe | https://github.com/dwg7/kataribe | dossierベースの語り部Staff(staccato)。2026-09-05創設、staccato-ecosystemから輩出。2026-09-11、専任セッション(kataribe-8d)への引き渡し時にpush漏れが発覚・解決した実例として`patterns/verification-discipline.md`参照 |
 
 ## UNopenGIS org(関連組織)
 
