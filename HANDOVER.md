@@ -74,8 +74,11 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
   `f6bd223`・`93c5ea2`)
 - **D1'**: 優先候補3件すべてレビュー完了(2026-09-08、hfuさん承認)。
   `patterns/open-mct*.md`(分割後の4ファイル)・`STACCATO-CONTEXT.md`(「気に入っている」との
-  評価)・`patterns/gatekeeping.md`、いずれもOK。D1'対象の残り約12ファイルは、今後数件ずつ
-  提示する運用を継続
+  評価)・`patterns/gatekeeping.md`、いずれもOK。
+- **D1'次バッチ完了(2026-09-11、hfuさん「まとめて承認」)**:
+  `patterns/markdown-file-conventions.md`・`patterns/verification-discipline.md`・
+  `patterns/case-study-research.md`、いずれもOK。D1'対象は計6ファイルレビュー完了、
+  残り約9ファイル(2026-09-09時点でHANDOVER.mdに明文化したリスト参照)
 - **新規参加プロジェクト3件の紹介・登録完了(2026-09-09)**: hfuさんの指示で、ListAgentsに
   現れた未知のセッション(volca-4e・staccato-spec-42・staccato-ecosystem-85)へ順に(一括で
   なく個別に)自己紹介を依頼。`volca`(hfu/volca、Private、北海道9常時観測火山の防災計画
@@ -112,10 +115,8 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
 ## Pending long-running tasks(急がず進める)
 
 1. **D1'**: cafebabeが自律的に書き起こしたがhfuさん未レビューの.mdファイルの棚卸し。
-   優先候補3件は全てレビュー完了(2026-09-08)。2026-09-09時点で提示中のバッチ(3件):
-   `patterns/markdown-file-conventions.md`・`patterns/verification-discipline.md`・
-   `patterns/case-study-research.md`(hfuさんの回答待ち)。このバッチ後の残り候補
-   (優先度低、未提示): `patterns/agent-execution-gotchas.md`・
+   計6ファイルレビュー完了(2026-09-08優先候補3件+2026-09-11次バッチ3件、いずれも
+   hfuさん承認)。残り候補(優先度低、未提示): `patterns/agent-execution-gotchas.md`・
    `patterns/agent-personification.md`・`patterns/agent-repository-boundaries.md`・
    `patterns/data-provenance.md`・`patterns/interoperability.md`・
    `patterns/large-data-pitfalls.md`・`patterns/local-dev-pitfalls.md`・
@@ -123,8 +124,7 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
    `patterns/raspberry-pi-appliance.md`・`patterns/robust-pipeline-design.md`・
    `patterns/style-composition.md`・`patterns/unattended-progress-visibility.md`・
    `patterns/vector-tile-sizing.md`・`patterns/licensing.md`(新規)・
-   `ideas/osm-community-oauth.md`。**このリストは今回初めて明文化した**(前回は口頭合意の
-   まま圧縮で失われた反省を踏まえ、以後はここに残す)
+   `ideas/osm-community-oauth.md`
 2. hfuさんからGitHub issue経由のレビューが来たら、それに対応する(2026-09-09時点、
    dwg7/cafebabeに未対応issue無し確認済み)
 3. zukaku#9(renderScaleバグ)がzukaku本体側でどう対応されるか、余裕があればフォロー
@@ -138,7 +138,7 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
 - 実例1件のまま長期間増えていない「一般則」タグは2026-09-08に棚卸し済み(下記Resolved
   参照)。今後も同じ基準(実例1件のまま長期間増えていない一般則→個別事情見直し)を
   定期的に適用すること
-- D1'は優先候補3件のレビューが完了し、残り約12ファイルが対象。1サイクルに数件ずつ
+- D1'は計6ファイルのレビューが完了し、残り約9ファイルが対象。1サイクルに数件ずつ
   提示する運用を継続
 - 「知見をcafebabeが与え、実装先が検証し、結果をまた知見に還元する」という助言サイクル
   (starsの実例)は、独立収束による知見とは証拠の重みが異なる点を毎回明記すること

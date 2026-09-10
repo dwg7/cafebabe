@@ -164,6 +164,9 @@ cross-session連携用の一時的な情報(セッションは任務終了でア
   火山基本図整備状況について独立に同じ結論を得て相互裏取り、sas0からは火山防災協議会の
   リンク一覧を受領。2026-09-09新規参加。PRIVATEリポジトリ情報の記載基準は
   [D19](DECISIONS.md)参照
+- `kataribe`(セッション名`kataribe-8d`) — `dwg7/kataribe`。dossierベースの語り部Staff
+  (staccato)。2026-09-05創設、staccato-ecosystemから輩出。2026-09-11参加確認(引き渡し時の
+  push漏れ事故は`patterns/verification-discipline.md`参照)
 - `height-coverage` — OSM建物高さ入力状況の啓発サイト
 - `zukaku` — 印刷アトラスPDF生成ツール
 - `sas0` — 北海道防災情報ダッシュボード(Open MCT)。`OPENMCT-NOTES.md`の先例あり
