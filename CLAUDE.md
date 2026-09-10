@@ -167,6 +167,10 @@ cross-session連携用の一時的な情報(セッションは任務終了でア
 - `kataribe`(セッション名`kataribe-8d`) — `dwg7/kataribe`。dossierベースの語り部Staff
   (staccato)。2026-09-05創設、staccato-ecosystemから輩出。2026-09-11参加確認(引き渡し時の
   push漏れ事故は`patterns/verification-discipline.md`参照)
+- `hokkaido-points`(セッション名`hokkaido-points-bd`) — `hfu/hokkaido-points`(Private)。
+  北海道内の測量基準点をPMTiles化する調査基盤。測量法上の承認確定までPrivate。
+  2026-09-11参加確認。adopt-hokkaido-lidar(claude-25)との関連はセッション本人により
+  未確認と回答済み——推測で紐付けない
 - `height-coverage` — OSM建物高さ入力状況の啓発サイト
 - `zukaku` — 印刷アトラスPDF生成ツール
 - `sas0` — 北海道防災情報ダッシュボード(Open MCT)。`OPENMCT-NOTES.md`の先例あり

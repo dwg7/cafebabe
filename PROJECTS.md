@@ -56,6 +56,7 @@ dwg7本体の外、hfuさん関連のインフラ・データ公開プロジェ�
 | claude-mct | https://github.com/hfu/claude-mct (PRIVATE) | Open MCTベースのフリート(Claude Codeエージェント/セッション)可視化ダッシュボード |
 | kitaphoto17-navara | https://github.com/hfu/kitaphoto17-navara (PRIVATE) | Martin(stars.optgeo.org)配信のkitaphoto17タイルレイヤーをNavara(`maplibre/navara`)で表示するGitHub Pages静的サイト。2026-09-04新規参加 |
 | volca | https://github.com/hfu/volca (PRIVATE) | 北海道の常時観測火山9火山の防災計画・避難計画PDFを収集・横断分析し、北海道地方測量部とdwg7への戦略を立案。2026-09-09新規参加 |
+| hokkaido-points | https://github.com/hfu/hokkaido-points (PRIVATE) | 北海道内の測量基準点(電子基準点・三角点・水準点・多角点等)を、基盤地図情報の母集団から市区町村単位の分割取得でPMTiles化しMapLibre GL JSで探索可能にする調査基盤。測量法上の承認確定までPrivate。2026-09-11新規参加。adopt-hokkaido-lidarとの関連は未確認 |
 
 ---
 
