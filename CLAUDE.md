@@ -171,6 +171,10 @@ cross-session連携用の一時的な情報(セッションは任務終了でア
   北海道内の測量基準点をPMTiles化する調査基盤。測量法上の承認確定までPrivate。
   2026-09-11参加確認。adopt-hokkaido-lidar(claude-25)との関連はセッション本人により
   未確認と回答済み——推測で紐付けない
+- `tokachi20260911`(セッション名`tokachi20260911-7a`) — `hfu/tokachi20260911`(Private)。
+  十勝岳ヘリ空撮データのOpenDroneMap処理。dwg7初のODM実例。2026-09-11参加確認。
+  実地知見(GPS量子化、ピンボケ選別、ズームレンズのカメラグループ分割等)を
+  `patterns/aerial-photogrammetry.md`(新規)に提供
 - `height-coverage` — OSM建物高さ入力状況の啓発サイト
 - `zukaku` — 印刷アトラスPDF生成ツール
 - `sas0` — 北海道防災情報ダッシュボード(Open MCT)。`OPENMCT-NOTES.md`の先例あり
