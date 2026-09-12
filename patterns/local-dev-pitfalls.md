@@ -85,3 +85,35 @@ GNU bash 4+前提のスクリプト(`declare -A`等)は、macOS標準シェル(b
 **実例(Known uses)**
 - `sas0` — `scripts/check-links.sh`で日本語URLが途中で欠ける偽陽性に遭遇
   ([Issue #4](https://github.com/dwg7/sas0/issues/4)、DECISIONS.md D68)
+
+---
+
+## macOSでSSH経由の外部ボリュームアクセスが`Operation not permitted`になるのはTCC、Full Disk Accessは`sshd`本体ではなく`sshd-keygen-wrapper`に付与する
+
+**タグ**: 一般則
+
+**状況(Context)**
+macOSで、Remote Login(SSH)を有効化したMacに外付けドライブ(USB/Thunderbolt)を接続し、
+SSHセッションからそのボリューム(`/Volumes/`配下)にアクセスする場面。
+
+**問題/対立する力(Problem / Forces)**
+FinderやTerminal.app(GUIアプリ)からは普通にアクセスできるのに、SSH経由では
+`ls: /Volumes/X: Operation not permitted`のように拒否される。エラー文言が`Permission
+denied`(Unixパーミッション)ではなく`Operation not permitted`である点が手がかりで、これは
+macOSのTCC(プライバシー保護、リムーバブルボリュームへのアクセス制御)による拒否の
+シグネチャ。GUIアプリはアクセス許可ダイアログを表示して承認を得られるが、SSH経由の
+ヘッドレスセッションにはそのダイアログを出す経路が無いため、常に拒否され続ける。
+
+**解決(Solution)**
+System Settings → Privacy & Security → Full Disk Access で許可を付与するが、
+**`/usr/sbin/sshd`本体に付与しても効かないことがある**。実際にSSHセッションのシェルを
+起動しているのは`/usr/libexec/sshd-keygen-wrapper`であり、Full Disk Accessは**こちらに**
+付与する必要がある(Finderのファイル選択では出てこないので、ダイアログ内で
+`Cmd+Shift+G`を押しパスを直接入力して追加する)。付与後は既存のSSHセッションでは反映
+されないため、一度切断して再接続する。
+
+**実例(Known uses)**
+- `slate`(hfuさんの個人マシン、mapterhorn-japan-bridge等の生データ保管先) —
+  `/Volumes/Migrate-2025-04`・`/Volumes/pmtiles-store`へのSSH経由アクセスが
+  `Operation not permitted`になっていたが、`/usr/libexec/sshd-keygen-wrapper`に
+  Full Disk Accessを付与したところ解決した(2026-09-12)
