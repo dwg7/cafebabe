@@ -175,6 +175,12 @@ cross-session連携用の一時的な情報(セッションは任務終了でア
   十勝岳ヘリ空撮データのOpenDroneMap処理。dwg7初のODM実例。2026-09-11参加確認。
   実地知見(GPS量子化、ピンボケ選別、ズームレンズのカメラグループ分割等)を
   `patterns/aerial-photogrammetry.md`(新規)に提供
+- `GeoServer on Raspberry Pi`(リポジトリ名`rpi-geoserver0`、セッション名
+  `rpi-geoserver0-99`) — `dwg7/rpi-geoserver0`(Private)。RPi3 + Ubuntu Server、
+  ハードウェア限界の計測。姉妹プロジェクトkaga0とはOS選定が意図的に異なる。
+  2026-09-13参加確認。**記載上の配慮**: 実在の外部協力者との協働だが、本人のクレジット
+  表記希望が未確認のため、所属機関名等は記載しない(本人からの明示的な要請、D19の
+  「第三者の識別情報」への拡張適用)
 - `height-coverage` — OSM建物高さ入力状況の啓発サイト
 - `zukaku` — 印刷アトラスPDF生成ツール
 - `sas0` — 北海道防災情報ダッシュボード(Open MCT)。`OPENMCT-NOTES.md`の先例あり

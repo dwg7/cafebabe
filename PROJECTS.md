@@ -26,6 +26,7 @@
 | m3xx-fleet | https://github.com/dwg7/m3xx-fleet | m3xx-fleet-opsのOpen MCT監視ダッシュボード(GitHub Pages、Publicに分離。理由は`patterns/unattended-progress-visibility.md`参照) |
 | staccato-ecosystem | https://github.com/dwg7/staccato-ecosystem | staccato-specのコンパニオンリポジトリ。教育・防災・測量等の実領域向け協力手法論と生態系成長戦略。2026-09-09新規参加 |
 | kataribe | https://github.com/dwg7/kataribe | dossierベースの語り部Staff(staccato)。2026-09-05創設、staccato-ecosystemから輩出。2026-09-11、専任セッション(kataribe-8d)への引き渡し時にpush漏れが発覚・解決した実例として`patterns/verification-discipline.md`参照 |
+| GeoServer on Raspberry Pi(`rpi-geoserver0`) | https://github.com/dwg7/rpi-geoserver0 (PRIVATE) | RPi3 + Ubuntu Server、ハードウェア限界の計測。姉妹プロジェクトkaga0とはOS選定が意図的に異なる。2026-09-13新規参加 |
 
 ## UNopenGIS org(関連組織)
 
