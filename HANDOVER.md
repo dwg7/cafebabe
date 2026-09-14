@@ -90,6 +90,12 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
   volca登録の途中でhfuさんから提起。書いてよいもの(プロジェクト名・URL・技術構成レベルの
   一言)/書かないもの(分析結論・戦略の中身)/迷う場合(本人に確認)の3点。`CLAUDE.md`にも
   運用ガイドとして転記済み
+- **starsからの訂正(2026-09-14)**: PMTiles配信の2知見(Martinの`name`=ID衝突、
+  Cloudflareの4時間キャッシュ)は、実はtokachi20260911の発見ではなくstars側が先に
+  `docs/KNOWN_FACTS.md`で記録済みの既知事実で、事前にtokachi20260911へ共有していたと判明。
+  `patterns/aerial-photogrammetry-pipeline.md`のKnown usesを訂正し、starsからの追加知見
+  (GitHub Pages CDNが`fetch({cache:"no-store"})`を素通りしデプロイ直後に古い404を返す件)
+  も追記した
 - **tokachi20260911のODM続報+`patterns/aerial-photogrammetry.md`をテーマ別3分割
   (2026-09-14)**。進捗確認(cafebabeから能動的に一声かけた)に対し、実測に基づく12件の
   新知見が届いた:焦点距離混在でODMがサイレントに未校正カメラ群を使う問題(最大の発見、

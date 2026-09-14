@@ -110,6 +110,29 @@ starsのメタデータ応答は`max-age=14400`(4時間)でキャッシュされ
 - `tokachi20260911` — オルソ画像PMTilesの差し替え直後、キャッシュされた古いメタデータを
   見て誤判定しかけた(2026-09-14)
 
+**訂正(2026-09-14、stars本人の返信より)**: この2点(`name`=ID衝突・4時間キャッシュ)は
+実はstars側が先に踏んで`docs/KNOWN_FACTS.md`(starsはDECISIONS.mdではなくこちらを一次
+情報源にしている)に記録済みの既知の事実だった。stars自身は2026-09-07(`kitaphoto`)・
+2026-09-11(`mapterhorn-japan-bridge-lineage`)で`name`=ID衝突を踏んでおり、事前に
+tokachi20260911へ伝えていたため、tokachi20260911は最初からIDと別の表示名を使っていた
+(=このKnown usesの書き方は不正確で、「tokachi20260911が発見した」のではなく
+「starsから事前に伝えられていた知見を、tokachi20260911がcafebabeへ再共有した」が正確)。
+
+stars本人の分類整理: `name`=ID衝突は**Martinを使う配信者全般に効く一般則**、
+4時間キャッシュは**Cloudflareを前段に置く構成一般に効く**——「個別事情(stars)」タグは
+実例が今のところstars 1件のみである以上妥当だが、当てはまる範囲はより広い可能性が高い。
+
+**追加知見(stars、GitHub Pages側の類似の罠)**: `fetch(..., {cache: "no-store"})`は
+ブラウザキャッシュしか回避せず、GitHub Pages前段のCDNは素通りしない。このため、
+デプロイ直後は(ブラウザ側は最新を要求しているにも関わらず)CDNにキャッシュされた古い
+404がしばらく返り続けることがある。starsの監視ダッシュボード運用で記録済み。
+
+**実例(Known uses、追加)**:
+- `stars` — Martin(`martin-core/src/tiles/source.rs`の
+  `tilejson.name.as_ref().filter(|v| *v != id)`)による`name`=ID衝突を2026-09-07・
+  2026-09-11の2回実地で確認。GitHub Pages CDNが`no-store`を素通りしデプロイ直後に
+  古い404を返し続ける件も確認済み
+
 ---
 
 ## 二時期のオルソ画像が共登録できるかは、位相相関の弱ピーク棄却率で事前に見積もれる
