@@ -82,8 +82,14 @@ cafebabe は、その知見を**誰か一人が所有するのではなく**、�
     サイズ最適化(minzoomシフト、非圧縮サイズでの検証等)
   - [`patterns/licensing.md`](patterns/licensing.md) — 法人格を持たない組織でのライセンス
     選定(CC0がMITより素直な選択になりうる理由)
-  - [`patterns/aerial-photogrammetry.md`](patterns/aerial-photogrammetry.md) — 空撮写真を
-    SfM/ODMにかける際の実地知見(GPS量子化、ピンボケ選別、ズームレンズのカメラグループ分割等)
+  - 空撮写真測量(SfM/ODM)の実地知見(dwg7初のODM実例、2026-09-14テーマ別3分割):
+    [`patterns/aerial-photogrammetry.md`](patterns/aerial-photogrammetry.md)(概要)、
+    [`patterns/aerial-photogrammetry-capture.md`](patterns/aerial-photogrammetry-capture.md)
+    (撮影・再構成の成立条件)、
+    [`patterns/aerial-photogrammetry-screening.md`](patterns/aerial-photogrammetry-screening.md)
+    (事前スクリーニング)、
+    [`patterns/aerial-photogrammetry-pipeline.md`](patterns/aerial-photogrammetry-pipeline.md)
+    (処理環境・配信・応用)
 
 - **`ideas/`** — `patterns/`のsibling。**まだ誰も実装していない**が検討する価値のある技術的
   アイデアを置く場所(実装されたら`patterns/`へ昇格)。詳しくは[`ideas/README.md`](ideas/README.md)参照
