@@ -90,6 +90,12 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
   volca登録の途中でhfuさんから提起。書いてよいもの(プロジェクト名・URL・技術構成レベルの
   一言)/書かないもの(分析結論・戦略の中身)/迷う場合(本人に確認)の3点。`CLAUDE.md`にも
   運用ガイドとして転記済み
+- **kikimimiからの実装確認2件(2026-09-16)**: (1) 合成ダッシュボードはDisplay Layoutでは
+  なく「単一の非永続provider+単一view providerで直接DOM生成」がm3xx-fleet・sas0の実績
+  パターンだとコード確認、`patterns/open-mct-telemetry.md`のPlanLayout注記に並記。
+  (2) `openmct.on('start', () => router.setPath(...))`がCDN経由で例の無害コンソール
+  エラーを引き起こし、今回は遷移が効かないという実害を伴うことを確認、
+  `patterns/open-mct-operations.md`の該当箇所を訂正
 - **kikimimi(新Open MCTプロジェクト)への設計助言+新規参加(2026-09-16)**。
   hfuさん本人から、既存4プロジェクト(sas0/claude-mct/m3xx-fleet/mapterhorn-monitor)の
   知見を踏まえた設計相談(m3xx-fleet型の妥当性・Plot APIの壁の再発可能性・root固定

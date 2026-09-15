@@ -15,7 +15,17 @@
   - mapterhorn-monitor（同じく4.3.0-rc1、CDN、同じ「リスナーを`start()`より先に登録」という順序）：**一度も発火しない**。登録順序の違いという仮説は、両者が同じ順序だったため否定された。手がかりは、起動時に一貫して発生する`Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'key')`という未処理のPromise rejectionで、これが`'start'`のemit前に非同期チェーンを中断させている可能性がある（未確定）。
   - claude-mct（4.2.0、npm）：このイベントに依存しない設計のため未検証。
   - **現状の結論**：バージョン・環境依存で、原因は特定できていない（この信頼性の食い違いがバージョン依存かmapterhorn-monitor固有の環境要因かも未確定）。対策としては、リスナーは`start()`より先に登録した上で、**初期化処理をイベント経由だけに頼らず、`openmct.start()`の直後に直接（同期的に）書く**フォールバックを持たせるのが安全。
-- **起動時の無害なコンソールエラー**：`Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'key')`が1回だけ出ることがある。ローカル検索インデクサの既知の癖で、再現性はあるが実害はない（tree navigation・Inspector等は正常動作）。新しいバグと誤認しないよう記録。〔sas0〕
+- **起動時の無害なコンソールエラー——ただし`router.setPath()`を絡めると無害でなくなる**：
+  `Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'key')`が
+  1回だけ出ることがある。ローカル検索インデクサの既知の癖で、通常は再現性はあるが実害はない
+  （tree navigation・Inspector等は正常動作）。新しいバグと誤認しないよう記録。〔sas0〕
+  **訂正・深掘り(2026-09-16、kikimimiより)**：ただし「常に無害」ではない——
+  `openmct.on('start', () => openmct.router.setPath(...))`という形でCDN経由ロード時に
+  呼ぶと、同じエラーに巻き込まれ、**意図した遷移が効かない**という実害が出ることを確認した。
+  m3xx-fleetの実際の稼働ページはこの呼び出しをしていないため無害だっただけで、
+  「`'start'`コールバック内から`router.setPath()`を呼ぶかどうか」が無害/有害の分岐点に
+  なっている可能性が高い。下記「`'start'`イベントの信頼性」の未解決の原因究明にも
+  関連しうる手がかり。
 
 ## フルスクリーン／キオスクモードのパターン（巡回モード）
 
