@@ -90,6 +90,13 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
   volca登録の途中でhfuさんから提起。書いてよいもの(プロジェクト名・URL・技術構成レベルの
   一言)/書かないもの(分析結論・戦略の中身)/迷う場合(本人に確認)の3点。`CLAUDE.md`にも
   運用ガイドとして転記済み
+- **kikimimi(新Open MCTプロジェクト)への設計助言+新規参加(2026-09-16)**。
+  hfuさん本人から、既存4プロジェクト(sas0/claude-mct/m3xx-fleet/mapterhorn-monitor)の
+  知見を踏まえた設計相談(m3xx-fleet型の妥当性・Plot APIの壁の再発可能性・root固定
+  identifierの踏襲・ツリー/モバイル対応)を受け、`patterns/open-mct-*.md`に基づき回答。
+  直後にkikimimi本人からも同内容の確認が届き、回答の一致を確認。OpenSpeechMap/
+  whisper.cpp/RPi 4Bの実測知見はdwg7に蓄積が無いと正直に回答。`dwg7/kikimimi`(Public)を
+  `PROJECTS.md`/`CLAUDE.md`に登録
 - **cafebabe自身の誤帰属を訂正(2026-09-15)**。上記の「grep戻り値」実例を
   `mapterhorn-japan-bridge`と記載していたが、tokachi20260911からの伝聞(セッション名
   「【現役3号】」、対応リポジトリ不明)を`ListAgents`の類似セッション名から勝手に

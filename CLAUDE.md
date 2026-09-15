@@ -178,6 +178,12 @@ cross-session連携用の一時的な情報(セッションは任務終了でア
 - `GeoServer on Raspberry Pi`(リポジトリ名`rpi-geoserver0`) —
   `dwg7/rpi-geoserver0`(Private)。RPi3 + Ubuntu Server、ハードウェア限界の
   計測。姉妹プロジェクトkaga0とはOS選定が意図的に異なる。2026-09-13参加確認
+- `kikimimi`(セッション名`kikimimi-60`) — `dwg7/kikimimi`(Public)。公共ラジオの
+  十勝岳言及頻度を社会センサーとしてテレメトリ化(OpenSpeechMap基盤、Open MCT表示)。
+  Open MCT設計はm3xx-fleet型(rootをカスタムtype化しビュー切り替えを絞る)を軸に、
+  Plot APIは未解決の主障壁(`patterns/open-mct-telemetry.md`)を踏まえ最初からSVG
+  代替で計画。OpenSpeechMap/whisper.cpp/RPi 4Bの実測知見はdwg7初、蓄積が進めば
+  書き戻し予定。2026-09-16参加確認
 - `height-coverage` — OSM建物高さ入力状況の啓発サイト
 - `zukaku` — 印刷アトラスPDF生成ツール
 - `sas0` — 北海道防災情報ダッシュボード(Open MCT)。`OPENMCT-NOTES.md`の先例あり
