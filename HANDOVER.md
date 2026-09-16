@@ -90,6 +90,13 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
   volca登録の途中でhfuさんから提起。書いてよいもの(プロジェクト名・URL・技術構成レベルの
   一言)/書かないもの(分析結論・戦略の中身)/迷う場合(本人に確認)の3点。`CLAUDE.md`にも
   運用ガイドとして転記済み
+- **DWG7-CONTEXT.mdに「潜水艦原則」を追記(2026-09-16)**。hfuさんとの対話より、
+  「技術の開放性とデータの開放性を分離する」という設計哲学(オープン技術+必要時のみ
+  air-gapped化するデータ)を新セクションとして追加。当初「DWG1」を名指しした対比案が
+  あったが、他DWGへの一方的な特徴づけを避け「他のDWG」に一般化した(hfuさん判断)。
+  rpi-geoserver0(HDXベンチマークデータ)・kikimimi(signal vs verified intelligence)・
+  kaga0(オフライン設計)の3実例、既存のAntigravity・個人単位の多中心的協調とも
+  相互参照させた
 - **kikimimiからの実装確認2件(2026-09-16)**: (1) 合成ダッシュボードはDisplay Layoutでは
   なく「単一の非永続provider+単一view providerで直接DOM生成」がm3xx-fleet・sas0の実績
   パターンだとコード確認、`patterns/open-mct-telemetry.md`のPlanLayout注記に並記。
