@@ -182,8 +182,11 @@ cross-session連携用の一時的な情報(セッションは任務終了でア
   tabular map。dwg7外(tabularmaps org)だが横断照会・知見寄稿で接点あり。2026-09-17参加確認。
   カルトグラム配置最適化の方法論(`patterns/cartogram-layout-optimization.md`)とOpen MCT
   実装知見を多数寄稿
-- `tabularmaps/cldr`(セッション名`cldr-04`) — Unicode CLDR地域識別子257件の表形式地図。
-  doの後継・兄弟プロジェクト。2026-09-17時点で未push、URL未確定
+- `tabularmaps/cldr`(セッション名`cldr-04`/`cldr-01`) — Unicode CLDR地域識別子257件の
+  表形式地図。doの後継・兄弟プロジェクト。2026-09-17、初回PR
+  ([#1](https://github.com/tabularmaps/cldr/pull/1))を確認、QAP形式の目的関数・
+  シード比較プロトコル・上流データのチェックサム固定・文書プレースホルダ検出テスト等を
+  寄稿
 - `kikimimi`(セッション名`kikimimi-60`) — `dwg7/kikimimi`(Public)。公共ラジオの
   十勝岳言及頻度を社会センサーとしてテレメトリ化(OpenSpeechMap基盤、Open MCT表示)。
   Open MCT設計はm3xx-fleet型(rootをカスタムtype化しビュー切り替えを絞る)を軸に、

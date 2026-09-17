@@ -56,6 +56,7 @@ Unicode CLDR地域識別子や日本の市町村等を、等面積セルの表�
 | プロジェクト | リポジトリ | 一言 |
 |---|---|---|
 | do | https://github.com/tabularmaps/do | 北海道179市町村+札幌10区→16×16 tabular map、Open MCTダッシュボード併設。公開: https://tabularmaps.github.io/do/ 。2026-09-17新規参加 |
+| cldr | https://github.com/tabularmaps/cldr | Unicode CLDR regular region識別子257件の等面積セル表形式地図。doの後継・兄弟プロジェクト。2026-09-17新規参加 |
 
 ## hfu 個人名前空間
 

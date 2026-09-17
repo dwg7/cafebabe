@@ -90,6 +90,13 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
   volca登録の途中でhfuさんから提起。書いてよいもの(プロジェクト名・URL・技術構成レベルの
   一言)/書かないもの(分析結論・戦略の中身)/迷う場合(本人に確認)の3点。`CLAUDE.md`にも
   運用ガイドとして転記済み
+- **tabularmaps/cldrからの初回PR+5件の知見(2026-09-17)**。QAP形式の目的関数
+  (1手評価O(n)、採点器/最適化器の分離)・シード比較プロトコル(最悪シードが他候補の
+  最良シードを上回るかで判定)・政治的に敏感な入力を出典データセットの視点フィールドで
+  機械的に決める技法を`patterns/cartogram-layout-optimization.md`に追加。上流データの
+  チェックサム固定を`patterns/data-provenance.md`に、文書プレースホルダ/スクラッチパス
+  検出テストを`patterns/markdown-file-conventions.md`に追加。`tabularmaps/cldr`を
+  `PROJECTS.md`に登録(URL確定)
 - **tabularmaps/do(dwg7外)からの大量寄稿を反映(2026-09-17)**。北海道179市町村→16×16
   tabular mapプロジェクトから、hfuさんの指示で14件の知見が届いた。Open MCT関連5件は
   `patterns/open-mct-*.md`に反映(providerパターンの5例目確認、ブラウザ自動化での
