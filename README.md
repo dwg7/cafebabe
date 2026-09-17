@@ -90,6 +90,9 @@ cafebabe は、その知見を**誰か一人が所有するのではなく**、�
     (事前スクリーニング)、
     [`patterns/aerial-photogrammetry-pipeline.md`](patterns/aerial-photogrammetry-pipeline.md)
     (処理環境・配信・応用)
+  - [`patterns/cartogram-layout-optimization.md`](patterns/cartogram-layout-optimization.md) —
+    等面積セルへの地理データ配置(カルトグラム的最適化)の方法論。dwg7とは別系統
+    (tabularmaps org)だが横断的価値ありと判断し収録
 
 - **`ideas/`** — `patterns/`のsibling。**まだ誰も実装していない**が検討する価値のある技術的
   アイデアを置く場所(実装されたら`patterns/`へ昇格)。詳しくは[`ideas/README.md`](ideas/README.md)参照

@@ -13,6 +13,8 @@
 
 基本プラグイン（`LocalStorage`・`UTCTimeSystem`・`Espresso`テーマ）のインストール、`openmct.types.addType()`によるカスタムタイプ登録は、3プロジェクトとも問題なく動作。
 
+**追加確認（2026-09-17、tabularmaps/do）**：provider三点セット＋独自type＋自前SVGの構成が、4.3.1（unpkg）であらためて動作することを確認（5例目）。あわせて2つの実装ディテールが判明：独自typeのオブジェクトに`composition: []`プロパティは不要で、`composition.addProvider`の`appliesTo`だけでツリーに展開三角が出て子が読める。`location`もroot以外は未設定のまま問題ない。
+
 ## カスタムtype登録（`openmct.types.addType()`）の使われ方
 
 2026-09-06、hfuさん自身のOpen MCT学習に伴うヒアリングより。「組み込みtypeだけで運用しているか」という問いに対し、sas0・claude-mct・m3xx-fleet（m3xx-fleet-ops）の3プロジェクトとも**自分でtypeを登録していた**——「型そのものが要らない」という運用は今のところ見られない。

@@ -27,4 +27,6 @@
 
 **共通する背景**：sas0・mapterhorn-monitor・m3xx-fleetの3プロジェクトはいずれも「静的スナップショットが一定間隔（2時間おき、15分おき等）で更新される」性質のデータを扱っており、Telemetry APIの購読モデルに乗る必要が生じなかった。3者は互いに参照せず**独立に同じ結論**（ツリー＋ビュー差し込み機構だけを借り、データ取得・描画は自前のfetch+DOM/Canvasで完結させる）に到達している。starsは同じ結論を、独立発見ではなくcafebabeの助言を受けて採用し、実地で確認した——証拠としての性質は異なる（`patterns/open-mct-object-model.md`のProvider構造セクション末尾の注記も参照）が、「助言通りに実装して問題が起きなかった」という点自体は推奨の妥当性を補強する。
 
+**データ契約の具体例（2026-09-17、tabularmaps/do）**：同じ「Telemetry API回避、view内でfetch+setInterval再描画」構成を、「1オブジェクト＝1指標(source)」という単位で実装し、指標の契約を`{label, unit, asOf, min, max, values: {<id>: number}}`という1形に統一した。これによりツリーへの新規指標追加が「配列に1要素足すだけ」で済む——sas0の`registerInstrument`と同じ考え方の、実測値つきバージョンと言える。
+
 **現時点の結論**：Open MCTを選ぶ理由は必ずしも「Telemetry APIのpush/pull抽象化を使いたいから」ではない——**「異種混在の情報源を1つのツリー・ブラウズUIで束ねたい」という価値だけを目的に、Telemetry API自体は使わないという選択も十分に実用的な標準構成になっている**（`patterns/open-mct.md`の「Open MCTの強み」の三層分離の議論とも整合する）。真のリアルタイム性・大量データの効率的な差分配信が要る場合にのみ、claude-mctのようにTelemetry APIへ乗る価値が出てくる。

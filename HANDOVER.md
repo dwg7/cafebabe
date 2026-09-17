@@ -90,6 +90,17 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
   volca登録の途中でhfuさんから提起。書いてよいもの(プロジェクト名・URL・技術構成レベルの
   一言)/書かないもの(分析結論・戦略の中身)/迷う場合(本人に確認)の3点。`CLAUDE.md`にも
   運用ガイドとして転記済み
+- **tabularmaps/do(dwg7外)からの大量寄稿を反映(2026-09-17)**。北海道179市町村→16×16
+  tabular mapプロジェクトから、hfuさんの指示で14件の知見が届いた。Open MCT関連5件は
+  `patterns/open-mct-*.md`に反映(providerパターンの5例目確認、ブラウザ自動化での
+  展開三角セレクタの罠、無害エラーの追加確認、データ契約の具体例、Espressoテーマ内での
+  CSS透過テクニック)。北海道179市町村データの罠(総務省Excelの北方領土6村混入)+
+  xlsx最小パース技法は`patterns/data-provenance.md`に、CI設計は`patterns/ci-cd-
+  pitfalls.md`に、GitHub Pages有効化の`gh api`手順は`patterns/markdown-file-
+  conventions.md`に追加。カルトグラム的配置最適化の方法論5件は新規
+  `patterns/cartogram-layout-optimization.md`として独立ファイル化(do自身が新設候補として
+  提案)。`tabularmaps/do`を`PROJECTS.md`(新設「tabularmaps org」セクション)に登録。
+  返信不要の指示だったため、doへの返信は送っていない
 - **DWG7-CONTEXT.mdに「潜水艦原則」を追記(2026-09-16)**。hfuさんとの対話より、
   「技術の開放性とデータの開放性を分離する」という設計哲学(オープン技術+必要時のみ
   air-gapped化するデータ)を新セクションとして追加。当初「DWG1」を名指しした対比案が

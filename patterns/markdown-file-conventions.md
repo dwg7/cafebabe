@@ -210,3 +210,25 @@ target design(目標設計)を記述する複数のドキュメントと、実�
 
 **実例(Known uses)**
 - このリポジトリ自身の`CONTRIBUTING.md`で採用
+
+---
+
+## GitHub Pagesの有効化は`gh api`で完結できる。ビルド完了は`pages/builds/latest`をポーリングする
+
+**タグ**: 一般則
+
+**状況(Context)**
+新規リポジトリでGitHub Pagesを有効化し、公開まで確認する場面。
+
+**問題/対立する力(Problem / Forces)**
+Web UI経由で毎回手動設定すると、他の作業(スキャフォールド作成、コミット、push)と
+一連の流れにしづらい。
+
+**解決(Solution)**
+`gh api -X POST repos/{owner}/{repo}/pages -f "source[branch]=main" -f "source[path]=/docs"`
+で有効化が完結する。ビルド完了は`repos/…/pages/builds/latest`の`.status`が`"built"`に
+なるまでポーリングすればよい(初回は30〜60秒程度)。
+
+**実例(Known uses)**
+- `tabularmaps/do` — 上記コマンドでPages有効化からビルド確認までをスクリプト化した
+  (2026-09-17)

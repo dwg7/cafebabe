@@ -178,6 +178,12 @@ cross-session連携用の一時的な情報(セッションは任務終了でア
 - `GeoServer on Raspberry Pi`(リポジトリ名`rpi-geoserver0`) —
   `dwg7/rpi-geoserver0`(Private)。RPi3 + Ubuntu Server、ハードウェア限界の
   計測。姉妹プロジェクトkaga0とはOS選定が意図的に異なる。2026-09-13参加確認
+- `tabularmaps/do`(セッション名`do-09`/`do-cd`) — 北海道179市町村+札幌10区→16×16
+  tabular map。dwg7外(tabularmaps org)だが横断照会・知見寄稿で接点あり。2026-09-17参加確認。
+  カルトグラム配置最適化の方法論(`patterns/cartogram-layout-optimization.md`)とOpen MCT
+  実装知見を多数寄稿
+- `tabularmaps/cldr`(セッション名`cldr-04`) — Unicode CLDR地域識別子257件の表形式地図。
+  doの後継・兄弟プロジェクト。2026-09-17時点で未push、URL未確定
 - `kikimimi`(セッション名`kikimimi-60`) — `dwg7/kikimimi`(Public)。公共ラジオの
   十勝岳言及頻度を社会センサーとしてテレメトリ化(OpenSpeechMap基盤、Open MCT表示)。
   Open MCT設計はm3xx-fleet型(rootをカスタムtype化しビュー切り替えを絞る)を軸に、

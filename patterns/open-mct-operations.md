@@ -15,6 +15,12 @@
   - mapterhorn-monitor（同じく4.3.0-rc1、CDN、同じ「リスナーを`start()`より先に登録」という順序）：**一度も発火しない**。登録順序の違いという仮説は、両者が同じ順序だったため否定された。手がかりは、起動時に一貫して発生する`Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'key')`という未処理のPromise rejectionで、これが`'start'`のemit前に非同期チェーンを中断させている可能性がある（未確定）。
   - claude-mct（4.2.0、npm）：このイベントに依存しない設計のため未検証。
   - **現状の結論**：バージョン・環境依存で、原因は特定できていない（この信頼性の食い違いがバージョン依存かmapterhorn-monitor固有の環境要因かも未確定）。対策としては、リスナーは`start()`より先に登録した上で、**初期化処理をイベント経由だけに頼らず、`openmct.start()`の直後に直接（同期的に）書く**フォールバックを持たせるのが安全。
+- **ブラウザ自動化でツリーの展開三角を探すと空振りする**：Open MCTのツリー展開三角は
+  `<button>`ではなく`<span role="button" class="c-disclosure-triangle"
+  aria-label="Expand …">`。`button[aria-label^="Expand"]`のようなセレクタは要素自体が
+  見つからず空振りし、「compositionが動いていない」と誤診しやすい（tabularmaps/doは
+  これで約20分誤診した）。切り分けは`openmct.composition.get(obj).load()`を直接呼んで
+  子が返るかを確認する方が早い。〔tabularmaps/do、2026-09-17〕
 - **起動時の無害なコンソールエラー——ただし`router.setPath()`を絡めると無害でなくなる**：
   `Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'key')`が
   1回だけ出ることがある。ローカル検索インデクサの既知の癖で、通常は再現性はあるが実害はない
@@ -25,7 +31,10 @@
   m3xx-fleetの実際の稼働ページはこの呼び出しをしていないため無害だっただけで、
   「`'start'`コールバック内から`router.setPath()`を呼ぶかどうか」が無害/有害の分岐点に
   なっている可能性が高い。下記「`'start'`イベントの信頼性」の未解決の原因究明にも
-  関連しうる手がかり。
+  関連しうる手がかり。〔tabularmaps/do、2026-09-17〕GitHub Pages上・4.3.1・
+  `SharedWorker=undefined`適用時でも同じ無害エラーが1〜2回出るのみで、ツリー・ビュー・
+  自前`setInterval`再描画は正常という追加確認あり(このケースは`router.setPath()`を
+  呼んでいない)。
 
 ## フルスクリーン／キオスクモードのパターン（巡回モード）
 
@@ -58,6 +67,10 @@ Open MCT自体には「フルスクリーン表示用のビュー」のような
 - **`requestFullscreen()`は必ずユーザー操作（クリック等）から呼ぶ**。ブラウザの仕様上の要件。失敗・拒否された場合は`.catch(() => {})`で握りつぶし、巡回ロジック自体（画面切り替え）は続行する——フルスクリーン化はあくまで付加的な演出として扱う。
 - **未検証の領域**：ブラウザ自動化ツールでの実機確認では、sas0・mapterhorn-monitorとも、CSSによるOpen MCT chrome非表示は screenshot で視覚的に確認できたが、**ブラウザ本体レベルのフルスクリーン化（タブ・アドレスバーが消えるか）自体は自動化ツールでは確認できていない**——サンドボックス制限と見られる。マルチモニタ環境での挙動も、3プロジェクトとも未検証。
 - **矢印キーでの手動送り**：巡回中に左右矢印キーで前後の計器へ手動遷移する機能を、mapterhorn-monitor・sas0の両方が独立に実装（sas0 D66）。自動tick・手動キー操作・タイマーリセットを1つの関数（`goToIndex`/`goToCycleIndex`）に集約するのが両者で一致した設計。落とし穴：①JavaScriptの`%`は負数をラップしない（`-1 % 5`は`-1`のまま）ので、後方遷移には`((newIndex % length) + length) % length`が必要。②`event.target`が`INPUT`/`TEXTAREA`/`SELECT`/`isContentEditable`の時はキー処理を素通しする防御を入れる。③手動遷移時は`clearInterval`→`setInterval`でタイマーを仕切り直し、直後に自動tickが割り込んで二重遷移しないようにする。
+- **自前CSSをEspresso（暗色）テーマの中に差す際のコツ**：コンテナ内の背景を透過にしておくと
+  テーマと喧嘩しない（例: `.tm-root { --surface: transparent }`）。dataviz向けの
+  light/dark二重定義規約（`prefers-color-scheme` + `[data-theme]`）も、そのままOpen MCTの
+  内部で使えることを確認。〔tabularmaps/do、2026-09-17〕
 
 ## デバッグ手法
 
