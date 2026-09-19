@@ -41,8 +41,8 @@
 環境で明示的にexportされているか確認する。「Pythonスクリプト側で既に対策済み」は、別プロセス
 として起動される外部ツールをカバーしない。処理完了後は、可能であれば検証コマンド
 (`pmtiles verify`等)を実行し、「エラーなく終わった」ことを「正しく書き込まれた」ことの
-証拠にしない([`patterns/verification-discipline.md`](verification-discipline.md)の
-「『成功終了』は『正しい出力』を意味しない」と同じ精神)。
+証拠にしない([`patterns/verification-discipline-self-checks.md`](verification-discipline-self-checks.md)
+の「『成功終了』は『正しい出力』を意味しない」と同じ精神)。
 
 **実例(Known uses)**
 - `mapterhorn-japan-bridge` — `pmtiles`(Python、`protomaps/PMTiles`)の`Writer`クラスが

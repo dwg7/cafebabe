@@ -6,9 +6,9 @@
 ([`docs/zoom-policy.md`](https://github.com/hfu/kitavolca/blob/main/docs/zoom-policy.md)
 に測定過程の全容あり)。
 
-関連: [`patterns/verification-discipline.md`](verification-discipline.md)(「成功終了」を
-鵜呑みにしない検証規律)、[`patterns/large-data-pitfalls.md`](large-data-pitfalls.md)
-(大容量データ処理の落とし穴)。
+関連: [`patterns/verification-discipline-self-checks.md`](verification-discipline-self-checks.md)
+(「成功終了」を鵜呑みにしない検証規律)、
+[`patterns/large-data-pitfalls.md`](large-data-pitfalls.md)(大容量データ処理の落とし穴)。
 
 ---
 
@@ -103,8 +103,8 @@ tippecanoe等のビルドツールが警告を出さずに完了した後、最�
 **問題/対立する力(Problem / Forces)**
 ビルドログとPMTiles実体の非圧縮サイズが食い違うケースがある。ログに警告が出ていないことを
 「問題なし」の証拠として扱うと、実際には基準を超えたタイルを見落とす
-([`patterns/verification-discipline.md`](verification-discipline.md)の「『成功終了』は
-『正しい出力』を意味しない」と同じ精神)。
+([`patterns/verification-discipline-self-checks.md`](verification-discipline-self-checks.md)
+の「『成功終了』は『正しい出力』を意味しない」と同じ精神)。
 
 **解決(Solution)**
 ビルドログを信用せず、常に`pmtiles tile ... | gunzip -c | wc -c`で最終成果物を直接測定する

@@ -64,8 +64,12 @@ cafebabe は、その知見を**誰か一人が所有するのではなく**、�
     来歴を調査する(データ出自調査)
   - [`patterns/agent-execution-gotchas.md`](patterns/agent-execution-gotchas.md) — Claude Code
     エージェント自身のツール実行環境(ブラウザ自動化・バックグラウンドプロセス等)の落とし穴
-  - [`patterns/verification-discipline.md`](patterns/verification-discipline.md) —
-    「成功終了」「確認済み申告」を鵜呑みにしない検証・デバッグの規律
+  - 検証・デバッグの規律(2026-09-20テーマ別2分割):
+    [`patterns/verification-discipline.md`](patterns/verification-discipline.md)(概要)、
+    [`patterns/verification-discipline-self-checks.md`](patterns/verification-discipline-self-checks.md)
+    (自分自身の検査手順を疑う)、
+    [`patterns/verification-discipline-cross-session.md`](patterns/verification-discipline-cross-session.md)
+    (ピア・cross-sessionの主張を検証する)
   - [`patterns/local-dev-pitfalls.md`](patterns/local-dev-pitfalls.md) — ローカル開発環境・
     シェルスクリプトの環境依存な落とし穴
   - [`patterns/robust-pipeline-design.md`](patterns/robust-pipeline-design.md) —

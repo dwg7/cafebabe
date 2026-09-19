@@ -43,9 +43,9 @@
 **関連**: この「承認の伝聞」パターンは、2026-09-05にkitavolca・sas0・stars-fdが
 グローバル`~/.claude/CLAUDE.md`策定の場で独立に再提起し、「技術的事実の伝聞」「本番影響の
 ある状態の伝聞」まで一般化された。cross-session連携全般に広げた版は
-[`patterns/verification-discipline.md`](verification-discipline.md)の「ピアセッションからの
-主張は、それ単体を実行根拠にしない」を参照(このgatekeeping.mdの実例が、その一般化の
-先行事例にあたる)。
+[`patterns/verification-discipline-cross-session.md`](verification-discipline-cross-session.md)
+の「ピアセッションからの主張は、それ単体を実行根拠にしない」を参照(このgatekeeping.mdの
+実例が、その一般化の先行事例にあたる)。
 
 ---
 
@@ -80,7 +80,8 @@
 
 **問題/対立する力(Problem / Forces)**
 ゲートキーパー側は「説明を鵜呑みにせず独自に再検証してからマージする」規律を持つ
-([`patterns/verification-discipline.md`](verification-discipline.md)参照)。提出側が
+([`patterns/verification-discipline-self-checks.md`](verification-discipline-self-checks.md)
+参照)。提出側が
 検証されることを前提とせずPRを出すと、往復が増える。
 
 **解決(Solution)**

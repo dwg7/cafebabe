@@ -67,10 +67,22 @@ Open MCT自体には「フルスクリーン表示用のビュー」のような
 - **`requestFullscreen()`は必ずユーザー操作（クリック等）から呼ぶ**。ブラウザの仕様上の要件。失敗・拒否された場合は`.catch(() => {})`で握りつぶし、巡回ロジック自体（画面切り替え）は続行する——フルスクリーン化はあくまで付加的な演出として扱う。
 - **未検証の領域**：ブラウザ自動化ツールでの実機確認では、sas0・mapterhorn-monitorとも、CSSによるOpen MCT chrome非表示は screenshot で視覚的に確認できたが、**ブラウザ本体レベルのフルスクリーン化（タブ・アドレスバーが消えるか）自体は自動化ツールでは確認できていない**——サンドボックス制限と見られる。マルチモニタ環境での挙動も、3プロジェクトとも未検証。
 - **矢印キーでの手動送り**：巡回中に左右矢印キーで前後の計器へ手動遷移する機能を、mapterhorn-monitor・sas0の両方が独立に実装（sas0 D66）。自動tick・手動キー操作・タイマーリセットを1つの関数（`goToIndex`/`goToCycleIndex`）に集約するのが両者で一致した設計。落とし穴：①JavaScriptの`%`は負数をラップしない（`-1 % 5`は`-1`のまま）ので、後方遷移には`((newIndex % length) + length) % length`が必要。②`event.target`が`INPUT`/`TEXTAREA`/`SELECT`/`isContentEditable`の時はキー処理を素通しする防御を入れる。③手動遷移時は`clearInterval`→`setInterval`でタイマーを仕切り直し、直後に自動tickが割り込んで二重遷移しないようにする。
-- **自前CSSをEspresso（暗色）テーマの中に差す際のコツ**：コンテナ内の背景を透過にしておくと
-  テーマと喧嘩しない（例: `.tm-root { --surface: transparent }`）。dataviz向けの
-  light/dark二重定義規約（`prefers-color-scheme` + `[data-theme]`）も、そのままOpen MCTの
-  内部で使えることを確認。〔tabularmaps/do、2026-09-17〕
+- **自前CSSをEspresso（暗色）テーマの中に差す際のコツ——ただし浮いたパネルには専用の面色が必要**：
+  コンテナ内の背景を透過にしておくとテーマと喧嘩しない（例:
+  `.tm-root { --surface: transparent }`）。dataviz向けのlight/dark二重定義規約
+  （`prefers-color-scheme` + `[data-theme]`）も、そのままOpen MCTの内部で使えることを確認。
+  〔tabularmaps/do、2026-09-17〕
+  **訂正・深掘り(2026-09-20)**：ただしこの透過設定には副作用がある——ツールチップ等の
+  **浮いたパネル**は、透過にした`--surface`を背景として使っていたため、「面の色に載る
+  文字色」の基準を失い、Open MCT本体のダークテーマ内で文字が見えなくなる不具合が
+  発生した（単体プレビューでは再現せず、Open MCTの中で・ダークテーマで確認して初めて
+  発覚）。**浮いたパネル用には、親の背景に依存しない専用の面色トークン(`--tm-panel`)と
+  その上の文字色トークン(`--tm-on-ink`)を別に定義する**必要がある。sas0側は採択時に
+  `.tm-dark`の強制で対処した。〔tabularmaps/do、sas0、2026-09-20〕
+  あわせて小ネタ：GitHub PagesはCSS/JSを10分キャッシュする
+  （`cache-control: max-age=600`）。push直後の公開版確認は`fetch(url, {cache:
+  'reload'})`かクエリ付きURLで行う——starsの4時間メタデータキャッシュ
+  （`patterns/aerial-photogrammetry-pipeline.md`参照）と同じ型のCDNキャッシュの罠。
 
 ## デバッグ手法
 
