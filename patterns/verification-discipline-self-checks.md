@@ -120,6 +120,12 @@ CLIツールがエラーを出さず正常終了しても、渡した引数の�
   (`zoomLevelsToOverscale`)で症状の一部は直ったが緑カウントだけ0のままだった。globe投影を
   丸ごと無効化して切り分けた結果、「globe×fill-extrusion」という別のバグだと判明。
   DECISIONS.md「Addendum: globe projection + fill-extrusion breaks viewport stats」参照
+- `doverture` — ベクタが一切描かれない問題で、非公開API(`GeoJSONSource._data`)の参照・
+  低ズームでセルが下図に埋もれる不透明度の設計ミス・バンドラがMapLibreのワーカーを
+  出力していない404、の**3つが重なっていた**。上2つを直しても絵は出ず、
+  「直したのに変わらない」が続いた。切り分けの一手は、ページ自身に状態
+  (レイヤー有無・ソース読込済・ソース内地物数・描画地物数)を画面と`console.log`へ
+  吐かせたこと。最終的に決めたのは開発サーバーのアクセスログ(2026-09-20)
 
 ---
 
