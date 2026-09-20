@@ -218,3 +218,60 @@ iframeでの埋め込みは、sandbox属性(`allow-same-origin`等)まわりの�
 
 **実例(Known uses)**
 - `sas0` — 過去にiframe方式を試し、放棄してネイティブ埋め込みに移行
+
+---
+
+## MapLibre GL JS v6 をバンドラで取り込むなら`setWorkerUrl`を明示する
+
+**タグ**: 一般則
+
+**状況(Context)**
+MapLibre GL JS v6 を Vite 等のバンドラでアプリに取り込み、ビルドした静的ファイルを配信する場面。
+
+**問題/対立する力(Problem / Forces)**
+v6 は **main / shared / worker の3ファイル分割配布**で、ワーカーの場所を実行時に
+自分の`import.meta.url`から組み立てる:
+
+```js
+let e = import.meta.url;
+let t = e.endsWith("-dev.mjs") ? "maplibre-gl-worker-dev.mjs" : "maplibre-gl-worker.mjs";
+return new URL(`./${t}`, e).href;
+```
+
+バンドラが MapLibre をバンドルに取り込むと`import.meta.url`は`assets/index.js`になり、
+**存在しない`assets/maplibre-gl-worker.mjs`を探しに行って404**になる。文字列を実行時に
+組み立てるためバンドラは静的に拾えず、ビルドは何の警告も出さない。
+
+さらに厄介なのは**失敗の仕方**で、次の症状が揃う:
+
+- **ラスタタイルは正常に表示される**(ワーカーを使わないため)
+- **GeoJSONソースもベクタタイルも、まったく同じように沈黙する**(どちらもワーカーでタイル化する)
+- `map.on('error')`が**何も出さない**。MapLibre はワーカーの読み込み失敗を`error`イベントに
+  出さない
+- `map.isSourceLoaded(id)`が`false`のまま、`idle`イベントも永久に来ない
+- `new Worker(blob, {type:'module'})`を自前で試すと成功する。**ブラウザ側は正常**で、
+  MapLibre 固有の問題
+
+「ラスタは出るがベクタが出ない・`idle`が来ない・エラーも出ない」を見たら、まずこれを疑う。
+
+**解決(Solution)**
+ワーカーを資産として出させ、場所を明示的に教える:
+
+```js
+import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url';
+maplibregl.setWorkerUrl(maplibreWorkerUrl);
+```
+
+ビルド出力に`assets/maplibre-gl-worker.mjs`が現れることを確認する。**ビルド成果物に対する
+検査**(HTML とバンドルが参照するアセットが全て存在するか、ワーカーが出力されているか)を
+自動テストに入れておくと、この種の沈黙する失敗を人の目に頼らず捕まえられる。
+
+なお、ビルド出力のファイル名を`entryFileNames: 'assets/app.js'`のような**リテラルの固定名**
+にするのも避ける。複数のエントリが同じ名前を要求して片方が消える。ハッシュを避けたい場合は
+`'assets/[name].js'`にする。
+
+**実例(Known uses)**
+- `doverture` — Vite + MapLibre GL JS v6 で遭遇。空中写真(ラスタ)だけが表示され、
+  PMTiles も GeoJSON も無言のまま描かれない状態が続いた。`map.on('error')`・
+  `queryRenderedFeatures`・ワーカー単体テストのいずれでも特定できず、**開発サーバーの
+  アクセスログの404**で確定した([DECISIONS.md D18](https://github.com/dwg7/doverture/blob/main/DECISIONS.md))
