@@ -148,7 +148,15 @@ cross-session連携用の一時的な情報(セッションは任務終了でア
   `hfu/faceless-cartographer`と並ぶ**独立したCartographer実装の1つ**(FAOのHand-in-Hand/
   GAEZデータ向け)。各実装が自分の必要から仕様を逸脱・拡張し、それを後からADRとして
   staccato-specへ還元する一方向の流れ。Library候補としてstars.optgeo.org・
-  Source Cooperativeを検討中
+  Source Cooperativeを検討中。**ミッション転換(2026-09-18、unopengis/7 #997→#1011)**:
+  hfuさんが「Staccatoを当てはめようと思いすぎてUserの問いを取り逃していた」と振り返り、
+  FAO担当者(Pengyu氏)の実際のユーザーストーリー([un-fao/FERSPAS_demo](https://github.com/un-fao/FERSPAS_demo))
+  に立ち返る方針に転換。`dwg7/ferspas57`のラインはいったん休止し、後継として
+  `dwg7/ferspas-html-demo`(下記)を新設した
+- `ferspas-html-demo`(セッション名`ferspas-html-demo`) — `dwg7/ferspas-html-demo`
+  (Public)。FERSPASのJupyter Notebookワークフロー(専門家の実験環境として尊重)を、
+  コードを書かない公務利用者でも扱える透明なWebアプリへ移す探索。「探索は専門家の環境で
+  行い、安定したタスクはWebで共有する」という方針。2026-09-18新規、2026-09-20参加確認
 - `staccato-spec` — `UNopenGIS/staccato-spec`(Public)。Staccatoアーキテクチャ
   (User/Staff/Cartographer/Libraryの4者モデル)の規範仕様そのものを保持し、実装コードは
   持たない。Map Intent(Staff→Cartographerの共有YAML成果物)のスキーマの定義元。
@@ -178,6 +186,12 @@ cross-session連携用の一時的な情報(セッションは任務終了でア
 - `GeoServer on Raspberry Pi`(リポジトリ名`rpi-geoserver0`) —
   `dwg7/rpi-geoserver0`(Private)。RPi3 + Ubuntu Server、ハードウェア限界の
   計測。姉妹プロジェクトkaga0とはOS選定が意図的に異なる。2026-09-13参加確認
+- `bvmap`(セッション名`dwg7/bvmap`) — `dwg7/bvmap`(Public)。GSI bvmap(基盤地図情報
+  ベクトルタイル)のMapLibreスタイル(light+dark)、stars.optgeo.orgのstyle.json源。
+  2026-09-20、PR経由で「戦略的仮説を検証せずに採用する危険」パターンを寄稿・登録確認
+- `doverture` — `dwg7/doverture`(Public)。北海道の建物フットプリントを各データソースで
+  突き合わせる探索的conflation研究。2026-09-20、PR経由でMapLibre v6ワーカー・開発サーバー
+  ログのパターンを寄稿・登録確認(寄稿時点でセッションは終了済み、PRのみ確認)
 - `tabularmaps/do`(セッション名`do-09`/`do-cd`) — 北海道179市町村+札幌10区→16×16
   tabular map。dwg7外(tabularmaps org)だが横断照会・知見寄稿で接点あり。2026-09-17参加確認。
   カルトグラム配置最適化の方法論(`patterns/cartogram-layout-optimization.md`)とOpen MCT

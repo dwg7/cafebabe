@@ -27,6 +27,9 @@
 | staccato-ecosystem | https://github.com/dwg7/staccato-ecosystem | staccato-specのコンパニオンリポジトリ。教育・防災・測量等の実領域向け協力手法論と生態系成長戦略。2026-09-09新規参加 |
 | kataribe | https://github.com/dwg7/kataribe | dossierベースの語り部Staff(staccato)。2026-09-05創設、staccato-ecosystemから輩出。2026-09-11、専任セッション(kataribe-8d)への引き渡し時にpush漏れが発覚・解決した実例として`patterns/verification-discipline.md`参照 |
 | kikimimi | https://github.com/dwg7/kikimimi | 公共ラジオの十勝岳言及頻度を社会センサーとしてテレメトリ化(OpenSpeechMap基盤、Open MCT表示)。2026-09-16新規参加 |
+| bvmap | https://github.com/dwg7/bvmap | GSI bvmap(基盤地図情報ベクトルタイル)のMapLibreスタイル(light+dark)。stars.optgeo.orgのstyle.json源。2026-09-20新規参加(PR経由) |
+| doverture | https://github.com/dwg7/doverture | 北海道の建物フットプリントを各データソースで突き合わせる探索的conflation研究(Hokkaido Overture)。2026-09-20新規参加(PR経由) |
+| ferspas-html-demo | https://github.com/dwg7/ferspas-html-demo | FERSPAS(FAO)のJupyter Notebookワークフローを、コードを書かないユーザーでも扱える透明なWebアプリへ移す探索。2026-09-18新規、旧`dwg7/ferspas57`のミッション転換後継(unopengis/7 #997→#1011) |
 | GeoServer on Raspberry Pi(`rpi-geoserver0`) | https://github.com/dwg7/rpi-geoserver0 (PRIVATE) | RPi3 + Ubuntu Server、ハードウェア限界の計測。姉妹プロジェクトkaga0とはOS選定が意図的に異なる。2026-09-13新規参加 |
 
 ## UNopenGIS org(関連組織)

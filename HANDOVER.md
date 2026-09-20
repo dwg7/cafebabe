@@ -90,6 +90,17 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
   volca登録の途中でhfuさんから提起。書いてよいもの(プロジェクト名・URL・技術構成レベルの
   一言)/書かないもの(分析結論・戦略の中身)/迷う場合(本人に確認)の3点。`CLAUDE.md`にも
   運用ガイドとして転記済み
+- **PR経由の初の直接寄稿2件をマージ+ferspas57のミッション転換を発見(2026-09-20)**。
+  hfuさんの「issueができているかも」「PRができているかも」という指摘を受け
+  `gh issue`/`gh pr`で確認。dwg7/cafebabeにissueは無かったが、**PR #1(`dwg7/bvmap`から:
+  「戦略的仮説を検証せずに採用する危険」)とPR #2(`dwg7/doverture`から: MapLibre v6の
+  ワーカー404・開発サーバーアクセスログの重要性)**が届いており、いずれもCONTRIBUTING.mdの
+  型に沿った高品質な内容だったため確認の上マージした(`eb4a09f`・`8fd7cab`)。cafebabeが
+  PRを直接マージしたのはこのセッションで初めて。あわせてunopengis/7の関連issue調査で、
+  **`dwg7/ferspas57`が2026-09-18にミッション転換していたことを発見**——hfuさんが
+  「Staccatoを当てはめようと思いすぎてUserの問いを取り逃していた」と振り返り、FAO担当者の
+  実際のユーザーストーリーに立ち返る方針へ転換、後継`dwg7/ferspas-html-demo`を新設(元issue
+  #997→#1011)。`bvmap`・`doverture`・`ferspas-html-demo`を`PROJECTS.md`/`CLAUDE.md`に登録
 - **tabularmaps/doからの第2弾寄稿(7点+既存パターンの訂正1件)+verification-
   discipline.mdの分割(2026-09-20)**。hfuさんの指示でdoから届いた大量の知見を反映:
   (1) 既存の「179市町村」パターンへの訂正——除外ではなく`status`タグで保持し集計だけ
