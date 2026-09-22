@@ -32,6 +32,14 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
 
 ## Resolved since last handover
 
+- **dovertureの追加寄稿を回収(2026-09-22)**。「起床」確認(issue/PR/ブランチの定期点検)の
+  過程で、PR #2マージ後もdoverture側が同じブランチ(`add-maplibre-worker-and-devserver-log`)
+  へpushを続けていたことを発見——PRは既にマージ・削除済みだったため新しいPRにはならず
+  孤立コミットのまま残っていた。内容(ワーカーの依存閉包を辿る必要性、式・設定の検査は
+  合成データでなく実配信データで行う)を直接cherry-pickしてmainに取り込み、孤立ブランチは
+  削除した(`8db12a1`)。**教訓**: マージ後にPRの続きとして同じブランチへpushされた寄稿は、
+  新しいPRとして現れないため、定期点検では`gh pr list`だけでなく削除したはずのブランチ名の
+  残存もチェックする価値がある
 - D1〜D15(創設〜グローバル`~/.claude/CLAUDE.md`策定協力)完了
 - D16「`ideas/`ディレクトリ新設」完了。`ideas/osm-community-oauth.md`を初回エントリとして
   作成
