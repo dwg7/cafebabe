@@ -60,8 +60,12 @@ cafebabe は、その知見を**誰か一人が所有するのではなく**、�
     4プロジェクトから横断収集済み)
   - [`patterns/case-study-research.md`](patterns/case-study-research.md) — プロジェクトへの
     先行事例研究の埋め込み(9プロジェクトから意見収集して取りまとめ済み)
-  - [`patterns/data-provenance.md`](patterns/data-provenance.md) — 依拠するデータソース自体の
-    来歴を調査する(データ出自調査)
+  - データ出自調査(依拠するデータソース自体の来歴を調査する、2026-09-24テーマ別2分割):
+    [`patterns/data-provenance.md`](patterns/data-provenance.md)(概要)、
+    [`patterns/data-provenance-source-verification.md`](patterns/data-provenance-source-verification.md)
+    (外部ソースの正当性・鮮度の検証)、
+    [`patterns/data-provenance-wrangling.md`](patterns/data-provenance-wrangling.md)
+    (整形・集計の実務、北海道市町村データ・GeoParquet)
   - [`patterns/agent-execution-gotchas.md`](patterns/agent-execution-gotchas.md) — Claude Code
     エージェント自身のツール実行環境(ブラウザ自動化・バックグラウンドプロセス等)の落とし穴
   - 検証・デバッグの規律(2026-09-20テーマ別2分割):

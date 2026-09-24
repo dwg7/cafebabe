@@ -73,3 +73,11 @@ Open MCTのテレメトリプロバイダ方式(独自プロトコルを要求�
   tabularmap/`にコミット`1042202`をvendoring、出所とコミットハッシュを
   `docs/vendor/tabularmap/README.md`に記録した(do DECISIONS.md D22、sas0 DECISIONS.md
   D77、2026-09-19〜20)
+
+**変種(2026-09-24、do-survey)**: 部品の既定構造(rootの下にメトリクスを平置き)が
+組み込み先の次元数(44年×2指標)に合わない場合、**部品の全体ではなく描画コアだけを
+vendoringし、ツリー構造・providerは組み込み先が自分で書く**という変種も成立する。
+do-surveyは`TabularMap.create`(描画コアのみ)をvendoringし、
+root=カスタムtype(概要ビューのみ)→組み込み`folder`→leaf=カスタムtype、という
+自前のツリーを構築した。「部品全体を組み込む」か「描画ロジックだけを借りて構造は
+自分で組む」かは、組み込み先の次元数・構造が部品の既定と合うかどうかで判断する。

@@ -190,4 +190,4 @@ GitHub上では空リポジトリのままであり、実質「創設は完了�
   だけを見ており、他のシリーズにしか現れない警報・注意報を取りこぼしていた。doの実装を
   sas0に組み込む過程での突き合わせでこのバグが発覚——sas0は最初do側の実装を疑ったが、
   問題は自分の側にあった(sas0 D76、コミット`68f299d`、2026-09-19)。詳細は
-  `patterns/data-provenance.md`の該当パターン参照
+  `patterns/data-provenance-source-verification.md`の該当パターン参照

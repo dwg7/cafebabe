@@ -98,6 +98,17 @@ cafebabeが単に知見を集約するだけでなく、集めた知見を使っ
   volca登録の途中でhfuさんから提起。書いてよいもの(プロジェクト名・URL・技術構成レベルの
   一言)/書かないもの(分析結論・戦略の中身)/迷う場合(本人に確認)の3点。`CLAUDE.md`にも
   運用ガイドとして転記済み
+- **do-surveyから6点の実装知見+data-provenance.mdの分割(2026-09-24)**。
+  `dwg7/do-survey`(公開: https://dwg7.unopengis.org/do-survey/)から、GSI「公共測量
+  実施情報」を使ったダッシュボード構築の実地知見が届いた。CSVダウンロード機能の裏側を
+  読む技法、複数値カラムの2指標(関与件数/按分件数)管理、旧市町村名の別名テーブル+近傍
+  検証、**dwg7初のGeoParquet実例**(DuckDB CLIで直接書き出し、bboxメタデータが登録ミスを
+  検出)を`patterns/data-provenance*.md`に追加。Open MCT関連(部品の描画コアのみ
+  vendoring、ordinal色スケール、仮想化ツリーのデバッグ技法、無害エラーの4件目確認)を
+  `patterns/interoperability.md`・`patterns/open-mct-operations.md`に、GSI Public Data
+  License(PDL1.0)の出典+加工旨の二重表示要件を`patterns/licensing.md`に追加。
+  `patterns/data-provenance.md`が351行まで増え、source-verification/wranglingの2ファイル
+  に分割した
 - **PR経由の初の直接寄稿2件をマージ+ferspas57のミッション転換を発見(2026-09-20)**。
   hfuさんの「issueができているかも」「PRができているかも」という指摘を受け
   `gh issue`/`gh pr`で確認。dwg7/cafebabeにissueは無かったが、**PR #1(`dwg7/bvmap`から:
