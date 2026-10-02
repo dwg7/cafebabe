@@ -96,3 +96,28 @@ MapLibre GL JSが自動的に表示する。実装コストがゼロになる。
 
 **実例(Known uses)**
 - `height-coverage`
+
+---
+
+## ベクタソースに`tileSize`<512を指定すると無言でハングする(v6.6、zukakuの実験)。タイル枚数は`page.on('request')`で数える
+
+**タグ**: 一般則(zukakuの実験による。未コミット・cafebabe側では未再現)
+
+**状況(Context)**
+ベクタソースで、より深いズームのタイルを取りたい(`tileSize`を小さくして実効ズームを
+上げる)と考える場面。あるいは、取得したタイル枚数を計測したい場面。
+
+**問題/対立する力(Problem / Forces)**
+- maplibre-gl 6.6では、ベクタソースに`tileSize`<512(256/128)を指定すると、スタイル
+  適用が始まらず**無言でハング**する(512は正常)。「ベクタでも`tileSize`で深いズームの
+  タイルを取れる」という仮説は覆った
+- タイル取得はWeb Worker内で行われるため、メインスレッドの
+  `performance.getEntriesByType('resource')`には出ない
+
+**解決(Solution)**
+ベクタでは`tileSize`を512のままにする。タイル枚数を数えるなら、Playwrightの
+`page.on('request')`を使う。
+
+**実例(Known uses)**
+- `zukaku` — 2026-10-02の実験(未コミット)。出所はzukakuの報告のみで、cafebabe側では
+  再現していない

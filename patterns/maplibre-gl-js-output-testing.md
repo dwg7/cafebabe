@@ -47,6 +47,13 @@ Playwright検証だけでは、実ブラウザ特有の印刷不具合(色ズレ
   すべてが、Playwrightでは一度も再現しなかった
   ([ADR 0007追記](https://github.com/dwg7/zukaku/blob/main/adr/0007-client-side-print-mode.md))
 
+**訂正・深掘り(2026-10-02、zukakuより)**: 「`window.print()`と同じ印刷パイプラインを通る
+はず」という想定自体は正しかったが、**オプトインが必要**だった——`page.pdf()`に
+`preferCSSPageSize: true`を渡さないとCSSの`@page`が無視され、Letter判(612x792pt)に
+戻る。生成PDFのmediabox(用紙サイズ)を実測するまで気づかなかった
+(`scripts/render/lib.js`、zukaku ADR 0013追記・D18)。「同じはず」と思ったら、結果の
+物理サイズを測って確かめる。
+
 ---
 
 ## ブラウザ自動化ツールの非表示ペインでは、コンテナサイズが0x0になりうる
@@ -70,6 +77,13 @@ pane is currently hidden."と出ているときは要注意)。ページ自体�
 **実例(Known uses)**
 - `vientiane-planning-map` — ブラウザプレビューツールでの検証中に地図が真っ黒になる現象に
   遭遇し特定。詳細は[`DECISIONS.md`#3](https://github.com/dwg7/vientiane-planning-map/blob/main/DECISIONS.md#3-地図が真っ黒になるバグmaplibreのコンテナサイズ誤測定)参照
+- `maplibre-gl-atlas`(2026-09-08〜09、2026-10-02にzukaku経由で報告) — プレビューペイン
+  検証の癖が他にも3つ: (1) `wait`を連続して呼ぶだけだと合成が止まりMapLibreの`idle`が
+  進まない(数秒おきに`screenshot`を挟むと進む)。(2) 非表示ペインでは
+  `getBoundingClientRect()`が0を返し、座標計算が汚染される。(3) 同一タブで使い捨ての
+  `Map`を`.remove()`せず作り続けると、WebGLコンテキストが枯渇して`load`が発火しなく
+  なる。いずれもコードのバグではなく**検証環境の癖**で、「固まった」と見えても原因は
+  こちらだった(maplibre-gl-atlas HANDOVER.md、adr/0002追記)
 
 ---
 
@@ -96,3 +110,33 @@ Webマップと違い、印刷は焼き付けた瞬間のズームレベル(=取
 - `zukaku` — 複数セルを1ページに収める概要(索引)ページで採用。実際より`rows×cols`倍
   大きいオフスクリーンコンテナでレンダリングしてから縮小する
   ([ADR 0009](https://github.com/dwg7/zukaku/blob/main/adr/0009-overview-zoom-level-shift.md))
+
+---
+
+## 名前付き`@page`(landscape)の要素高さが@page高さと一致すると、最後に空白ページが1枚増える。検証は「向き×最後のシート」で組む
+
+**タグ**: 一般則(Chromiumのprint-to-PDF固有の挙動)
+
+**状況(Context)**
+CSSの名前付き`@page`でlandscapeを割り当てた要素を、ChromiumでPDFへ印刷する場面。
+
+**問題/対立する力(Problem / Forces)**
+landscapeの`@page`を割り当てた要素の高さが、その`@page`の宣言高さと**厳密一致**すると、
+**最後のシートの後に空白ページが1枚増える**。portraitの同形ルールでは再現しない。
+
+【誤診の経緯】最初は`break-after: page`が原因と考え`:last-child`で解除したが直らなかった。
+最小HTMLを作って二分探索したところ、`break-after`を外しても再現し、高さを0.1mm減らしても
+再現、1mm減らすと解消した——と、仮説が覆った。
+
+さらに、この問題は「最後のシートがlandscape」という条件でしか起きず、検証がportraitしか
+通っていなかったため、**すでに本番公開済みの経路でも見逃していた**。
+
+**解決(Solution)**
+landscape要素の高さを`calc(210mm - 1mm)`のように、`@page`高さより僅かに小さくする(1mmは
+標準の余白15mmに比べ知覚できない)。検証マトリクスには「向き(portrait/landscape)×最後の
+シート」を入れる。
+
+**実例(Known uses)**
+- `maplibre-gl-atlas`(zukaku由来) — `src/strategy.ts`の`calc(${w}mm - 1mm)`(コメントに
+  0.1mmでは再発・1mmで解消という二分探索の結果を記録、adr/0001追記・D13、
+  2026-10-02。cafebabe側でコードの存在を確認)

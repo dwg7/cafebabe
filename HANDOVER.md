@@ -59,8 +59,9 @@ cafebabeが「知見を待つ」だけでなく「能動的に確認する」役
 - **教訓調査(2026-10-02、hfuさんの依頼)**: 稼働中の全セッション(zukaku・
   plateau-juice・リポジトリの説明文を提案の3件)に、cafebabeの役割・集めたい教訓の要件・
   書いてはいけないもの(D19)を説明して送った。`dwg7/rpi3-server-guide`から5件の回答が
-  あり反映済み。`dwg7/plateau-juice`(新規プロジェクト、7件)からも回答あり反映済み。
-  **zukakuからの回答は2026-10-02時点で未着**(作業中だった)
+  あり反映済み。`dwg7/plateau-juice`(新規プロジェクト、7件)・zukaku(6件)からも回答あり反映済み。
+  **3セッションすべての回答を反映済み**(2026-10-02)。稼働中セッションが少なかった
+  ため、次に多くのセッションが稼働しているタイミングで再度実施する価値がある
 - **D1'棚卸し**: 計6ファイルレビュー完了・hfuさん承認済み(open-mct系4・
   STACCATO-CONTEXT.md・gatekeeping.md・markdown-file-conventions.md・
   verification-discipline.md・case-study-research.md)。残り候補は下記参照
