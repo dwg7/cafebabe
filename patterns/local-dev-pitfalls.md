@@ -186,3 +186,24 @@ Rangeが無いと読めない。`SimpleHTTPRequestHandler`は標準では応答�
 - `doverture` — MapLibre のワーカーが404になる問題を、コンソールとページ内自己診断だけで
   6往復追って特定できなかった。アクセスログを有効にした**次の1回**で
   `GET /spatialid/assets/maplibre-gl-worker.mjs 404`が出て即座に確定した(2026-09-20)
+
+---
+
+## `.gitignore`の`data/`は`docs/data/`まで無視する。ルート直下だけを指すなら`/data/`と書く
+
+**タグ**: 一般則
+
+**状況(Context)**
+生データ置き場として`data/`を`.gitignore`に入れつつ、GitHub Pages用の静的サイトが
+`docs/data/`に生成物(`grid.json`等)を置く場面。
+
+**問題/対立する力(Problem / Forces)**
+スラッシュなしの`data/`は**どの階層の`data`ディレクトリにも**マッチするため、`docs/data/`
+まで無視された。Pages用のファイルが追加できず、サイトが壊れるところだった。
+
+**解決(Solution)**
+ルート直下だけを指す`/data/`に直す。
+
+**実例(Known uses)**
+- `plateau-juice` — コミット`94b92b9`で`docs/data/grid.json`を追加する際に発覚し、
+  `.gitignore`を修正(2026-10-02)

@@ -186,3 +186,23 @@ GetLegendGraphicのリクエストで`format=application/json`を指定すると
 **実例(Known uses)**
 - `vientiane-planning-map` — Virgo/GLUP2030(`geonode:glup2030_cdudcp_v1`、EPSG:32648、
   認証不要)で確認
+
+---
+
+## 塗り面を注記・建物・道路の下に置くには、最初の道路・建築物レイヤーのidを`beforeId`に渡す
+
+**タグ**: 一般則
+
+**状況(Context)**
+ベースマップのスタイルの上に、集計結果の塗り面(fill)を重ねるが、注記・建物・道路より
+下に置きたい場面。
+
+**問題/対立する力(Problem / Forces)**
+`addLayer`を素直に呼ぶと、最前面に追加され、下図の注記・建物・道路を覆ってしまう。
+
+**解決(Solution)**
+スタイルの最初の道路・建築物レイヤー(`source-layer`が`RdCL`または`BldA`のもの)のidを
+探し、`addLayer`の`beforeId`に渡す。
+
+**実例(Known uses)**
+- `plateau-juice` — `scripts/mapkit.py`・`docs/index.html`(D20、2026-10-02)

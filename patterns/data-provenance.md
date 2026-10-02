@@ -14,4 +14,5 @@
   チェックサム固定、気象庁bosaiの静的化とJSON配列走査、CSVダウンロード機能の裏側)
 - [`patterns/data-provenance-wrangling.md`](data-provenance-wrangling.md) —
   整形・集計の実務(北海道市町村コードの罠、行政・領土的地位への言及、xlsx直接パース、
-  複数値カラムの扱い、旧市町村名の管理、GeoParquetの実装知見)
+  複数値カラムの扱い、旧市町村名の管理、GeoParquetの実装知見、欠損の語り方・時点の
+  ずれ・センチネル値・配布タイルvs空間ID)

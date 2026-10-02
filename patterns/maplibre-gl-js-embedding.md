@@ -277,6 +277,10 @@ maplibregl.setWorkerUrl(maplibreWorkerUrl);
 にするのも避ける。複数のエントリが同じ名前を要求して片方が消える。ハッシュを避けたい場合は
 `'assets/[name].js'`にする。
 
+**CDNで直接読む場合(2026-10-02、plateau-juice)**: v6はESMのみで、`dist/maplibre-gl.js`は
+CDN(unpkg `maplibre-gl@6`)で404になる(v6.11.2で`.js`が404、`.mjs`が200であることを
+cafebabe側でも確認)。`<script type="module">`で`dist/maplibre-gl.mjs`を読み込む。
+
 **実例(Known uses)**
 - `doverture` — Vite + MapLibre GL JS v6 で遭遇。空中写真(ラスタ)だけが表示され、
   PMTiles も GeoJSON も無言のまま描かれない状態が続いた。`map.on('error')`・
