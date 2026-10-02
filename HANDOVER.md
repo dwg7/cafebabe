@@ -56,6 +56,11 @@ cafebabeが「知見を待つ」だけでなく「能動的に確認する」役
 - **ferspas57がミッション転換**(2026-09-18、unopengis/7 #997→#1011)。「Staccatoを
   当てはめようとしすぎてUserの問いを取り逃していた」という振り返りから、FAO担当者の
   実際のユーザーストーリーに立ち返る方針へ。後継`dwg7/ferspas-html-demo`
+- **教訓調査(2026-10-02、hfuさんの依頼)**: 稼働中の全セッション(zukaku・
+  plateau-juice・リポジトリの説明文を提案の3件)に、cafebabeの役割・集めたい教訓の要件・
+  書いてはいけないもの(D19)を説明して送った。`dwg7/rpi3-server-guide`から5件の回答が
+  あり反映済み。**zukaku・plateau-juiceからの回答は2026-10-02時点で未着**(plateau-juiceは
+  cafebabeの記録に無い名前で、担当プロジェクトも未確認)
 - **D1'棚卸し**: 計6ファイルレビュー完了・hfuさん承認済み(open-mct系4・
   STACCATO-CONTEXT.md・gatekeeping.md・markdown-file-conventions.md・
   verification-discipline.md・case-study-research.md)。残り候補は下記参照

@@ -189,6 +189,11 @@ cross-session連携用の一時的な情報(セッションは任務終了でア
 - `bvmap`(セッション名`dwg7/bvmap`) — `dwg7/bvmap`(Public)。GSI bvmap(基盤地図情報
   ベクトルタイル)のMapLibreスタイル(light+dark)、stars.optgeo.orgのstyle.json源。
   2026-09-20、PR経由で「戦略的仮説を検証せずに採用する危険」パターンを寄稿・登録確認
+- `rpi3-server-guide`(セッション名`リポジトリの説明文を提案`) — `dwg7/rpi3-server-guide`
+  (Public)。Raspberry Pi 3(1GB)でのGeoServer/MapServerハンズオンガイド。2026-10-02、
+  教訓調査への回答で参加確認。ガイドのコマンドを機械的に抽出・実行する検証、Pages
+  ルート公開での文脈ファイル露出、idle通知の取り違え等5件の教訓を寄稿。
+  rpi-geoserver0との関係は未確認——推測で紐付けない
 - `doverture` — `dwg7/doverture`(Public)。北海道の建物フットプリントを各データソースで
   突き合わせる探索的conflation研究。2026-09-20、PR経由でMapLibre v6ワーカー・開発サーバー
   ログのパターンを寄稿・登録確認(寄稿時点でセッションは終了済み、PRのみ確認)

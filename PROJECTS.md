@@ -31,6 +31,7 @@
 | doverture | https://github.com/dwg7/doverture | 北海道の建物フットプリントを各データソースで突き合わせる探索的conflation研究(Hokkaido Overture)。2026-09-20新規参加(PR経由) |
 | ferspas-html-demo | https://github.com/dwg7/ferspas-html-demo | FERSPAS(FAO)のJupyter Notebookワークフローを、コードを書かないユーザーでも扱える透明なWebアプリへ移す探索。2026-09-18新規、旧`dwg7/ferspas57`のミッション転換後継(unopengis/7 #997→#1011) |
 | do-survey | https://github.com/dwg7/do-survey | GSI「公共測量実施情報」(北海道地方測量部区分)を市町村単位で集計し、tabularmaps/doのプラグインでOpen MCTダッシュボード化。GeoParquet化も予定。2026-09-24新規参加 |
+| rpi3-server-guide | https://github.com/dwg7/rpi3-server-guide | Raspberry Pi 3(1GB)でGeoServer/MapServerを動かすハンズオンガイド(単一静的HTMLページ、GitHub Pages公開)。2026-10-02新規参加(教訓調査への回答で判明) |
 | GeoServer on Raspberry Pi(`rpi-geoserver0`) | https://github.com/dwg7/rpi-geoserver0 (PRIVATE) | RPi3 + Ubuntu Server、ハードウェア限界の計測。姉妹プロジェクトkaga0とはOS選定が意図的に異なる。2026-09-13新規参加 |
 
 ## UNopenGIS org(関連組織)
