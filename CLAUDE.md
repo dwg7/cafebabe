@@ -167,6 +167,9 @@ cross-session連携用の一時的な情報(セッションは任務終了でア
   生態系全体の成長戦略)を蓄積する。`dwg7/chukei`(GSI北海道の実デプロイ)・
   `dwg7/ferspas57`(2026-09-03創設)・`dwg7/kataribe`(2026-09-05創設、dossierベースの
   語り部Staff)を輩出。2026-09-09新規参加確認
+- `unopengis.github.io`(セッション名同じ) — `UNopenGIS/unopengis.github.io`(Public)。UN Open GIS
+  Initiativeの公式サイト。2026-10-09新設。当面の任務は`almanac.ics`の年末会議(2026-12-09の
+  合併会)対応の相談。それ以前にこのリポジトリを担当した既知のセッションは無い
 - `volca` — `hfu/volca`(Private)。北海道の常時観測火山9火山の防災計画・避難計画PDFを
   収集・横断分析し、北海道地方測量部とdwg7への戦略を立案。kitavolcaとは国土地理院の
   火山基本図整備状況について独立に同じ結論を得て相互裏取り、sas0からは火山防災協議会の

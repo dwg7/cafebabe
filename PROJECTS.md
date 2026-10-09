@@ -42,6 +42,7 @@ dwg7本体の外だが、staccato関連プロジェクト群の規範仕様を�
 | プロジェクト | リポジトリ | 一言 |
 |---|---|---|
 | staccato-spec | https://github.com/UNopenGIS/staccato-spec | Staccatoアーキテクチャ(User/Staff/Cartographer/Library)の規範仕様。実装コードは持たない。2026-09-09新規参加 |
+| unopengis.github.io | https://github.com/UNopenGIS/unopengis.github.io | UN Open GIS Initiativeの公式サイト(GitHub Pages、`unopengis.org`)。月例会議の予定表`almanac.ics`、`/monthly/`・`/meet/`リダイレクト等を持つ。CLAUDE.mdは未整備。2026-10-09、年末会議(11・12月合併)の`almanac.ics`対応のため専任セッションを新設 |
 
 ## optgeo org(関連組織)
 
