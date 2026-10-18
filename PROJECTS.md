@@ -33,6 +33,7 @@
 | do-survey | https://github.com/dwg7/do-survey | GSI「公共測量実施情報」(北海道地方測量部区分)を市町村単位で集計し、tabularmaps/doのプラグインでOpen MCTダッシュボード化。GeoParquet化も予定。2026-09-24新規参加 |
 | plateau-juice | https://github.com/dwg7/plateau-juice | PLATEAU(札幌市の3D都市モデル)の建築物から幾何と個体識別子を切り離し、属性(用途・構造・建築年・階数)だけを集計して眺める試み(公開: https://dwg7.unopengis.org/plateau-juice/)。2026-10-02新規参加(教訓調査への回答で判明) |
 | rpi3-server-guide | https://github.com/dwg7/rpi3-server-guide | Raspberry Pi 3(1GB)でGeoServer/MapServerを動かすハンズオンガイド(単一静的HTMLページ、GitHub Pages公開)。2026-10-02新規参加(教訓調査への回答で判明) |
+| snow-hokkaido | https://github.com/dwg7/snow-hokkaido | 北海道の積雪・雲・緑を、Web Mercator z18グリッド上で日次・追記専用に記録する台帳(Sentinel-2先行、COG/Parquet/STAC、市町村集計)。CC0 1.0。段階1は大雪山系の9タイル。Open MCT 4.3.1の下にMapLibre計器とtabularmaps計器(`tabularmaps/do`の描画コアをvendoring)を別リーフで並べる構成。2026-10-18新規参加(Open MCT先行例の照会で判明) |
 | GeoServer on Raspberry Pi(`rpi-geoserver0`) | https://github.com/dwg7/rpi-geoserver0 (PRIVATE) | RPi3 + Ubuntu Server、ハードウェア限界の計測。姉妹プロジェクトkaga0とはOS選定が意図的に異なる。2026-09-13新規参加 |
 
 ## UNopenGIS org(関連組織)

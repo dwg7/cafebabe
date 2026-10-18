@@ -170,6 +170,11 @@ cross-session連携用の一時的な情報(セッションは任務終了でア
 - `unopengis.github.io`(セッション名同じ) — `UNopenGIS/unopengis.github.io`(Public)。UN Open GIS
   Initiativeの公式サイト。2026-10-09新設。当面の任務は`almanac.ics`の年末会議(2026-12-09の
   合併会)対応の相談。それ以前にこのリポジトリを担当した既知のセッションは無い
+- `snow-hokkaido`(セッション名同じ) — `dwg7/snow-hokkaido`(Public、CC0 1.0)。北海道の
+  積雪・雲・緑を日次・追記専用で記録するSentinel-2積雪台帳(z18セル→市町村集計)。
+  2026-10-18、Open MCT下にMapLibre計器とtabularmaps計器を並べる先行例を照会されて参加確認
+  (`patterns/open-mct*.md`・`patterns/interoperability.md`等を紹介)。実装で得た知見は
+  後で戻す予定
 - `volca` — `hfu/volca`(Private)。北海道の常時観測火山9火山の防災計画・避難計画PDFを
   収集・横断分析し、北海道地方測量部とdwg7への戦略を立案。kitavolcaとは国土地理院の
   火山基本図整備状況について独立に同じ結論を得て相互裏取り、sas0からは火山防災協議会の
