@@ -206,3 +206,29 @@ GetLegendGraphicのリクエストで`format=application/json`を指定すると
 
 **実例(Known uses)**
 - `plateau-juice` — `scripts/mapkit.py`・`docs/index.html`(D20、2026-10-02)
+
+---
+
+## `raster-resampling: 'nearest'`が、組み込みブラウザで画像ソースを真っ黒に描いた(未再現・原因未確認)
+
+**タグ**: 個別事情(1環境での観測。一般化は未検証)
+
+**状況(Context)**
+MapLibre GL JS 5.6.0で、`image`ソース(PNG)のrasterレイヤーに、セルをぼかさず1ピクセル単位で
+見せるための`raster-resampling: 'nearest'`を指定する場面。Open MCTの計器の中で、Claude
+デスクトップの組み込みブラウザで確認した。
+
+**問題/対立する力(Problem / Forces)**
+`'nearest'`にすると、クラス分類のオーバーレイが**真っ黒に描画された**。`'linear'`にすると
+正常に描画される。原因は未確認で、Chrome・Safari・Firefox・スマホ・GitHub Pages上では
+確認していない。別の調査で、`raster-opacity`が1未満のときに暗く描画される現象も見ており、
+PNGのアルファを0/255に揃えて不透明度を1に固定した後は、半透明の描画は再検証していない。
+
+**解決(Solution)**
+暫定対処は`'linear'`に戻すこと。ただしセルの境界がぼやけるので、離散クラスの表示では
+見た目が変わる。別の環境で再現するか確認するまでは、`'nearest'`を指定した場合は、
+**実際に使うブラウザで描画結果を目で確かめる**。
+
+**実例(Known uses)**
+- `snow-hokkaido` — 報告(2026-10-18、`docs/stage1-checks.md`)。cafebabeは再現を試みて
+  いない。`maplibre-gl-js-data-serving.md`の`tileSize<512`の件と同様、未再現の報告として扱う。

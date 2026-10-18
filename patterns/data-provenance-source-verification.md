@@ -150,3 +150,48 @@ JSON APIを裏で**ページングして再取得し、ブラウザ内でCSV文�
   `POST /giaSearch/RegionMapsSearch`を1,000件上限でページングしCSVを組み立てているだけ
   だと判明。`buildCsvText`関数の列定義をSCHEMA.mdとして転記した(DECISIONS.md D1/D7、
   2026-09-24)
+
+---
+
+## STACの`raster:bands`のscale/offsetを信じず、各COG自身のメタデータを読む。重複排除には`s2:product_uri`が使える
+
+**タグ**: 個別事情(Earth Search Sentinel-2で確認。同種の食い違いが他のSTACカタログにもあるかは未検証)
+
+**状況(Context)**
+Earth Search(Element 84のSTAC API)のSentinel-2から、`sentinel-2-l2a`と`sentinel-2-c1-l2a`
+という2つのコレクションのCOGを取得し、反射率やNDSIを計算する場面。processing baseline
+05.00以降のシーンは、どちらのコレクションにも同じ撮影が別のitem IDで載っている。
+
+**問題/対立する力(Problem / Forces)**
+2026年のitemでは、どちらのコレクションの`raster:bands`も`scale: 0.0001, offset: -0.1`と
+書いてある。しかし実ファイルは揃っていない。
+- `c1-l2a`のCOGは、`scale 0.0001 / offset -0.1`を**自身のメタデータに持つ**。
+- 旧`l2a`のCOGはscale/offsetを持たず、DNが**一律1000低い**(同じ撮影・同じ200x200窓で、
+  `c1-l2a`のDNは全画素+1000)。
+
+STACの記述どおりに`DN*0.0001 - 0.1`を旧`l2a`へ当てると、反射率が負になり、NDSIが壊れる。
+snow-hokkaidoでは、10月中旬の山地が71%雪と出た。コレクション単位の`item_assets`も食い違って
+おり、`sentinel-2-l2a`は`offset: 0`、`c1-l2a`は`-0.1`と書く(itemの記述と一致しない)。
+「STACに書いてあるから正しい」という読み方は成り立たない。
+
+**解決(Solution)**
+- **各COGの`scale`/`offset`は、STACではなくファイル自身から読む**(GDALなら`gdalinfo`の
+  `Offset:`/`Scale:`行、または`band.GetOffset()`)。STACの値は、自分の計算と突き合わせる
+  対象に留める。
+- 気づく手がかりは**独立した別の指標との突き合わせ**だった。snow-hokkaidoはSCL(シーン
+  分類)=11(雪・氷)の画素数とNDSIの雪画素数を比べて不整合に気づいた。値が「もっともらしい
+  か」(10月に71%雪は不自然)を見る習慣が、メタデータの誤りの検知につながる。
+- 同一撮影の重複排除には`s2:product_uri`を使う。`l2a`と`c1-l2a`は同じ`s2:product_uri`と
+  `s2:datatake_id`を持つ。同じパスの全タイルは`s2:datatake_id`を共有する(2026-10-10は
+  北海道で27〜28タイル、snow-hokkaidoの報告でcafebabe未検証)ので、これは**タイル単位の重複排除キーではなくパス単位の
+  グループキー**であり、重複排除は`s2:product_uri`で行う。
+
+**実例(Known uses)**
+- `snow-hokkaido` — 報告(2026-10-18)。リポジトリの`docs/stage1-checks.md`では、当初は原因を
+  「未確認、1シーンのみ」と書いていた。
+- **cafebabeによる再検証(2026-10-18)**: 2026-10-10のS2A、MGRSタイル54TXPで、両COGの
+  B04を`gdalinfo`/`gdal_translate`で比較した。`c1-l2a`は`Offset: -0.1, Scale: 0.0001`を
+  持ち、旧`l2a`は持たない。同じ200x200窓の統計は、旧`l2a`が最小82・平均365.07、
+  `c1-l2a`が最小1082・平均1365.07で、**全画素+1000**だった。`s2:product_uri`は2シーンとも
+  両コレクションで一致した。確認は**1撮影・1窓のみ**で、他のbaseline・他のタイルへの
+  一般化は未検証。
