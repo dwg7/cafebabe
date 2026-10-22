@@ -74,6 +74,10 @@ cafebabe は、その知見を**誰か一人が所有するのではなく**、�
     (自分自身の検査手順を疑う)、
     [`patterns/verification-discipline-cross-session.md`](patterns/verification-discipline-cross-session.md)
     (ピア・cross-sessionの主張を検証する)
+  - [`patterns/analysis-report-verification.md`](patterns/analysis-report-verification.md) —
+    分析レポートの本文の数・主張・人の判断を機械で縛る検査ハーネスと独立レビュー
+  - [`patterns/administrative-records-as-observations.md`](patterns/administrative-records-as-observations.md) —
+    行政の届出の記録を「観測の窓」として読む(量×分け方×届出の割合、年度偏差と段)
   - [`patterns/local-dev-pitfalls.md`](patterns/local-dev-pitfalls.md) — ローカル開発環境・
     シェルスクリプトの環境依存な落とし穴
   - [`patterns/robust-pipeline-design.md`](patterns/robust-pipeline-design.md) —

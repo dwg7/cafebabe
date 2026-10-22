@@ -38,6 +38,39 @@
   (Open MCT 4.3.1)でも同じエラーが確認された——doの本体自体もこの無害エラーから
   逃れられていない、という4件目の確認。
 
+## 起動時の`reading 'key'`エラーの原因は、時刻系を選んでいない設定漏れだった(2026-10-22)
+
+do-survey(D47)が特定し、cafebabeが最小ページで再現した。上の「起動時の無害なコンソールエラー」
+「`'start'`イベントの信頼性」の2項目の原因に当たる可能性が高い。
+
+- **原因(do-survey D47)**: Open MCT 4.3.1が起動時にURLと時刻を同期する処理(`setUrlFromTimeApi`)が
+  `openmct.time.getTimeSystem().key`を読む。`UTCTimeSystem()`プラグインを`install`するだけでは時刻系は
+  **選択されない**ので`undefined`のまま、`Uncaught (in promise) TypeError: Cannot read properties of
+  undefined (reading 'key')`になる。headless ChromiumのDevToolsプロトコルでスタックを取って特定した。
+  Open MCT本体の不具合ではなく、利用側の設定漏れ。
+- **対処**: `openmct.start()`の前に、時刻を使わないダッシュボードでも次を呼ぶ。値に意味は無くてよい。
+  ```js
+  openmct.time.setTimeSystem('utc');
+  openmct.time.setMode('fixed', { start: Date.now() - 24 * 60 * 60 * 1000, end: Date.now() });
+  ```
+  副作用として、URLに`tc.mode=fixed&tc.startBound=…&tc.endBound=…&tc.timeSystem=utc`が付く。
+  古いURL(`tc.mode=local`だけのもの)でも開けることをdo-surveyが確認している。
+- **cafebabeによる再現(2026-10-22)**: 4.3.1(unpkg)、`LocalStorage`+`UTCTimeSystem`+`Espresso`だけを
+  `install`して`start('#app')`する最小ページ(ルートオブジェクト無し)を、Claude内蔵ブラウザで確認した。
+  時刻設定なし → 上のエラーが出て、`openmct.on('start', …)`のコールバックが**発火しない**。
+  時刻設定あり → エラーなし、`'start'`が発火、URLに`tc.*`が付く。いずれも新規タブで確認した。
+- **含意(推論)**: これまで「既知の無害なエラー」としてきた記述(sas0 D4ほか)は設定漏れだった。
+  mapterhorn-monitorで`'start'`が一度も発火しなかった件、`'start'`内の`router.setPath()`が効かなかった件
+  (kikimimi)も、時刻系が未設定だったことが原因の可能性が高い。ただしこの2件の構成では未検証。
+  sas0はD53でテレメトリを撤去したとき`openmct.time`の設定も一緒に外しており、その後にエラーが
+  再発した経緯もこれで説明がつくかもしれない(未確認)。
+- **食い違い(未解決)**: sas0のD74(4.3.1)は、このエラーが出ているのに`'start'`は発火し、
+  `router.setPath`の遷移も効いたと記録している。最小ページでは「エラーあり=`'start'`不発」だったので、
+  両者の関係は構成によって違う。エラーが`'start'`のemitより前に起きるか後に起きるかの差かもしれない。
+- **検証の落とし穴**: Claude内蔵ブラウザのコンソールのバッファは、**同じタブ内でページを切り替えても
+  消えなかった**。時刻設定なしのページを開いた同じタブで、時刻設定ありのページを開くと、前のエラーが
+  残って見え、「直っていない」と読みかけた。比較は切り替えごとに新しいタブで行う。〔cafebabe〕
+
 ## フルスクリーン／キオスクモードのパターン（巡回モード）
 
 Open MCT自体には「フルスクリーン表示用のビュー」のような組み込み機能は無い。素のブラウザFullscreen APIと、Open MCT自身のUI chromeを隠すCSSを組み合わせて自前で実装する。〔sas0 D58、mapterhorn-monitorで再現・確認済み〕

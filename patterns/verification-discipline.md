@@ -13,3 +13,5 @@
 - [`patterns/verification-discipline-cross-session.md`](verification-discipline-cross-session.md) —
   ピア・cross-sessionからの主張を検証する(3分類の検証方法、観測の食い違いの決着技法、
   リポジトリ創設のpush完了、独立実装の統合が暗黙の検査になること)
+- 関連: [`patterns/analysis-report-verification.md`](analysis-report-verification.md) —
+  分析レポートの数・主張・人の判断を機械で縛る検査ハーネスと独立レビュー(2026-10-22)

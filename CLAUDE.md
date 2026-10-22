@@ -175,6 +175,12 @@ cross-session連携用の一時的な情報(セッションは任務終了でア
   2026-10-18、Open MCT下にMapLibre計器とtabularmaps計器を並べる先行例を照会されて参加確認
   (`patterns/open-mct*.md`・`patterns/interoperability.md`等を紹介)。実装で得た知見は
   後で戻す予定
+- `do-survey`(セッション名同じ) — `dwg7/do-survey`(Public)。GSI「公共測量実施情報」(北海道分)を
+  市町村単位で集計し、tabularmaps/doのプラグインでOpen MCTダッシュボード化、あわせて17年度分の
+  分析レポートを作る。2026-10-22、hfu了承済みの横連携として寄稿4件(Open MCT起動時エラーの原因、
+  分析レポートの検査ハーネス、行政の届出の観測の模型、人の判断の表と計算の一致検査)を受領
+  (`patterns/analysis-report-verification.md`・`patterns/administrative-records-as-observations.md`・
+  `patterns/open-mct-operations.md`に反映)
 - `volca` — `hfu/volca`(Private)。北海道の常時観測火山9火山の防災計画・避難計画PDFを
   収集・横断分析し、北海道地方測量部とdwg7への戦略を立案。kitavolcaとは国土地理院の
   火山基本図整備状況について独立に同じ結論を得て相互裏取り、sas0からは火山防災協議会の
