@@ -34,6 +34,11 @@
 | plateau-juice | https://github.com/dwg7/plateau-juice | PLATEAU(札幌市の3D都市モデル)の建築物から幾何と個体識別子を切り離し、属性(用途・構造・建築年・階数)だけを集計して眺める試み(公開: https://dwg7.unopengis.org/plateau-juice/)。2026-10-02新規参加(教訓調査への回答で判明) |
 | rpi3-server-guide | https://github.com/dwg7/rpi3-server-guide | Raspberry Pi 3(1GB)でGeoServer/MapServerを動かすハンズオンガイド(単一静的HTMLページ、GitHub Pages公開)。2026-10-02新規参加(教訓調査への回答で判明) |
 | snow-hokkaido | https://github.com/dwg7/snow-hokkaido | 北海道の積雪・雲・緑を、Web Mercator z18グリッド上で日次・追記専用に記録する台帳(Sentinel-2先行、COG/Parquet/STAC、市町村集計)。CC0 1.0。段階1は大雪山系の9タイル。Open MCT 4.3.1の下にMapLibre計器とtabularmaps計器(`tabularmaps/do`の描画コアをvendoring)を別リーフで並べる構成。2026-10-18新規参加(Open MCT先行例の照会で判明) |
+| kcai | https://github.com/dwg7/kcai | AIと共創した知識(Knowledge Co-created with AI)を、出典つきの短いMarkdown「踏み跡」として共有するための原則・形式・流れ。AIそのものは共有せず、各人が自分のAIを持ち込む(BYOA)。CC0 1.0。2026-10-19作成 |
+| miso | https://github.com/dwg7/miso | 人とAIが時間をかけて醸す知識を、1つのMarkdownファイル(境界を持つエージェントが携行する「宇宙」)に収める方法。運用型と探索・理解型がある。**旧称kcaim**(2026-11-07に`dwg7/kcaim`から改称、旧URLは転送される)。CC0 1.0。2026-10-27作成 |
+| miso-geo | https://github.com/dwg7/miso-geo | 地誌(geographic documentation)を、Markdown(`## geometry`にGeoJSON)と小さなMapLibreビューアで書く試み。**旧称kcaim-geo**(2026-11-11時点でGitHub上の名前はmiso-geoに転送される)。CC0 1.0。2026-10-31作成 |
+| kcai-terrio | https://github.com/dwg7/kcai-terrio | `opengeos/terrio`を対象にしたkcaiのインスタンス。正本は`miso/terrio.md`で、terrioの版に追従して確かめ直す。CC0 1.0。2026-10-21作成 |
+| kcai-un-docs | https://github.com/dwg7/kcai-un-docs | 国連文書(UN80、OICT、安保理、UN-GGIM等)の地理空間に関わる踏み跡を集めるkcaiのインスタンス。CC0 1.0。2026-10-26作成 |
 | GeoServer on Raspberry Pi(`rpi-geoserver0`) | https://github.com/dwg7/rpi-geoserver0 (PRIVATE) | RPi3 + Ubuntu Server、ハードウェア限界の計測。姉妹プロジェクトkaga0とはOS選定が意図的に異なる。2026-09-13新規参加 |
 
 ## UNopenGIS org(関連組織)
@@ -80,6 +85,8 @@ Unicode CLDR地域識別子や日本の市町村等を、等面積セルの表�
 | volca | https://github.com/hfu/volca (PRIVATE) | 北海道の常時観測火山9火山の防災計画・避難計画PDFを収集・横断分析し、北海道地方測量部とdwg7への戦略を立案。2026-09-09新規参加 |
 | hokkaido-points | https://github.com/hfu/hokkaido-points (PRIVATE) | 北海道内の測量基準点(電子基準点・三角点・水準点・多角点等)を、基盤地図情報の母集団から市区町村単位の分割取得でPMTiles化しMapLibre GL JSで探索可能にする調査基盤。測量法上の承認確定までPrivate。2026-09-11新規参加。adopt-hokkaido-lidarとの関連は未確認 |
 | tokachi20260911 | https://github.com/hfu/tokachi20260911 (PRIVATE) | 2026-09-11 十勝岳(噴火警戒レベル2)ヘリ空撮データのOpenDroneMap処理。GPS付き24MP静止画11,709枚(131GB)+AVCHD動画39分。dwg7初のODM実例。2026-09-11新規参加 |
+| kcai-yuiseki-datasets | https://github.com/hfu/kcai-yuiseki-datasets | データセットが答えうる問いと、データセット群の全体像について踏み跡を残すkcaiのインスタンス。CC0 1.0。2026-10-24作成 |
+| universe | https://github.com/hfu/universe | 公開できる出典に基づくmiso(旧kcaim)のファイルを集め、目録(`CATALOG.md`)を付けて置く場所。Ubuntuの`universe`に倣った名前。CC0 1.0。2026-10-30作成 |
 
 ---
 
