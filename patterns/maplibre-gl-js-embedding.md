@@ -286,3 +286,20 @@ cafebabe側でも確認)。`<script type="module">`で`dist/maplibre-gl.mjs`を�
   PMTiles も GeoJSON も無言のまま描かれない状態が続いた。`map.on('error')`・
   `queryRenderedFeatures`・ワーカー単体テストのいずれでも特定できず、**開発サーバーの
   アクセスログの404**で確定した([DECISIONS.md D18](https://github.com/dwg7/doverture/blob/main/DECISIONS.md))
+
+**訂正・追記(2026-11-13、cafebabeが再検証)**: 上の「ワーカー1ファイルでは足りない」(workerが
+`./maplibre-gl-shared.mjs`をimportする)は、**6.12.x以前の話**で、**6.13.0以降は当てはまらない**。
+unpkgの`dist/maplibre-gl-worker.mjs`を版ごとに確かめた結果、6.0.0〜6.12.0は約19KBでsharedを
+import、6.13.0(2026-10-06)以降は約508〜520KBの自己完結で`import`が無い(6.18.0まで確認。
+6.11.3は404で存在しない)。ワーカーの場所を`import.meta.url`から組み立てる実装は6.18.0
+(2026-11-11)でも同じで、バンドラ下で`setWorkerUrl`が要る点は変わらない(`?v=`のクエリが付くようになった)。
+Vite 8 + `maplibre-gl@6.18.0`の最小アプリをビルドして確かめた(**ビルド成果物の確認まで。
+ブラウザでの実行は未確認**):
+- `…/maplibre-gl-worker.mjs?url` → `assets/maplibre-gl-worker-<hash>.mjs`の1ファイル(importなし)
+- `…/maplibre-gl-worker.mjs?worker&url` → `assets/maplibre-gl-worker-<hash>.js`の1ファイル(importなし、
+  即時関数でくるむ形)。`dwg7/miso-geo`(D7、2026-10-31)がこちらを採用している。「Viteのworker
+  パイプラインを通すので、sharedのチャンクも一緒にバンドルされる」という利点は、6.12.x以前で意味があった。
+**運用上の指針**: 6.13.0以降なら`?url`か`?worker&url`の1行で足りる。6.12.x以前を使う場合だけ、
+上の「閉包を`assets/`へ運ぶ」手順(または`?worker&url`)が要る。版を固定せず`^6`で更新される
+プロジェクトでは、成果物の検査(ワーカーとそのimportがすべて存在すること)を残しておくと、
+どちらの版でも沈黙する失敗を捕まえられる。
