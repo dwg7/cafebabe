@@ -39,6 +39,7 @@
 | miso-geo | https://github.com/dwg7/miso-geo | 地誌(geographic documentation)を、Markdown(`## geometry`にGeoJSON)と小さなMapLibreビューアで書く試み。**旧称kcaim-geo**(2026-11-11時点でGitHub上の名前はmiso-geoに転送される)。CC0 1.0。2026-10-31作成 |
 | kcai-terrio | https://github.com/dwg7/kcai-terrio | `opengeos/terrio`を対象にしたkcaiのインスタンス。正本は`miso/terrio.md`で、terrioの版に追従して確かめ直す。CC0 1.0。2026-10-21作成 |
 | kcai-un-docs | https://github.com/dwg7/kcai-un-docs | 国連文書(UN80、OICT、安保理、UN-GGIM等)の地理空間に関わる踏み跡を集めるkcaiのインスタンス。CC0 1.0。2026-10-26作成 |
+| dorayaki | https://github.com/dwg7/dorayaki | 2次元の地図タイルでサーフェル(surfel)を運ぶ実験。Surfel Blockの形式、MLTのフレーム、MapLibre GL JS 6のデモ。CC0 1.0。2026-11-13新規参加(MapLibre 6のPages公開の照会で判明) |
 | GeoServer on Raspberry Pi(`rpi-geoserver0`) | https://github.com/dwg7/rpi-geoserver0 (PRIVATE) | RPi3 + Ubuntu Server、ハードウェア限界の計測。姉妹プロジェクトkaga0とはOS選定が意図的に異なる。2026-09-13新規参加 |
 
 ## UNopenGIS org(関連組織)

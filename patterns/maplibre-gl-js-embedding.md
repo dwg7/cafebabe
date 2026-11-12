@@ -303,3 +303,22 @@ Vite 8 + `maplibre-gl@6.18.0`の最小アプリをビルドして確かめた(**
 上の「閉包を`assets/`へ運ぶ」手順(または`?worker&url`)が要る。版を固定せず`^6`で更新される
 プロジェクトでは、成果物の検査(ワーカーとそのimportがすべて存在すること)を残しておくと、
 どちらの版でも沈黙する失敗を捕まえられる。
+
+**追記(2026-11-13、dorayakiの報告)**: バンドラを使わない、または1ファイルにまとめる2つの形が、
+サブパス(`/dorayaki/`)の下で動いたと報告された。いずれも`maplibre-gl@6.16.0`、**ローカル配信のみ**
+(`python3 -m http.server`、Claudeのブラウザペイン)で、GitHub Pages上では未確認。コードは報告時点で
+未push(ブランチ`claude/dorayaki-pages`は、cafebabeからはまだ見えない)。
+- **並置(バンドラなし)**: `docs/vendor/maplibre-gl/`に`maplibre-gl.mjs`・`maplibre-gl-worker.mjs`・
+  `maplibre-gl.css`を置き、import mapを相対パス(`./vendor/maplibre-gl/maplibre-gl.mjs`)で向ける。
+  `import.meta.url`がそのファイル自身になるので、ワーカーは隣から解決され、**`setWorkerUrl`は要らない**。
+  アクセスログで`…/maplibre-gl-worker.mjs?v=6.16.0`が200。ベクタの下図(bvmap-starlight)も描画された。
+- **1ファイル(JSとCSSをindex.htmlにインライン)**: esbuildでアプリとMapLibreを1つのESM(約1.09MB)に
+  まとめ、`<script type="module">`にインラインする(`</script`はエスケープ)。**ワーカーだけは
+  インラインできない**ので、`docs/maplibre-gl-worker.mjs`として隣に置く。バンドルすると
+  `import.meta.url`がページになるため、`setWorkerUrl(new URL("maplibre-gl-worker.mjs",
+  document.baseURI).href)`でページ相対に指す。ビルドは、ワーカーが別の`maplibre-gl*.mjs`に言及するか
+  相対importを持つ場合に失敗させる(上の「成果物の検査」の実装例)。
+- **cafebabeが確かめたこと**: `maplibre-gl-shared.mjs`は6.13.0以降、配布物に残っているが**0バイト**
+  (unpkgで6.13.0・6.16.0・6.18.0が0バイト、6.12.0は約517KB)。上の訂正(6.13.0から自己完結)と整合する。
+- 非表示のブラウザペインでは`load`が発火せず、この沈黙する失敗と見分けにくい
+  ([`agent-execution-gotchas.md`](agent-execution-gotchas.md)の実例参照)。

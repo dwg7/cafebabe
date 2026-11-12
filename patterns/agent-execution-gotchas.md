@@ -32,6 +32,10 @@ Claude Codeのブラウザ自動化ツールで、MapLibre GL JS/CesiumJS等のW
 - `plateau-mago-implicit` — CesiumJSがバックグラウンドタブでタイルを描画しない現象に遭遇
 - `vientiane-planning-map` — プレビューペイン非表示時のコンテナサイズ0x0問題
   ([`patterns/maplibre-gl-js-output-testing.md`](maplibre-gl-js-output-testing.md)参照)
+- `dorayaki` — ブラウザペインが非表示の間、MapLibre GL JS 6の`load`が発火せず、すべてのリクエストが
+  成功しているのに地図が「loading…」のままになった。ワーカーの404による沈黙する失敗
+  ([`patterns/maplibre-gl-js-embedding.md`](maplibre-gl-js-embedding.md))と症状が似るが、
+  **アクセスログ(ワーカーが200か404か)で区別できる**(報告、2026-11-13)
 
 ---
 
