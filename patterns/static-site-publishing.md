@@ -36,7 +36,12 @@ hfuさんが挙げた理由は2つ: (1) **1ファイルにすることで回避�
 **実例(Known uses)**
 - `dorayaki` — esbuildでアプリとMapLibreを1つのESM(約1.09MB)にまとめて`<script type="module">`に
   インラインし、CSSも`<style>`にインライン。ワーカーだけ`docs/maplibre-gl-worker.mjs`として隣に置く
-  (報告、2026-11-13。ローカル配信のみで、Pages上は未確認)
+  (報告、2026-11-13。ローカル配信のみで、Pages上は未確認)。**追記(2026-11-14)**: GitHub Pagesに公開された
+  (`dwg7.unopengis.org/dorayaki/`、`main:/docs`)。cafebabeがcurlで確認: `index.html`は200・約1.16MBで
+  外部の`<script src>`・`<link href>`が無い。`maplibre-gl-worker.mjs`は200・`text/javascript`・約519KB。
+  `docs/`は`.nojekyll`・`index.html`・ワーカー・`tiles/`だけ。`.mlt`タイルは`application/octet-stream`で
+  配信される(dorayakiの報告。ArrayBufferで読むので支障なし)。**ブラウザでの描画は、cafebabeも
+  dorayakiも確認していない**(dorayakiによれば、hfuさんが動作を確認した)
 - `rpi3-server-guide` — 単一の静的HTMLページ。公開ページ(約78KB)に外部の`<script src>`・
   `<link href>`が無く、`<style>`が1つだけであることをcafebabeが確認(2026-11-13)。
   この推奨に沿って作られたのか、独立にそうなったのかは未確認

@@ -320,5 +320,8 @@ Vite 8 + `maplibre-gl@6.18.0`の最小アプリをビルドして確かめた(**
   相対importを持つ場合に失敗させる(上の「成果物の検査」の実装例)。
 - **cafebabeが確かめたこと**: `maplibre-gl-shared.mjs`は6.13.0以降、配布物に残っているが**0バイト**
   (unpkgで6.13.0・6.16.0・6.18.0が0バイト、6.12.0は約517KB)。上の訂正(6.13.0から自己完結)と整合する。
+- **追記(2026-11-14)**: 1ファイルの形はGitHub Pagesに公開され、ワーカーが`text/javascript`で200で
+  返ることをcafebabeがcurlで確認した(module workerに必要なMIME)。ブラウザでの描画は未確認
+  ([`static-site-publishing.md`](static-site-publishing.md)の実例参照)。
 - 非表示のブラウザペインでは`load`が発火せず、この沈黙する失敗と見分けにくい
   ([`agent-execution-gotchas.md`](agent-execution-gotchas.md)の実例参照)。
