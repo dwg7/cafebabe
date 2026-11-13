@@ -84,6 +84,8 @@ cafebabe は、その知見を**誰か一人が所有するのではなく**、�
     無人稼働パイプラインがクラッシュ・障害から機械的に回復する設計
   - [`patterns/ci-cd-pitfalls.md`](patterns/ci-cd-pitfalls.md) — GitHub Actions等CI/CD環境
     特有の落とし穴
+  - [`patterns/static-site-publishing.md`](patterns/static-site-publishing.md) — 静的サイトの公開
+    (1ファイルの`index.html`にまとめる推奨、Pages公開の知見への案内)
   - [`patterns/interoperability.md`](patterns/interoperability.md) — 外部システムとの
     相互運用性の設計原則
   - [`patterns/raspberry-pi-appliance.md`](patterns/raspberry-pi-appliance.md) —
