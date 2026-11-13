@@ -40,8 +40,8 @@ hfuさんが挙げた理由は2つ: (1) **1ファイルにすることで回避�
   (`dwg7.unopengis.org/dorayaki/`、`main:/docs`)。cafebabeがcurlで確認: `index.html`は200・約1.16MBで
   外部の`<script src>`・`<link href>`が無い。`maplibre-gl-worker.mjs`は200・`text/javascript`・約519KB。
   `docs/`は`.nojekyll`・`index.html`・ワーカー・`tiles/`だけ。`.mlt`タイルは`application/octet-stream`で
-  配信される(dorayakiの報告。ArrayBufferで読むので支障なし)。**ブラウザでの描画は、cafebabeも
-  dorayakiも確認していない**(dorayakiによれば、hfuさんが動作を確認した)
+  配信される(dorayakiの報告。ArrayBufferで読むので支障なし)。ブラウザでの描画は、**hfuさんが公開ページを確かめた**(2026-11-14、本人から直接。cafebabeとdorayakiは
+  ブラウザでは確認していない)
 - `rpi3-server-guide` — 単一の静的HTMLページ。公開ページ(約78KB)に外部の`<script src>`・
   `<link href>`が無く、`<style>`が1つだけであることをcafebabeが確認(2026-11-13)。
   この推奨に沿って作られたのか、独立にそうなったのかは未確認
