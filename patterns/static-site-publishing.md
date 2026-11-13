@@ -45,8 +45,10 @@ hfuさんが挙げた理由は2つ: (1) **1ファイルにすることで回避�
 
 ## 関連(他のファイルにある、Pages公開の知見)
 
-- `.nojekyll`が無いと`docs/`配下のMarkdownが処理される、公開元がリポジトリルートだと
-  `CLAUDE.md`などの文脈ファイルも公開される → [`markdown-file-conventions.md`](markdown-file-conventions.md)
+- `.nojekyll`が無いと、`docs/`配下のMarkdownは**生の`.md`のまま配信され、同時にJekyllが変換した
+  `.html`も作られる**(2026-11-13にcafebabeが確認。当初ここに「処理される」とだけ書いたのは不正確だった)。
+  公開元がリポジトリルートだと`CLAUDE.md`などの文脈ファイルも公開される →
+  [`markdown-file-conventions.md`](markdown-file-conventions.md)
 - `.gitignore`の`data/`は`docs/data/`まで無視する → [`local-dev-pitfalls.md`](local-dev-pitfalls.md)
 - GitHub PagesはCSS/JSを10分キャッシュする(`cache-control: max-age=600`) →
   [`open-mct-operations.md`](open-mct-operations.md)

@@ -1,0 +1,1958 @@
+{
+ "commit": "53fea33",
+ "totals": {
+  "markdown_files": 49,
+  "markdown_lines": 8102,
+  "markdown_bytes": 564074,
+  "pattern_files": 39,
+  "pattern_lines": 5784,
+  "pattern_sections": 199,
+  "pattern_sections_tagged": 180,
+  "pattern_sections_with_known_uses": 180,
+  "known_use_bullets": 248,
+  "dated_corrections": 12,
+  "hedge_mentions_in_patterns": 47,
+  "internal_md_links": 155,
+  "internal_md_links_with_anchor": 8,
+  "external_urls_unique": 95,
+  "decision_refs_in_patterns": 108
+ },
+ "files": [
+  {
+   "path": "CLAUDE.md",
+   "lines": 266,
+   "bytes": 22958
+  },
+  {
+   "path": "CONTRIBUTING.md",
+   "lines": 71,
+   "bytes": 3888
+  },
+  {
+   "path": "DECISIONS.md",
+   "lines": 1042,
+   "bytes": 67576
+  },
+  {
+   "path": "DWG7-CONTEXT.md",
+   "lines": 254,
+   "bytes": 20653
+  },
+  {
+   "path": "HANDOVER.md",
+   "lines": 128,
+   "bytes": 9995
+  },
+  {
+   "path": "PROJECTS.md",
+   "lines": 103,
+   "bytes": 13240
+  },
+  {
+   "path": "README.md",
+   "lines": 131,
+   "bytes": 10352
+  },
+  {
+   "path": "STACCATO-CONTEXT.md",
+   "lines": 229,
+   "bytes": 18974
+  },
+  {
+   "path": "ideas/README.md",
+   "lines": 46,
+   "bytes": 2274
+  },
+  {
+   "path": "ideas/osm-community-oauth.md",
+   "lines": 48,
+   "bytes": 3512
+  },
+  {
+   "path": "patterns/administrative-records-as-observations.md",
+   "lines": 71,
+   "bytes": 4988
+  },
+  {
+   "path": "patterns/aerial-photogrammetry-capture.md",
+   "lines": 140,
+   "bytes": 8305
+  },
+  {
+   "path": "patterns/aerial-photogrammetry-pipeline.md",
+   "lines": 194,
+   "bytes": 11580
+  },
+  {
+   "path": "patterns/aerial-photogrammetry-screening.md",
+   "lines": 72,
+   "bytes": 3816
+  },
+  {
+   "path": "patterns/aerial-photogrammetry.md",
+   "lines": 27,
+   "bytes": 1990
+  },
+  {
+   "path": "patterns/agent-execution-gotchas.md",
+   "lines": 221,
+   "bytes": 13328
+  },
+  {
+   "path": "patterns/agent-personification.md",
+   "lines": 95,
+   "bytes": 5866
+  },
+  {
+   "path": "patterns/agent-repository-boundaries.md",
+   "lines": 185,
+   "bytes": 15120
+  },
+  {
+   "path": "patterns/analysis-report-verification.md",
+   "lines": 165,
+   "bytes": 9621
+  },
+  {
+   "path": "patterns/cartogram-layout-optimization.md",
+   "lines": 212,
+   "bytes": 10713
+  },
+  {
+   "path": "patterns/case-study-research.md",
+   "lines": 211,
+   "bytes": 14083
+  },
+  {
+   "path": "patterns/ci-cd-pitfalls.md",
+   "lines": 53,
+   "bytes": 2568
+  },
+  {
+   "path": "patterns/data-provenance-source-verification.md",
+   "lines": 197,
+   "bytes": 13010
+  },
+  {
+   "path": "patterns/data-provenance-wrangling.md",
+   "lines": 290,
+   "bytes": 18026
+  },
+  {
+   "path": "patterns/data-provenance.md",
+   "lines": 18,
+   "bytes": 1432
+  },
+  {
+   "path": "patterns/gatekeeping.md",
+   "lines": 120,
+   "bytes": 7282
+  },
+  {
+   "path": "patterns/interoperability.md",
+   "lines": 83,
+   "bytes": 5815
+  },
+  {
+   "path": "patterns/large-data-pitfalls.md",
+   "lines": 139,
+   "bytes": 9525
+  },
+  {
+   "path": "patterns/licensing.md",
+   "lines": 52,
+   "bytes": 2981
+  },
+  {
+   "path": "patterns/local-dev-pitfalls.md",
+   "lines": 234,
+   "bytes": 12063
+  },
+  {
+   "path": "patterns/maplibre-gl-js-data-serving.md",
+   "lines": 123,
+   "bytes": 5444
+  },
+  {
+   "path": "patterns/maplibre-gl-js-embedding.md",
+   "lines": 324,
+   "bytes": 20980
+  },
+  {
+   "path": "patterns/maplibre-gl-js-output-testing.md",
+   "lines": 142,
+   "bytes": 8235
+  },
+  {
+   "path": "patterns/maplibre-gl-js-rendering.md",
+   "lines": 234,
+   "bytes": 12697
+  },
+  {
+   "path": "patterns/markdown-file-conventions.md",
+   "lines": 286,
+   "bytes": 14488
+  },
+  {
+   "path": "patterns/open-mct-object-model.md",
+   "lines": 62,
+   "bytes": 11447
+  },
+  {
+   "path": "patterns/open-mct-operations.md",
+   "lines": 170,
+   "bytes": 21045
+  },
+  {
+   "path": "patterns/open-mct-telemetry.md",
+   "lines": 32,
+   "bytes": 11363
+  },
+  {
+   "path": "patterns/open-mct.md",
+   "lines": 97,
+   "bytes": 12900
+  },
+  {
+   "path": "patterns/progress-reporting.md",
+   "lines": 137,
+   "bytes": 7061
+  },
+  {
+   "path": "patterns/raspberry-pi-appliance.md",
+   "lines": 183,
+   "bytes": 11901
+  },
+  {
+   "path": "patterns/robust-pipeline-design.md",
+   "lines": 124,
+   "bytes": 7753
+  },
+  {
+   "path": "patterns/static-site-publishing.md",
+   "lines": 53,
+   "bytes": 3599
+  },
+  {
+   "path": "patterns/style-composition.md",
+   "lines": 216,
+   "bytes": 14522
+  },
+  {
+   "path": "patterns/unattended-progress-visibility.md",
+   "lines": 85,
+   "bytes": 5117
+  },
+  {
+   "path": "patterns/vector-tile-sizing.md",
+   "lines": 192,
+   "bytes": 10769
+  },
+  {
+   "path": "patterns/verification-discipline-cross-session.md",
+   "lines": 240,
+   "bytes": 17462
+  },
+  {
+   "path": "patterns/verification-discipline-self-checks.md",
+   "lines": 288,
+   "bytes": 20413
+  },
+  {
+   "path": "patterns/verification-discipline.md",
+   "lines": 17,
+   "bytes": 1344
+  }
+ ],
+ "sections": [
+  {
+   "file": "patterns/administrative-records-as-observations.md",
+   "title": "届出の件数を「量 × 分け方 × 届出の割合」に分解して読む",
+   "tag": "個別事情(do-survey)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/administrative-records-as-observations.md",
+   "title": "年度の偏差は、前と後の両方と比べて「一時的な偏差」と「段」に分ける",
+   "tag": "個別事情(do-survey)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/aerial-photogrammetry-capture.md",
+   "title": "連写のGPSは「1Hz量子化」で壊れる",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/aerial-photogrammetry-capture.md",
+   "title": "ズームレンズは、ODMが焦点距離ごとに自動でカメラ群を作る。群が小さいと校正されず警告も無い",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/aerial-photogrammetry-capture.md",
+   "title": "単一パスは飛行軸まわりの回転が拘束されない。交差パスを1回のバンドル調整に含める",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/aerial-photogrammetry-capture.md",
+   "title": "重複率を保ったままの一様な間引きは、平均トラック長を壊して精度を犠牲にする",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/aerial-photogrammetry-capture.md",
+   "title": "隣接コマはヘイズがあっても頑健にマッチするが、基線(コマ間隔)には上限がある",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/aerial-photogrammetry-pipeline.md",
+   "title": "ODMは同一入力・同一設定でも結果が変わる。精度は「この成果物の値」であって「この手法の値」ではない",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/aerial-photogrammetry-pipeline.md",
+   "title": "Apple SiliconでのDocker版ODMは、NodeODMのREST APIではなくbindマウント+`run.py`直接実行で動かす",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/aerial-photogrammetry-pipeline.md",
+   "title": "ODMの「メモリ不足」は、出力サイズではなく点群の空間的な広がり(外れ値)が真因のことがある",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/aerial-photogrammetry-pipeline.md",
+   "title": "PMTiles生成・配信の落とし穴: メタデータは生成時に埋める、`name`をソースIDと一致させない、bounds/centerは明示する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/aerial-photogrammetry-pipeline.md",
+   "title": "stars(Martin + Cloudflare)はメタデータを4時間キャッシュする。差し替え直後の検証にはキャッシュバスタが必須",
+   "tag": "個別事情(stars)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 1
+  },
+  {
+   "file": "patterns/aerial-photogrammetry-pipeline.md",
+   "title": "二時期のオルソ画像が共登録できるかは、位相相関の弱ピーク棄却率で事前に見積もれる",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/aerial-photogrammetry-screening.md",
+   "title": "ピンボケ選別にファイルサイズは使えない。EXIFだけを読む近道は存在しない",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/aerial-photogrammetry-screening.md",
+   "title": "ラプラシアン分散の生値は「ボケ」と「ヘイズ」を区別できない",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/aerial-photogrammetry-screening.md",
+   "title": "JPEGのDRI(リスタートマーカ)は部分読み出しの鍵になりうるが、鮮鋭度指標を汚染する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/aerial-photogrammetry.md",
+   "title": "由来",
+   "tag": null,
+   "known_use_bullets": 0,
+   "has_known_uses": false,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/agent-execution-gotchas.md",
+   "title": "自動化ブラウザツールの非表示・バックグラウンドタブはWebGL描画を検証できない",
+   "tag": "一般則",
+   "known_use_bullets": 3,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/agent-execution-gotchas.md",
+   "title": "長時間バックグラウンド処理は`disown`ではなく、ハーネスが追跡できるポーリングでラップする",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/agent-execution-gotchas.md",
+   "title": "タイムアウト無しのバックグラウンドSSH/ネットワーク一発コマンドは、無応答のまま無限に居座りうる",
+   "tag": "一般則(実例1件。上記「`disown`を使わない」パターンと隣接するが、原因が異なる",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/agent-execution-gotchas.md",
+   "title": "リモートホストへ送り込んだスクリプト内で`ssh`ループを回すと、内側の`ssh`が親の標準入力を奪う",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/agent-execution-gotchas.md",
+   "title": "サンドボックス化シェルでの`curl`結果は変数経由ではなく一時ファイル経由で扱う",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/agent-execution-gotchas.md",
+   "title": "バックグラウンドプロセス起動後、シェルのcwdが暗黙にリセットされることがある",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/agent-execution-gotchas.md",
+   "title": "権限分類器は、ユーザーの直接指示があっても自己の権限設定ファイルへの書き込みをブロックする",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/agent-execution-gotchas.md",
+   "title": "短いtimeoutで「リモート更新→即reboot」を1コマンドに包むと、処理続行中のプロセスを見失う",
+   "tag": "一般則(実例1件。上記「タイムアウト無しの一発コマンド」パターンとは逆方向の",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/agent-personification.md",
+   "title": "「XXXさん」呼びは、セッションではなくリポジトリという役職への三人称的参照",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/agent-personification.md",
+   "title": "呼称が指す「継続性」の性質は、プロジェクトの運用形態によって異なる",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/agent-personification.md",
+   "title": "1つの呼称が、複数リポジトリへの職掌の分業実装を指すことがある",
+   "tag": "個別事情(複数リポジトリを担当するプロジェクト)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/agent-repository-boundaries.md",
+   "title": "複数リポジトリを1エージェントが抱えるのは、密な双方向結合があるときだけ「条件付きで良い」",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/agent-repository-boundaries.md",
+   "title": "複数リポジトリを跨ぐと、リポジトリ固有の設定を「共通のデフォルト」に頼ってしまう",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 1
+  },
+  {
+   "file": "patterns/agent-repository-boundaries.md",
+   "title": "複数リポジトリを抱えるセッションの境界は、外部から把握しにくい",
+   "tag": "一般則",
+   "known_use_bullets": 3,
+   "has_known_uses": true,
+   "corrections": 1
+  },
+  {
+   "file": "patterns/agent-repository-boundaries.md",
+   "title": "セッション識別子は時間軸でも安定しない。ユーザー単位の共有メモリは同一セッションの証明にならない",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/analysis-report-verification.md",
+   "title": "レポート本文の数字は、同じフォルダの根拠表か式で裏付けられるかを機械的に検査する",
+   "tag": "個別事情(do-survey。実例が1プロジェクトのため一般則への格上げは見送る)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/analysis-report-verification.md",
+   "title": "会話で計算した数は、根拠表に移すまで根拠ではない",
+   "tag": "個別事情(do-survey)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/analysis-report-verification.md",
+   "title": "発見の台帳 — 1行1発見、確度の状態を持たせ、修正された主張を履歴にする",
+   "tag": "個別事情(do-survey)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/analysis-report-verification.md",
+   "title": "台帳の主張を、根拠表とは別の計算で元データから再現する",
+   "tag": "個別事情(do-survey)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/analysis-report-verification.md",
+   "title": "人が書く仕分けの表と、計算で求めた集合は、ちょうど一致しなければ止める",
+   "tag": "個別事情(do-survey)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/analysis-report-verification.md",
+   "title": "機械の検査が全部通っても誤りは残る。作り手と別の文脈の独立レビューで拾う",
+   "tag": "個別事情(do-survey)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/cartogram-layout-optimization.md",
+   "title": "「全域を1つの目的関数で解く」より「境界は人が描き、最適化は境界内に限定する」方が説明可能でレビューが速い",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/cartogram-layout-optimization.md",
+   "title": "行政境界データが無い場合の隣接関係は、代表点のDelaunay三角分割+二段閾値で作る",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/cartogram-layout-optimization.md",
+   "title": "人手で固定した配置には理由コメントを必須にし、決定ログに転記する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/cartogram-layout-optimization.md",
+   "title": "配置の妥当性は、実座標で塗った色の単調性を可視化すると一目で分かる",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/cartogram-layout-optimization.md",
+   "title": "一次データはlong-form、2D配置は派生物として扱う。空白セルも一次データに明示する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/cartogram-layout-optimization.md",
+   "title": "目的関数をQAP形式に揃えると、1手評価がO(n)になり採点器と最適化器を共有できる",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/cartogram-layout-optimization.md",
+   "title": "グリッド候補の比較は「最悪シードが他候補の最良シードを上回るか」で判定し、シード雑音の議論を避ける",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/cartogram-layout-optimization.md",
+   "title": "政治的に敏感な入力は、自前判断を挟まず出典データセットの「視点フィールド」で機械的に決める",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/cartogram-layout-optimization.md",
+   "title": "オプションで出し入れする要素は、外縁の1列にだけ置く",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/case-study-research.md",
+   "title": "専用ファイル化は「規模」に応じて判断する",
+   "tag": "一般則",
+   "known_use_bullets": 10,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/case-study-research.md",
+   "title": "一つの前例を鵜呑みにせず、適用範囲を検証する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/case-study-research.md",
+   "title": "「反映した/しなかった」を両方記録し、見送った理由も残す",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/case-study-research.md",
+   "title": "調査手法を使い分ける: 検索・実機操作・一次情報の発掘",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/case-study-research.md",
+   "title": "情報の鮮度は、間接証拠でしか判断できないことがある",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/case-study-research.md",
+   "title": "「学ぶが今は実装しない」という中間的な記録",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/ci-cd-pitfalls.md",
+   "title": "GitHub Actionsのcontainerジョブは、通常のジョブと挙動が地味に違う",
+   "tag": "個別事情(zukaku。実例1件のまま長期間増えていないため、CONTRIBUTING.mdの棚卸し",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/ci-cd-pitfalls.md",
+   "title": "外部サイトに依存する検証はCIに入れず、手動スクリプトに分ける",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/data-provenance-source-verification.md",
+   "title": "依拠先の来歴を辿り、謝辞・説明文の正確性を担保する",
+   "tag": "一般則",
+   "known_use_bullets": 3,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/data-provenance-source-verification.md",
+   "title": "データ出自を文書ではなく成果物自体に埋め込む",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/data-provenance-source-verification.md",
+   "title": "上流データの固定は、公式ハッシュ+使用ファイルのsha256を記録し、不一致をテストで失敗させる",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/data-provenance-source-verification.md",
+   "title": "気象庁bosaiの旧URLは200を返し続けたまま更新が止まっている。r8のJSONは配列全体を走査する",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/data-provenance-source-verification.md",
+   "title": "公開サイトの「CSVダウンロード」機能は、裏側で同じAPIをページングしているだけのことがある。生成コードがフィールド対応表になる",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/data-provenance-source-verification.md",
+   "title": "STACの`raster:bands`のscale/offsetを信じず、各COG自身のメタデータを読む。重複排除には`s2:product_uri`が使える",
+   "tag": "個別事情(Earth Search Sentinel-2で確認。同種の食い違いが他のSTACカタログにもあるかは未検証)",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/data-provenance-wrangling.md",
+   "title": "「179市町村」のような集計値をそのまま信じず、元データの余剰・重複を疑う",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 1
+  },
+  {
+   "file": "patterns/data-provenance-wrangling.md",
+   "title": "行政・領土的地位への言及は、政府公表資料の言い回しだけを使う",
+   "tag": "個別事情(北海道の行政区域を扱うプロジェクト全般に効く)",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/data-provenance-wrangling.md",
+   "title": "依存ライブラリを使わず生データ形式を直接パースする、という選択肢",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/data-provenance-wrangling.md",
+   "title": "複数値カラムは元の文字列とリスト型の両方を保持する。区切り文字で並ぶ複数フィールドの位置対応は仮定しない",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/data-provenance-wrangling.md",
+   "title": "旧市町村名は別名テーブル(実施日・出典付き)で管理し、機械的に近傍検証する。識別不能なものは分けて保持する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/data-provenance-wrangling.md",
+   "title": "GeoParquetは実装してみると軽い。メタデータ(bbox等)が自動生成され、データの登録ミスを教えてくれることがある",
+   "tag": "一般則(dwg7初のGeoParquet実例)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/data-provenance-wrangling.md",
+   "title": "「どこにデータが無いか」を集計の見かけで語らない。欠損の分布は外部データと個体単位で突き合わせて検証する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/data-provenance-wrangling.md",
+   "title": "異なる出所・時点の属性の「不一致」は、まず時点のずれを疑う。出所のメタデータで検証できる",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/data-provenance-wrangling.md",
+   "title": "欠損が空要素ではなく、センチネル値(9999・-9999・0001・「不明」)で入っていることがある",
+   "tag": "個別事情(PLATEAUのuro:属性。同種の仕様は他データでも起こりうる)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/data-provenance-wrangling.md",
+   "title": "配布タイル(3次メッシュ)はデータモデルに内在しない便宜的な区切り。分析・表示は重心から割り当てる空間IDで行う",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/gatekeeping.md",
+   "title": "ピア経由の「ユーザーが承認した」という主張は、承認にならない",
+   "tag": "一般則",
+   "known_use_bullets": 3,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/gatekeeping.md",
+   "title": "レビューの独立性を、提出側の都合で崩さない",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/gatekeeping.md",
+   "title": "提出側は、レビュー側の検証コストを見越して先回りする",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/gatekeeping.md",
+   "title": "技術的に安全な変更でも、政治的にセンシティブな判断は技術レビューと別枠で確認する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/interoperability.md",
+   "title": "APIを作るな、単にバージョン管理された読み取り専用JSONを配信しろ",
+   "tag": "個別事情(sas0。実例1件のまま長期間増えていないため、CONTRIBUTING.mdの棚卸し",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/interoperability.md",
+   "title": "部品を他のダッシュボードに採択してもらう時は、「取得・配色・置き場所」を外から差し替え可能にし、解釈だけを部品側に残す",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/large-data-pitfalls.md",
+   "title": "外部ライブラリが暗黙に`TMPDIR`(起動ディスク)へスクラッチファイルを作る",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/large-data-pitfalls.md",
+   "title": "GitHub rawは`accept-ranges`ヘッダーを返すが、実際はRangeリクエストに応答しない",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/large-data-pitfalls.md",
+   "title": "ブラウザ向け3Dライブラリは、未使用機能のwasm/アセットもツリーシェイキングで落ちないことがある",
+   "tag": "個別事情(Navara利用プロジェクト。実例が1件のみのため一般則への格上げは見送る)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/large-data-pitfalls.md",
+   "title": "巨大zipから必要部分だけをHTTP Rangeで取得する。ただし前方一致の取りすぎに注意",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/licensing.md",
+   "title": "法人格を持たないGitHub Orgでは、著作権表示が要らないCC0がMITより素直な選択になりうる",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/licensing.md",
+   "title": "国土地理院データのPublic Data License(PDL1.0)は、出典表示と「加工・編集した」旨の明記の**両方**を要求する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/local-dev-pitfalls.md",
+   "title": "JSON部分編集は「読み込み→書き出し」ではなく行単位の手術で",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/local-dev-pitfalls.md",
+   "title": "`python3 -m http.server`でのローカル動作確認は、ブラウザキャッシュに騙される",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/local-dev-pitfalls.md",
+   "title": "macOS標準のbash 3.2に`declare -A`(連想配列)は無い",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/local-dev-pitfalls.md",
+   "title": "非UTF-8シェルロケールは、`grep`が日本語を文字境界の途中で欠けさせることがある",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/local-dev-pitfalls.md",
+   "title": "macOSでSSH経由の外部ボリュームアクセスが`Operation not permitted`になるのはTCC、Full Disk Accessは`sshd`本体ではなく`sshd-keygen-wrapper`に付与する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/local-dev-pitfalls.md",
+   "title": "フリート運用でのローカル開発サーバーのポート衝突は、拒否されるだけでは終わらない——「別プロジェクトのサーバーを自分のものと誤認する」方が怖い",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/local-dev-pitfalls.md",
+   "title": "ローカル開発サーバーのアクセスログを潰さない",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/local-dev-pitfalls.md",
+   "title": "`.gitignore`の`data/`は`docs/data/`まで無視する。ルート直下だけを指すなら`/data/`と書く",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/local-dev-pitfalls.md",
+   "title": "存在しないパスを混ぜた`git add`は全体が失敗する。先にステージ済みの削除だけがコミットされうる",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-data-serving.md",
+   "title": "ランタイムハイドレーション: 静的style.jsonを持たない",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-data-serving.md",
+   "title": "CORS: Originを反射する実装に注意",
+   "tag": "個別事情(`stars.optgeo.org`利用者)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-data-serving.md",
+   "title": "attributionはTileJSONに埋め込むだけで自動表示される",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-data-serving.md",
+   "title": "tileSizeは明示する(512px vs 256px の混在)",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-data-serving.md",
+   "title": "大容量データはPMTiles + Martinのpmtiles.sourcesで",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-data-serving.md",
+   "title": "ベクタソースに`tileSize`<512を指定すると無言でハングする(v6.6、zukakuの実験)。タイル枚数は`page.on('request')`で数える",
+   "tag": "一般則(zukakuの実験による。未コミット・cafebabe側では未再現)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-embedding.md",
+   "title": "左上パネルは折りたたみ可能にする",
+   "tag": "一般則(UI)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-embedding.md",
+   "title": "ホバー情報は固定ドッキングパネルで表示する",
+   "tag": "一般則(UI)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-embedding.md",
+   "title": "中心固定型の放射状コントロール/インジケーター",
+   "tag": "一般則",
+   "known_use_bullets": 3,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-embedding.md",
+   "title": "hash:\"map\" で名前空間化する",
+   "tag": "一般則(**推奨**、hfuさん承認、2026-09-03、claude-mct実施のD6サーベイより)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-embedding.md",
+   "title": "UIトグルの初期状態を決め打ちせず、実際のmap状態にイベントで同期する",
+   "tag": "一般則(UI)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-embedding.md",
+   "title": "map.remove()を確実に呼ぶ(埋め込み先がビューを再構築する場合)",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-embedding.md",
+   "title": "iframe埋め込みよりネイティブ埋め込みを検討する",
+   "tag": "個別事情(埋め込み型ダッシュボード)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-embedding.md",
+   "title": "MapLibre GL JS v6 をバンドラで取り込むなら`setWorkerUrl`を明示する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 2
+  },
+  {
+   "file": "patterns/maplibre-gl-js-output-testing.md",
+   "title": "ヘッドレスレンダリングはWebGLキャンバスを含められない",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-output-testing.md",
+   "title": "実ブラウザの印刷とPlaywrightのpage.pdf()は別コードパス",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 1
+  },
+  {
+   "file": "patterns/maplibre-gl-js-output-testing.md",
+   "title": "ブラウザ自動化ツールの非表示ペインでは、コンテナサイズが0x0になりうる",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-output-testing.md",
+   "title": "fitBoundsのpaddingでズームレベルシフトができる",
+   "tag": "個別事情(オフスクリーンレンダリング用途)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-output-testing.md",
+   "title": "名前付き`@page`(landscape)の要素高さが@page高さと一致すると、最後に空白ページが1枚増える。検証は「向き×最後のシート」で組む",
+   "tag": "一般則(Chromiumのprint-to-PDF固有の挙動)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-rendering.md",
+   "title": "バージョン選定はバンドラの有無で決まる",
+   "tag": "一般則(**推奨**: バンドラ使用時はv6以降の最新版を推奨。hfuさん承認、2026-09-03、",
+   "known_use_bullets": 6,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-rendering.md",
+   "title": "globe投影とfill-extrusionレイヤーの組み合わせは危険",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-rendering.md",
+   "title": "zoomLevelsToOverscaleのv6デフォルト変更に注意",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-rendering.md",
+   "title": "terrainは明示的にnullで無効化する",
+   "tag": "個別事情(印刷・帳票用途)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-rendering.md",
+   "title": "3D terrain併用の可否は、データ規模とハードウェア制約で判断が分かれる(独立分岐)",
+   "tag": "個別事情(標高データを持つプロジェクト間で判断が分かれている。「terrainは明示的に",
+   "known_use_bullets": 3,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-rendering.md",
+   "title": "ラベルの太い白背景は icon-image で作る",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-rendering.md",
+   "title": "GetLegendGraphicでSLDの色をJSON抽出する",
+   "tag": "個別事情(GeoServer/WFS利用者)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-rendering.md",
+   "title": "塗り面を注記・建物・道路の下に置くには、最初の道路・建築物レイヤーのidを`beforeId`に渡す",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/maplibre-gl-js-rendering.md",
+   "title": "`raster-resampling: 'nearest'`が、組み込みブラウザで画像ソースを真っ黒に描いた(未再現・原因未確認)",
+   "tag": "個別事情(1環境での観測。一般化は未検証)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/markdown-file-conventions.md",
+   "title": "「今何が正しいか」と「なぜそうなったか」を同じファイルに混ぜない",
+   "tag": "一般則(**推奨**、hfuさん承認、2026-09-03、claude-mct実施のD6サーベイより)",
+   "known_use_bullets": 3,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/markdown-file-conventions.md",
+   "title": "決定ログは追記専用、既存エントリを書き換えない(ADR原則)",
+   "tag": "一般則(**推奨**、hfuさん承認、2026-09-03、claude-mct実施のD6サーベイより)",
+   "known_use_bullets": 5,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/markdown-file-conventions.md",
+   "title": "肥大化への対処: 索引化・退避・書き直しの3通り(未収束)",
+   "tag": "一般則(ただし複数の有効な選択肢がある)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/markdown-file-conventions.md",
+   "title": "ドキュメント更新はコードの変更と同じコミット・同じターンで行う",
+   "tag": "一般則(**推奨**、hfuさん承認、2026-09-03、claude-mct実施のD6サーベイより)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/markdown-file-conventions.md",
+   "title": "見出しのリネームは相互参照・アンカーを静かに壊す",
+   "tag": "一般則(**推奨**、hfuさん承認、2026-09-03、claude-mct実施のD6サーベイより)",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/markdown-file-conventions.md",
+   "title": "ディレクトリスコープの規約は、そのディレクトリのREADMEに置く",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/markdown-file-conventions.md",
+   "title": "技術リファレンスは「測定根拠つき」で書く",
+   "tag": "一般則(**推奨**、hfuさん承認、2026-09-03、claude-mct実施のD6サーベイより。他",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/markdown-file-conventions.md",
+   "title": "1箇所に真実を集約し、他はポインタにする",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/markdown-file-conventions.md",
+   "title": "横断ドキュメントは自分のDECISIONS.mdに混ぜず、独立させる",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/markdown-file-conventions.md",
+   "title": "タグ付け: 「一般則」か「個別事情」かを明示する",
+   "tag": "一般則(このリポジトリ自身に適用中)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/markdown-file-conventions.md",
+   "title": "GitHub Pagesの有効化は`gh api`で完結できる。ビルド完了は`pages/builds/latest`をポーリングする",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/markdown-file-conventions.md",
+   "title": "文書内のプレースホルダ・スクラッチパス残留をテストで検出する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/markdown-file-conventions.md",
+   "title": "GitHub Pagesをリポジトリルートから公開すると、CLAUDE.md等のエージェント用文脈ファイルも公開物になる",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/open-mct-object-model.md",
+   "title": "唯一、一貫して信頼できる拡張ポイント",
+   "tag": null,
+   "known_use_bullets": 0,
+   "has_known_uses": false,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/open-mct-object-model.md",
+   "title": "カスタムtype登録（`openmct.types.addType()`）の使われ方",
+   "tag": null,
+   "known_use_bullets": 0,
+   "has_known_uses": false,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/open-mct-object-model.md",
+   "title": "ツリーはDAGか — 実務では単一親ツリーに落ち着く",
+   "tag": null,
+   "known_use_bullets": 0,
+   "has_known_uses": false,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/open-mct-object-model.md",
+   "title": "Object Providerの構造 — 「1 namespace = 1 provider」は共通、内部が「多役」かは割れる",
+   "tag": null,
+   "known_use_bullets": 0,
+   "has_known_uses": false,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/open-mct-object-model.md",
+   "title": "ルート登録（`addRoot`）— 4プロジェクトとも固定識別子版、関数/Promise版は未使用",
+   "tag": null,
+   "known_use_bullets": 0,
+   "has_known_uses": false,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/open-mct-operations.md",
+   "title": "ブートストラップの落とし穴",
+   "tag": null,
+   "known_use_bullets": 0,
+   "has_known_uses": false,
+   "corrections": 1
+  },
+  {
+   "file": "patterns/open-mct-operations.md",
+   "title": "起動時の`reading 'key'`エラーの原因は、時刻系を選んでいない設定漏れだった(2026-10-22)",
+   "tag": null,
+   "known_use_bullets": 0,
+   "has_known_uses": false,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/open-mct-operations.md",
+   "title": "フルスクリーン／キオスクモードのパターン（巡回モード）",
+   "tag": null,
+   "known_use_bullets": 0,
+   "has_known_uses": false,
+   "corrections": 1
+  },
+  {
+   "file": "patterns/open-mct-operations.md",
+   "title": "デバッグ手法",
+   "tag": null,
+   "known_use_bullets": 0,
+   "has_known_uses": false,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/open-mct-operations.md",
+   "title": "バージョン選択：RCを含む最新を追うか、安定版で固定するか",
+   "tag": null,
+   "known_use_bullets": 0,
+   "has_known_uses": false,
+   "corrections": 1
+  },
+  {
+   "file": "patterns/open-mct-telemetry.md",
+   "title": "Plot / Telemetry API — 結論はまだ出ていない、証拠が対立している",
+   "tag": null,
+   "known_use_bullets": 0,
+   "has_known_uses": false,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/open-mct-telemetry.md",
+   "title": "`request()`/`subscribe()` — 5プロジェクト中4プロジェクトがTelemetry API自体を使っていない",
+   "tag": null,
+   "known_use_bullets": 0,
+   "has_known_uses": false,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/open-mct.md",
+   "title": "寄稿プロジェクトと構成",
+   "tag": null,
+   "known_use_bullets": 0,
+   "has_known_uses": false,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/open-mct.md",
+   "title": "テーマ別ファイル",
+   "tag": null,
+   "known_use_bullets": 0,
+   "has_known_uses": false,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/open-mct.md",
+   "title": "Open MCTの強み — dwg7がこれを使い続けることで何を得たいか",
+   "tag": null,
+   "known_use_bullets": 0,
+   "has_known_uses": false,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/open-mct.md",
+   "title": "限界と選ぶ基準 — 「強み」の対として(cafebabeの解釈、2026-10-20)",
+   "tag": null,
+   "known_use_bullets": 0,
+   "has_known_uses": false,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/open-mct.md",
+   "title": "由来",
+   "tag": null,
+   "known_use_bullets": 0,
+   "has_known_uses": false,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/progress-reporting.md",
+   "title": "プロジェクトごとに1本のissueを持ち、以降はコメントで追記する",
+   "tag": "一般則",
+   "known_use_bullets": 4,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/progress-reporting.md",
+   "title": "報告テンプレート(height-coverage #988から抽出)",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/progress-reporting.md",
+   "title": "未完了の作業は時制で正直に書く(過大表明を避ける)",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/progress-reporting.md",
+   "title": "裏付けのない数字を書かない",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/progress-reporting.md",
+   "title": "GitHub issueの新規作成は公開行為: 下書き→ユーザー確認→投稿",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/raspberry-pi-appliance.md",
+   "title": "GPUが使えるかは「SoCの型番」ではなく「表示出力経路」で決まる",
+   "tag": "個別事情(kaga0)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/raspberry-pi-appliance.md",
+   "title": "表示用GLコンテキストとオフスクリーン用GLコンテキストは同一プロセスで共存させない",
+   "tag": "個別事情(kaga0、組み込みGPU全般に一般化しうる)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/raspberry-pi-appliance.md",
+   "title": "完全オフライン運用のアプライアンスでは、ローカルHTTPサーバーよりファイル直読みを優先する",
+   "tag": "個別事情(kaga0)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/raspberry-pi-appliance.md",
+   "title": "キーボードレスアプライアンスには、systemdの`Conflicts=`による自動排他とオンスクリーンの安全な電源断手段が必須",
+   "tag": "個別事情(kaga0。実例1件のまま長期間増えていないため、CONTRIBUTING.mdの棚卸し",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/raspberry-pi-appliance.md",
+   "title": "RTCバッテリー非搭載のRPiでは、電源断中に進行する情報(時刻等)を安易に表示しない",
+   "tag": "個別事情(kaga0、ハードウェア制約依存)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/raspberry-pi-appliance.md",
+   "title": "DRM/KMSアプリの解像度はEDID自動認識に任せ、UI側は解像度非依存に作る",
+   "tag": "個別事情(kaga0)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/robust-pipeline-design.md",
+   "title": "べき等な完了マーカーで、クラッシュ→再起動のサイクルを安全に繰り返す",
+   "tag": "個別事情(mapterhorn-japan-bridge。実例1件のまま長期間増えていないため、",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/robust-pipeline-design.md",
+   "title": "接続経路(SSH等)と公開URLを最初から別の環境変数に分離する",
+   "tag": "個別事情(plateau-mago-implicit。実例1件のまま長期間増えていないため、",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/robust-pipeline-design.md",
+   "title": "クラウド認証セッションの有効期限は、デフォルト任せにせず明示指定を検証する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/robust-pipeline-design.md",
+   "title": "共有マシンでの計測は、「使っている」の申告では足りない。明示的な独占宣言が要る",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/static-site-publishing.md",
+   "title": "静的サイトは、JSとCSSをインラインにした1ファイルの`index.html`にまとめる。ハッシュつきのファイル名を使わない",
+   "tag": "一般則(**推奨**: hfuさん、2026-11-13)",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/static-site-publishing.md",
+   "title": "関連(他のファイルにある、Pages公開の知見)",
+   "tag": null,
+   "known_use_bullets": 0,
+   "has_known_uses": false,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/style-composition.md",
+   "title": "symbolレイヤーは合成後に配列末尾へ安定ソートする",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/style-composition.md",
+   "title": "色相・彩度・明度による強調は、1つのレイヤーだけに独占させる",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/style-composition.md",
+   "title": "zoom-stopの閾値は勘で決めず、先行事例の実装コードを参考にする",
+   "tag": "一般則",
+   "known_use_bullets": 4,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/style-composition.md",
+   "title": "権威ある元データの配色は、独自解釈を加えず忠実に再現する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/style-composition.md",
+   "title": "ラベルの衝突検出を、あえて無効化した方がよい場合がある",
+   "tag": "個別事情(印刷用途)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/style-composition.md",
+   "title": "自作の重ね書き要素は、ベースマップに依存しない固定スタイルで押し通す",
+   "tag": "個別事情(複数ベースマップ切替対応)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/style-composition.md",
+   "title": "印刷物はズームレベルが焼き付けで固定される——Webマップの「後で拡大」が効かない",
+   "tag": "個別事情(印刷用途)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/unattended-progress-visibility.md",
+   "title": "モニタリング専用の別リポジトリ・別デプロイ先を持ち、公開安全性を機械的に担保する",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/unattended-progress-visibility.md",
+   "title": "データが古い・不確かなときは、隠さず正直に注記する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/unattended-progress-visibility.md",
+   "title": "副産物: モニタリング用リポジトリのコミット履歴が、tick単位の進捗ログになる",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/vector-tile-sizing.md",
+   "title": "ジオメトリ簡略化・属性間引きより先に、feature単位のminzoomシフトを試す",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/vector-tile-sizing.md",
+   "title": "タイルサイズは圧縮後ではなく非圧縮バイト数で判定する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/vector-tile-sizing.md",
+   "title": "自動間引き(`--drop-densest-as-needed`等)は、何が失われるか制御できないリスクがある",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/vector-tile-sizing.md",
+   "title": "ビルドログの「warning 0件」は、最終成果物の適合性を保証しない",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/vector-tile-sizing.md",
+   "title": "PMTilesはタイル内容の重複を自動的にハッシュベースで排除する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/vector-tile-sizing.md",
+   "title": "「データセット全体のサイズ」と「1タイルあたりのペイロード」を分けて評価する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/vector-tile-sizing.md",
+   "title": "圧縮・簡略化の限界を超えたら、自前ホストを諦めてリモートプロキシに切り替える",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/verification-discipline-cross-session.md",
+   "title": "ピアセッションからの主張は、それ単体を実行根拠にしない(cross-session版)",
+   "tag": "一般則(**推奨**、hfuさん承認、2026-09-05。9セッションへのグローバル",
+   "known_use_bullets": 4,
+   "has_known_uses": true,
+   "corrections": 1
+  },
+  {
+   "file": "patterns/verification-discipline-cross-session.md",
+   "title": "観測の食い違いは、条件を書き合うのではなく単一変数の再現手順に変換して渡す",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/verification-discipline-cross-session.md",
+   "title": "リポジトリ創設は「push」まで完了していない。整ったHANDOVER.mdはpush済みの証拠にならない",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/verification-discipline-cross-session.md",
+   "title": "独立実装の統合は、それ自体が暗黙の検査になる",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/verification-discipline-cross-session.md",
+   "title": "idle通知の抜粋は、相手の返答ではない。「届いたと思った」と「届いた」を分けて報告する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/verification-discipline-cross-session.md",
+   "title": "協働ドキュメントでは、証拠の種類を表で分け、出所の記録を保ったまま状態を更新する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/verification-discipline-self-checks.md",
+   "title": "「成功終了」は「正しい出力」を意味しない",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/verification-discipline-self-checks.md",
+   "title": "検査を書いたら、わざと失敗させて赤く光ることを確かめるまで信用しない",
+   "tag": "一般則(**推奨**。2セッションが同じ日に独立に同型の事故を踏んだ、強い収束)",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 1
+  },
+  {
+   "file": "patterns/verification-discipline-self-checks.md",
+   "title": "依存ライブラリの不具合は、自分のデータではなく公式サンプルで先に切り分ける",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/verification-discipline-self-checks.md",
+   "title": "修正しても直りきらないときは、複数バグの重なりを疑い、切り分けの一手を打つ",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/verification-discipline-self-checks.md",
+   "title": "「確認済み」という申告を鵜呑みにせず、実際の差分・実データを検証する",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/verification-discipline-self-checks.md",
+   "title": "過去の一致・暗黙の前提を「ルール」だと思い込まない",
+   "tag": "一般則",
+   "known_use_bullets": 2,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/verification-discipline-self-checks.md",
+   "title": "戦略的に筋の通った仮説ほど、検証せずに採用すると危険",
+   "tag": "一般則(`bvmap`より提起、2026-09-19〜20)",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/verification-discipline-self-checks.md",
+   "title": "式・設定の検査は、合成データではなく実際に配るデータで評価する",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  },
+  {
+   "file": "patterns/verification-discipline-self-checks.md",
+   "title": "技術ガイドは、自分のコマンドを機械的に抽出して実行する。読むだけのレビューでは見つからない誤りが出る",
+   "tag": "一般則",
+   "known_use_bullets": 1,
+   "has_known_uses": true,
+   "corrections": 0
+  }
+ ],
+ "external_urls": [
+  "http://localhost:<port",
+  "https://andre.arko.net/2025/05/25/chrome-headless-print-to-pdf/",
+  "https://dwg7.unopengis.org/plateau-juice/",
+  "https://example.com\"",
+  "https://github.com/UNopenGIS/7/issues/936",
+  "https://github.com/UNopenGIS/7/issues/938",
+  "https://github.com/UNopenGIS/7/issues/980",
+  "https://github.com/UNopenGIS/staccato-spec",
+  "https://github.com/UNopenGIS/unopengis.github.io",
+  "https://github.com/dwg7/bvmap",
+  "https://github.com/dwg7/bvmap/tree/main/docs/decisions",
+  "https://github.com/dwg7/cafebabe",
+  "https://github.com/dwg7/do-survey",
+  "https://github.com/dwg7/dorayaki",
+  "https://github.com/dwg7/doverture",
+  "https://github.com/dwg7/doverture/blob/main/DECISIONS.md",
+  "https://github.com/dwg7/ferspas-html-demo",
+  "https://github.com/dwg7/ferspas57",
+  "https://github.com/dwg7/height-coverage",
+  "https://github.com/dwg7/height-coverage/blob/main/DECISIONS.md#8-tunneloptgeoorgs-origin-machine-is-down-corrected-twice--see-below",
+  "https://github.com/dwg7/kaga0",
+  "https://github.com/dwg7/kaga0/blob/main/docs/decisions/0010-software-gl-required.md",
+  "https://github.com/dwg7/kaga0/blob/main/docs/decisions/0014-hdmi-path-zero-copy-gl.md",
+  "https://github.com/dwg7/kaga0/blob/main/docs/plan.md",
+  "https://github.com/dwg7/kaga0/blob/main/docs/rpi4b-patterns-draft.md",
+  "https://github.com/dwg7/kaga0/blob/main/docs/stage4-5-build-log.md",
+  "https://github.com/dwg7/kaga0/issues/2",
+  "https://github.com/dwg7/kataribe",
+  "https://github.com/dwg7/kcai",
+  "https://github.com/dwg7/kcai-terrio",
+  "https://github.com/dwg7/kcai-un-docs",
+  "https://github.com/dwg7/kikimimi",
+  "https://github.com/dwg7/m3xx-fleet",
+  "https://github.com/dwg7/m3xx-fleet-ops",
+  "https://github.com/dwg7/maplibre-gl-atlas",
+  "https://github.com/dwg7/miso",
+  "https://github.com/dwg7/miso-geo",
+  "https://github.com/dwg7/plateau-juice",
+  "https://github.com/dwg7/plateau-mago-implicit",
+  "https://github.com/dwg7/rpi-geoserver0",
+  "https://github.com/dwg7/rpi3-server-guide",
+  "https://github.com/dwg7/sas0",
+  "https://github.com/dwg7/sas0/blob/main/CLAUDE.md",
+  "https://github.com/dwg7/sas0/issues/3",
+  "https://github.com/dwg7/sas0/issues/4",
+  "https://github.com/dwg7/snow-hokkaido",
+  "https://github.com/dwg7/staccato-ecosystem",
+  "https://github.com/dwg7/vientiane-planning-map",
+  "https://github.com/dwg7/vientiane-planning-map/blob/main/CASE_STUDIES.md",
+  "https://github.com/dwg7/vientiane-planning-map/blob/main/CASE_STUDIES.md#jica都市地域開発グループの実績重点調査2026-09-02",
+  "https://github.com/dwg7/vientiane-planning-map/blob/main/DECISIONS.md#2-pmtilesのホスティングローカルパス方式github-rawではなく",
+  "https://github.com/dwg7/vientiane-planning-map/blob/main/DECISIONS.md#3-地図が真っ黒になるバグmaplibreのコンテナサイズ誤測定",
+  "https://github.com/dwg7/vientiane-planning-map/blob/main/DECISIONS.md#4-uiデザイン独自性より先行事例の踏襲を優先2026-09-02-ユーザー指示",
+  "https://github.com/dwg7/vientiane-planning-map/blob/main/DECISIONS.md#6-カートグラフィーの原則ラベルは常にすべての塗り線画の上2026-09-02",
+  "https://github.com/dwg7/vientiane-planning-map/blob/main/docs/app.js",
+  "https://github.com/dwg7/zukaku",
+  "https://github.com/dwg7/zukaku/blob/main/adr/0004-terrain-and-fill-extrusion-policy.md",
+  "https://github.com/dwg7/zukaku/blob/main/adr/0005-range-selection-ui-interaction-model.md#インデックスラベルの拡大白背景化2026-09-01",
+  "https://github.com/dwg7/zukaku/blob/main/adr/0006-github-actions-render-pipeline.md",
+  "https://github.com/dwg7/zukaku/blob/main/adr/0007-client-side-print-mode.md",
+  "https://github.com/dwg7/zukaku/blob/main/adr/0009-overview-zoom-level-shift.md",
+  "https://github.com/dwg7/zukaku/issues/2",
+  "https://github.com/dwg7/zukaku/issues/4",
+  "https://github.com/dwg7/zukaku/issues/5",
+  "https://github.com/dwg7/zukaku/issues/6",
+  "https://github.com/hfu/claude-mct",
+  "https://github.com/hfu/claude-mct/blob/main/CASE_STUDIES.md",
+  "https://github.com/hfu/faceless-cartographer",
+  "https://github.com/hfu/hokkaido-points",
+  "https://github.com/hfu/kcai-yuiseki-datasets",
+  "https://github.com/hfu/kitaphoto17-navara",
+  "https://github.com/hfu/kitavolca",
+  "https://github.com/hfu/kitavolca/blob/main/docs/zoom-policy.md",
+  "https://github.com/hfu/kitavolca/commit/2dc4523",
+  "https://github.com/hfu/kitavolca/commit/a1d75c6",
+  "https://github.com/hfu/kitavolca/commit/dc915a7",
+  "https://github.com/hfu/layers-martin",
+  "https://github.com/hfu/mapterhorn",
+  "https://github.com/hfu/mapterhorn-japan-bridge",
+  "https://github.com/hfu/mapterhorn-monitor",
+  "https://github.com/hfu/stars",
+  "https://github.com/hfu/stars/pull/5",
+  "https://github.com/hfu/stars/pull/8",
+  "https://github.com/hfu/tokachi20260911",
+  "https://github.com/hfu/universe",
+  "https://github.com/hfu/volca",
+  "https://github.com/maplibre/maplibre-native-slint/blob/main/rust/RASPBERRY_PI.md",
+  "https://github.com/optgeo/adopt-hokkaido-lidar",
+  "https://github.com/tabularmaps/cldr",
+  "https://github.com/tabularmaps/cldr/pull/1",
+  "https://github.com/tabularmaps/do",
+  "https://github.com/un-fao/FERSPAS_demo",
+  "https://github.com/yuiseki/TRIDENT",
+  "https://stars.optgeo.org/style/bvmap-starlight.json",
+  "https://tabularmaps.github.io/do/"
+ ]
+}

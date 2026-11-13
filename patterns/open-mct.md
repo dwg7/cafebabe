@@ -55,7 +55,11 @@
 m3xx-fleet、starsの監視画面、kikimimi、tabularmaps/do、do-survey。snow-hokkaidoも実装中)は、いずれも
 **ツリー・ビュー切り替え・Inspectorという殻**を使っている。Telemetry API(`request`/`subscribe`)を
 使うのはclaude-mctだけで、Plot・PlanLayout・Display Layoutは実績が無いか避けられている
-(`patterns/open-mct-telemetry.md`)。配信は`openmct.js`が約5.2MB(gzip転送で約1.27MB)・CSSが約321KB
+(`patterns/open-mct-telemetry.md`)。**訂正(2026-11-13)**: Plotについては言い過ぎだった。claude-mctは
+本体アプリ(4.2.0)でPlotを描画できており、型ごとにTable・Plotを使い分けている
+(`patterns/open-mct-telemetry.md`・`patterns/open-mct-object-model.md`)。正しくは「Plotを使えているのは
+claude-mctだけで、sas0は描画できず自前SVGに切り替え、原因は未解決」。基準線の実行(D20)で、
+別のエージェントがこの食い違いを指摘した。配信は`openmct.js`が約5.2MB(gzip転送で約1.27MB)・CSSが約321KB
 (unpkgの4.3.1を実測)で、殻のために全体を載せている。
 
 **費用は初期に集中し、後発では下がった。** sas0は最初の約1週間(2026-08-25〜09-01)に、存在しない版の

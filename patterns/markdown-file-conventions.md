@@ -193,6 +193,12 @@ target design(目標設計)を記述する複数のドキュメントと、実�
   `.nojekyll`が無い状態でMarkdownを`docs/`配下(GitHub Pages配信対象)に置くと、フロント
   マターが無い限りJekyllが変換せず生テキストのまま配信される、と実際に踏んで確認した
   (DECISIONS.md D65)
+- **追記(2026-11-13、cafebabeが公開サイトで確認)**: `.nojekyll`の無い`main:/docs`公開の2サイトで、
+  フロントマターの無いMarkdownが、**生の`.md`(`text/markdown`)としても、Jekyllが変換した`.html`としても**
+  配信されていた(`dwg7.unopengis.org/miso-geo/examples/yukuepira-chashi.md`と同`.html`、
+  `…/snow-hokkaido/stage1-checks.md`と同`.html`。いずれも200)。sas0の観察(生テキストで配信される)は
+  今も成り立つが、「Jekyllが変換しない」の部分は、少なくとも現在は当てはまらない。sas0の当時との差の
+  理由は未確認
 
 ---
 
